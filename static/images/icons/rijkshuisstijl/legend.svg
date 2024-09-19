@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"
+  aria-hidden="true">
+  <g id="_x36_4px_Box">
+    <rect fill="none" width="64" height="64"></rect>
+  </g>
+  <g id="Icon">
+    <g>
+      <rect x="7" y="14" width="6" height="5"></rect>
+      <rect x="17" y="14" width="35" height="5"></rect>
+      <rect x="17" y="24" width="26" height="5"></rect>
+      <rect x="7" y="24" width="6" height="5"></rect>
+      <rect x="7" y="34" width="6" height="5"></rect>
+      <rect x="17" y="34" width="40" height="5"></rect>
+      <rect x="7" y="44" width="6" height="5"></rect>
+      <rect x="17" y="44" width="31" height="5"></rect>
+    </g>
+  </g>
+</svg>

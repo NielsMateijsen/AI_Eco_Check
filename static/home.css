@@ -1,0 +1,201 @@
+@font-face {
+  font-family: 'ROsanswebtext';
+  src: url('fonts/ROsanswebtextbold.eot'); /* IE9 Compat Modes */
+  src: url('fonts/ROsanswebtextbold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/ROsanswebtextbold.woff') format('woff'), /* Modern Browsers */
+       url('fonts/ROsanswebtextbold.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ROsanswebtext';
+  src: url('fonts/ROsanswebtextitalic.eot'); /* IE9 Compat Modes */
+  src: url('fonts/ROsanswebtextitalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/ROsanswebtextitalic.woff') format('woff'), /* Modern Browsers */
+       url('fonts/ROsanswebtextitalic.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ROsanswebtext';
+  src: url('fonts/ROsanswebtextregular.eot'); /* IE9 Compat Modes */
+  src: url('fonts/ROsanswebtextregular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/ROsanswebtextregular.woff') format('woff'), /* Modern Browsers */
+       url('fonts/ROsanswebtextregular.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ROserifweb';
+  src: url('fonts/ROserifwebbold.eot'); /* IE9 Compat Modes */
+  src: url('fonts/ROserifwebbold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/ROserifwebbold.woff') format('woff'), /* Modern Browsers */
+       url('fonts/ROserifwebbold.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ROserifweb';
+  src: url('fonts/ROserifwebitalic.eot'); /* IE9 Compat Modes */
+  src: url('fonts/ROserifwebitalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/ROserifwebitalic.woff') format('woff'), /* Modern Browsers */
+       url('fonts/ROserifwebitalic.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'ROserifweb';
+  src: url('fonts/ROserifwebregular.eot'); /* IE9 Compat Modes */
+  src: url('fonts/ROserifwebregular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/ROserifwebregular.woff') format('woff'), /* Modern Browsers */
+       url('fonts/ROserifwebregular.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --hemelblauw: #007bc7;
+  --hemelblauw-1: #409CD5;
+  --hemelblauw-2: #66AFDD;
+  --hemelblauw-3: #8CC3E6;
+  --hemelblauw-4: #B2D7EE;
+  --hemelblauw-5: #D9EBF7;
+
+  --logoblauw: #154273;
+  --logoblauw-1: #4f7196;
+  --logoblauw-2: #738eab;
+  --logoblauw-3: #95a9c0;
+  --logoblauw-4: #b8c6d5;
+  --logoblauw-5: #dce3ea;
+
+  --donkerblauw: #01689b;
+  --donkerblauw-1: #408EB4;
+  --donkerblauw-2: #66A4C3;
+  --donkerblauw-3: #8CBBD2;
+  --donkerblauw-4: #B2D1E1;
+  --donkerblauw-5: #D9E8F0;
+}
+
+/* Reset some basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'ROsanswebtext', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+header {
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#company-logo {
+  width: 100px;
+  height: auto;
+}
+
+/* Progress Bar Styles */
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10%;
+  background-color: var(--donkerblauw);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background-color: #e0e0e0;
+  z-index: -1;
+}
+
+.step-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+}
+
+.step-text {
+  font-size: 12px;
+  text-align: center;
+  color: white;
+}
+
+/* Active Step Styles */
+.step.active .step-icon {
+  border: 2px solid #007BFF;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.step.active .step-text {
+  color: #007BFF;
+  font-weight: bold;
+}
+
+/* Content Section Styles */
+#content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 10%;
+  background-color: #ffffff;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+/* Button styles */
+.ro-button {
+  display: flex;
+  height: 40px; /* Equivalent to h-10 (10 * 4px = 40px) */
+  width: fit-content; /* Makes the button's width fit the content */
+  align-items: center; /* Vertically centers content */
+  justify-content: center; /* Horizontally centers content */
+  background-color: var(--logoblauw); /* 'bg-logoblauw' - using a blue color */
+  padding: 16px; /* Equivalent to p-4 */
+  color: white; /* White text color */
+  text-decoration: none; /* Remove underline from the anchor */
+  transition: background-color 0.2s ease, text-decoration 0.2s ease; /* Smooth transition for hover effects */
+  margin-bottom: 12px;
+  font-size: 20px;
+}
+
+/* Hover effect */
+.ro-button:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Optional: make the button focusable for accessibility */
+.ro-button:focus {
+  outline: 2px solid #000; /* Optional focus outline */
+}

@@ -1,0 +1,19 @@
+.title {
+  font-size: 38px;
+  margin-bottom: 16px;
+}
+
+.desc-text {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* The space between buttons, equivalent to gap-2 */
+  /* margin-left: auto;
+  margin-right: auto; */
+  place-items: center;
+}
