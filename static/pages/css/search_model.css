@@ -1,0 +1,93 @@
+#search-bar {
+  width: 80%; /* Increased size */
+  padding: 12px; /* Padding for a bigger input */
+  font-size: 16px; /* Bigger text */
+  border: none; /* Removing the border */
+  outline: none; /* Removing focus outline */
+  border-radius: 20px; /* Rounded edges */
+  background-color: #ededed; /* Light background */
+  margin-top: 40px;
+  box-sizing: border-box;
+}
+
+/* Placeholder color */
+#search-bar::placeholder {
+  color: #888;
+}
+
+.dropdown {
+  border: 1px solid #ccc;
+  max-height: 300px; /* Increased height for more items */
+  overflow-y: auto;
+  position: relative;
+  background-color: white;
+  width: 80%; /* Matches the search bar width */
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+  z-index: 100; /* Ensures the dropdown is above other elements */
+  margin: 0 auto;
+}
+
+.dropdown-item {
+  padding: 15px;
+  border-bottom: 1px solid #eaeaea;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+}
+
+/* Styling for the model name */
+.model-name {
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+/* Styling for the group (maker) */
+.model-group {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Styling for the task and subtask */
+.model-task {
+  display: flex;
+  gap: 10px;
+}
+
+.model-task-item {
+  font-size: 12px;
+  background-color: #e0e0e0;
+  padding: 4px 8px;
+  border-radius: 10px;
+  color: #333;
+}
+
+/* Model details section */
+.model-details {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 20px auto 0px auto;
+}
+
+.confirm-button {
+  position: absolute;
+  right: 30%;
+  bottom: 20%;
+  padding: 6px;
+}

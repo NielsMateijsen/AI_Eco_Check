@@ -27,5 +27,5 @@ class HuggingFaceAPI:
     def get_models(self) -> Iterable[ModelInfo]:
         return self.api.list_models(cardData=True, full=False, tags="co2_eq_emissions")
 
-    def get_models_by_category(self, category: str) -> Iterable[ModelInfo]:
-        models = self.get_models()
+    # def get_models_by_category(self, category: str) -> Iterable[ModelInfo]:
+    #     models = self.get_models()
