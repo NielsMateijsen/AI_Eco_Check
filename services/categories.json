@@ -1,0 +1,326 @@
+[
+  {
+     "id":"cv",
+     "name":"Computer Vision",
+     "tasks":[
+        {
+           "id":"depth-estimation",
+           "label":"Depth Estimation",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"image-classification",
+           "label":"Image Classification",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"object-detection",
+           "label":"Object Detection",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"image-segmentation",
+           "label":"Image Segmentation",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"text-to-image",
+           "label":"Text-to-Image",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"image-to-text",
+           "label":"Image-to-Text",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"image-to-image",
+           "label":"Image-to-Image",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"image-to-video",
+           "label":"Image-to-Video",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"unconditional-image-generation",
+           "label":"Unconditional Image Generation",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"video-classification",
+           "label":"Video Classification",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"text-to-video",
+           "label":"Text-to-Video",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"zero-shot-image-classification",
+           "label":"Zero-Shot Image Classification",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"mask-generation",
+           "label":"Mask Generation",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"zero-shot-object-detection",
+           "label":"Zero-Shot Object Detection",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"text-to-3d",
+           "label":"Text-to-3D",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"image-to-3d",
+           "label":"Image-to-3D",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"image-feature-extraction",
+           "label":"Image Feature Extraction",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        },
+        {
+           "id":"keypoint-detection",
+           "label":"Keypoint Detection",
+           "type":"pipeline_tag",
+           "subType":"cv"
+        }
+     ]
+  },
+  {
+     "id":"nlp",
+     "name":"Natural Language Processing",
+     "tasks":[
+        {
+           "id":"text-classification",
+           "label":"Text Classification",
+           "type":"pipeline_tag",
+           "subType":"nlp"
+        },
+        {
+           "id":"token-classification",
+           "label":"Token Classification",
+           "type":"pipeline_tag",
+           "subType":"nlp"
+        },
+        {
+           "id":"table-question-answering",
+           "label":"Table Question Answering",
+           "type":"pipeline_tag",
+           "subType":"nlp"
+        },
+        {
+           "id":"question-answering",
+           "label":"Question Answering",
+           "type":"pipeline_tag",
+           "subType":"nlp"
+        },
+        {
+           "id":"zero-shot-classification",
+           "label":"Zero-Shot Classification",
+           "type":"pipeline_tag",
+           "subType":"nlp"
+        },
+        {
+           "id":"translation",
+           "label":"Translation",
+           "type":"pipeline_tag",
+           "subType":"nlp"
+        },
+        {
+           "id":"summarization",
+           "label":"Summarization",
+           "type":"pipeline_tag",
+           "subType":"nlp"
+        },
+        {
+           "id":"feature-extraction",
+           "label":"Feature Extraction",
+           "type":"pipeline_tag",
+           "subType":"nlp"
+        },
+        {
+           "id":"text-generation",
+           "label":"Text Generation",
+           "type":"pipeline_tag",
+           "subType":"nlp"
+        },
+        {
+           "id":"text2text-generation",
+           "label":"Text2Text Generation",
+           "type":"pipeline_tag",
+           "subType":"nlp"
+        },
+        {
+           "id":"fill-mask",
+           "label":"Fill-Mask",
+           "type":"pipeline_tag",
+           "subType":"nlp"
+        },
+        {
+           "id":"sentence-similarity",
+           "label":"Sentence Similarity",
+           "type":"pipeline_tag",
+           "subType":"nlp"
+        }
+     ]
+  },
+  {
+     "id":"audio",
+     "name":"Audio",
+     "tasks":[
+        {
+           "id":"text-to-speech",
+           "label":"Text-to-Speech",
+           "type":"pipeline_tag",
+           "subType":"audio"
+        },
+        {
+           "id":"text-to-audio",
+           "label":"Text-to-Audio",
+           "type":"pipeline_tag",
+           "subType":"audio"
+        },
+        {
+           "id":"automatic-speech-recognition",
+           "label":"Automatic Speech Recognition",
+           "type":"pipeline_tag",
+           "subType":"audio"
+        },
+        {
+           "id":"audio-to-audio",
+           "label":"Audio-to-Audio",
+           "type":"pipeline_tag",
+           "subType":"audio"
+        },
+        {
+           "id":"audio-classification",
+           "label":"Audio Classification",
+           "type":"pipeline_tag",
+           "subType":"audio"
+        },
+        {
+           "id":"voice-activity-detection",
+           "label":"Voice Activity Detection",
+           "type":"pipeline_tag",
+           "subType":"audio"
+        }
+     ]
+  },
+  {
+     "id":"tabular",
+     "name":"Tabular",
+     "tasks":[
+        {
+           "id":"tabular-classification",
+           "label":"Tabular Classification",
+           "type":"pipeline_tag",
+           "subType":"tabular"
+        },
+        {
+           "id":"tabular-regression",
+           "label":"Tabular Regression",
+           "type":"pipeline_tag",
+           "subType":"tabular"
+        },
+        {
+           "id":"time-series-forecasting",
+           "label":"Time Series Forecasting",
+           "type":"pipeline_tag",
+           "subType":"tabular"
+        }
+     ]
+  },
+  {
+     "id":"rl",
+     "name":"Reinforcement Learning",
+     "tasks":[
+        {
+           "id":"reinforcement-learning",
+           "label":"Reinforcement Learning",
+           "type":"pipeline_tag",
+           "subType":"rl"
+        },
+        {
+           "id":"robotics",
+           "label":"Robotics",
+           "type":"pipeline_tag",
+           "subType":"rl"
+        }
+     ]
+  },
+  {
+     "id":"multimodal",
+     "name":"Multimodal",
+     "tasks":[
+        {
+           "id":"image-text-to-text",
+           "label":"Image-Text-to-Text",
+           "type":"pipeline_tag",
+           "subType":"multimodal"
+        },
+        {
+           "id":"visual-question-answering",
+           "label":"Visual Question Answering",
+           "type":"pipeline_tag",
+           "subType":"multimodal"
+        },
+        {
+           "id":"document-question-answering",
+           "label":"Document Question Answering",
+           "type":"pipeline_tag",
+           "subType":"multimodal"
+        },
+        {
+           "id":"video-text-to-text",
+           "label":"Video-Text-to-Text",
+           "type":"pipeline_tag",
+           "subType":"multimodal"
+        },
+        {
+           "id":"any-to-any",
+           "label":"Any-to-Any",
+           "type":"pipeline_tag",
+           "subType":"multimodal"
+        }
+     ]
+  },
+  {
+     "id":"other",
+     "name":"Other",
+     "tasks":[
+        {
+           "id":"graph-ml",
+           "label":"Graph Machine Learning",
+           "type":"pipeline_tag",
+           "subType":"other"
+        }
+     ]
+  }
+]
