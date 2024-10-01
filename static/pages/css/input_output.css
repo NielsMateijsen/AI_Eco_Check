@@ -1,0 +1,45 @@
+/* Layout of the page */
+.input-output {
+  display: flex;
+  gap: 150px;
+  justify-content: center;
+  margin: 20px;
+}
+
+/* Column styles */
+.column {
+  width: 40%;
+}
+
+/* Headings for columns */
+h2 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+/* Item styles for inputs/outputs */
+.item {
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px 0;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.item:hover {
+  background-color: #f0f0f0;
+}
+
+.item i {
+  font-size: 25px;
+}
+
+/* Active selection styles */
+.selected {
+  background-color: lightgray !important;
+  border-color: gray;
+}

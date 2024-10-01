@@ -2,34 +2,36 @@ document.getElementById('back-button').addEventListener('click', function () {
   loadPage('start');
 });
 
+prev_page = 'start';
+
 // Placeholder data source
-var data = [
+var categories = [
   {
-    title: "Category Title 1",
+    title: "Computer Vision",
     description: "This is the description for Category 1. Add your placeholder data here.",
   },
   {
-    title: "Category Title 2",
+    title: "Natural Language Processing",
     description: "This is the description for Category 2. Add your placeholder data here.",
   },
   {
-    title: "Category Title 3",
+    title: "Audio",
     description: "This is the description for Category 3. Add your placeholder data here.",
   },
   {
-    title: "Category Title 4",
+    title: "Tabelvormig",
     description: "This is the description for Category 4. Add your placeholder data here.",
   },
   {
-    title: "Category Title 5",
+    title: "Reinforcement Learning",
     description: "This is the description for Category 5. Add your placeholder data here.",
   },
   {
-    title: "Category Title 6",
+    title: "Multimodal",
     description: "This is the description for Category 6. Add your placeholder data here.",
   },
   {
-    title: "Other",
+    title: "Overig",
     description: "This is the 'Other' category. It spans the entire width of the grid and contains miscellaneous content.",
   },
 ];
@@ -40,11 +42,11 @@ function loadCategories() {
   const container = document.getElementById('category-container');
 
   // Create category bars for the first 6 categories
-  data.slice(0, 6).forEach(category => {
+  categories.slice(0, 6).forEach(category => {
     // Create the category bar
     const bar = document.createElement('div');
     bar.className = 'category-bar';
-    bar.onclick = () => alert(bar);
+    bar.onclick = () => loadPage('input_output');
 
     // Create the category title span
     const title = document.createElement('span');
@@ -86,7 +88,7 @@ function loadCategories() {
   });
 
   // Create the "Other" category that spans the entire width
-  const otherCategory = data[6];
+  const otherCategory = categories[6];
 
   // Create the "Other" category bar
   const otherBar = document.createElement('div');

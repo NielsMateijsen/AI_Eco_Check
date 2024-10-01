@@ -15,7 +15,7 @@ def get_model(model_id):
 
 @app.route('/search_models/<string:model_name>')
 def search_models(model_name):
-    url = f"https://huggingface.co/api/models?search={model_name}&filter=co2_eq_emissions"
+    url = f"https://huggingface.co/api/models?search={model_name}&sort=downloads"
     response = requests.get(url)
     
     # response is json_list, for each element, only preserve the id field
@@ -27,6 +27,7 @@ def search_models(model_name):
             "group": model["id"].split("/")[0],
             "sub_task": get_sub_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
             "task": get_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
+            "emissions_available": "co2_eq_emissions" in model["tags"],
         }
         model_ids.append(el)
 

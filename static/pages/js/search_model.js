@@ -1,5 +1,7 @@
+prev_page = 'start';
+
 document.getElementById('back-button').addEventListener('click', function () {
-  loadPage('start');
+  loadPage(prev_page);
 });
 
 var selectedModel = null;
@@ -8,7 +10,7 @@ async function searchModels() {
   const input = document.getElementById('search-bar').value;
   const dropdown = document.getElementById('dropdown');
 
-  if (input.length < 2) {
+  if (input.length < 3) {
       dropdown.style.display = 'none';
       return;
   }
@@ -32,9 +34,7 @@ async function searchModels() {
           const group = document.createElement('div');
           group.classList.add('model-group');
           group.textContent = `Gemaakt door: ${model["group"]}`;
-
-          
-              
+       
           const taskWrapper = document.createElement('div');
           taskWrapper.classList.add('model-task');
 
@@ -50,6 +50,21 @@ async function searchModels() {
             // Append task and subtask to taskWrapper
             taskWrapper.appendChild(task);
             taskWrapper.appendChild(subTask);
+          }
+
+          if (model["emissions_available"]) {
+            console.log('emissions available');
+            const emissions = document.createElement('div');
+            emissions.classList.add('model-task-item');
+            emissions.textContent = `Emissies beschikbaar`;
+            
+            const leaf = document.createElement('i');
+            leaf.classList.add('fa', 'fa-leaf');
+            leaf.style.color = 'green';
+            emissions.appendChild(leaf);
+
+            // Append emissions to taskWrapper
+            taskWrapper.appendChild(emissions);
           }
 
           // Append all elements to dropdown item
@@ -81,6 +96,7 @@ function selectModel(model) {
     <p><strong>Gemaakt door:</strong> ${model.group}</p>
     <p><strong>Categorie:</strong> ${model.task}</p>
     <p><strong>Taak:</strong> ${model.sub_task}</p>
+    <p><strong>Emissies:</strong> ${model.emissions_available ? "Beschikbaar" : "Niet beschikbaar"}</p>
   `;
   modelDetails.style.display = 'block';
 
@@ -93,8 +109,5 @@ function selectModel(model) {
 }
 
 function confirmModel() {
-  if (selectedModel) {
-    alert(`Model "${selectedModel.name}" confirmed!`);
-    // You can add further actions for the confirmation here.
-  }
+  loadPage('model_details');
 }
