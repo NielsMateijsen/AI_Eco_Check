@@ -126,6 +126,7 @@ header {
   padding: 10px 10%;
   background-color: var(--donkerblauw);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color:  var(--logoblauw-3);
 }
 
 .step {
@@ -136,31 +137,25 @@ header {
   position: relative;
 }
 
-.step-icon {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 1px;
+i.step-icon {
+  font-size: 40px;
+  text-align: center;
+  margin-bottom: 5px;
 }
 
 .step-text {
   font-size: 14px;
   font-weight: bold;
   text-align: center;
+}
+
+.step.active {
   color: white;
-}
-
-/* Active Step Styles */
-.step.active .step-icon {
-
-}
-
-.step.active .step-text {
-
 }
 
 /* Content Section Styles */
 #content {
-  padding: 40px 10%;
+  padding: 40px 5%;
   background-color: #ffffff;
   text-align: center;
   margin-left: auto;
@@ -199,4 +194,32 @@ header {
 .back-button {
   position: absolute;
   left: 20%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Loading spinner styles */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top:100px;
+}
+
+
+.spinner {
+  border: 8px solid var(--logoblauw-4); 
+  border-top: 8px solid var(--hemelblauw);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

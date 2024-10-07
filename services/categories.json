@@ -235,7 +235,7 @@
   },
   {
      "id":"tabular",
-     "name":"Tabular",
+     "name":"Tabelvormig",
      "tasks":[
         {
            "id":"tabular-classification",

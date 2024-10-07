@@ -1,4 +1,5 @@
 var prev_page = 'start';
+updateProgressBar('start');	
 
 function addEventListeners() {
   document.getElementById('specific-model').addEventListener('click', function () {

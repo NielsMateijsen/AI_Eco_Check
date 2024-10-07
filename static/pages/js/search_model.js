@@ -1,4 +1,5 @@
 prev_page = 'start';
+updateProgressBar('search');
 
 document.getElementById('back-button').addEventListener('click', function () {
   loadPage(prev_page);
@@ -53,7 +54,6 @@ async function searchModels() {
           }
 
           if (model["emissions_available"]) {
-            console.log('emissions available');
             const emissions = document.createElement('div');
             emissions.classList.add('model-task-item');
             emissions.textContent = `Emissies beschikbaar`;
@@ -88,7 +88,6 @@ function selectModel(model) {
   selectedModel = model;
   document.getElementById('search-bar').value = model.name;
 
-  
   // Display the model details
   const modelDetails = document.getElementById('model-details');
   modelDetails.innerHTML = `
@@ -109,5 +108,17 @@ function selectModel(model) {
 }
 
 function confirmModel() {
+  if (!selectedModel) {
+    alert('Selecteer een model');
+    return;
+  }
+
+  model = {
+    id: selectedModel.id,
+    name: selectedModel.name,
+  }
+
+  sessionStorage.setItem('model',  JSON.stringify(model));
+  prev_page = 'search_model';
   loadPage('model_details');
 }

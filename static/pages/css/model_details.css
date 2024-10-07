@@ -2,7 +2,9 @@
   display: flex;
   margin-top: 25px; 
   gap: 20px; /* Space between columns */
+  text-align: left;
 }
+
 
 .column {
   display: flex;
@@ -16,6 +18,47 @@
 
 .column-right {
   width: 25%;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Space between tags */
+  margin-top:10px;
+  font-size: 16px;
+}
+
+.model-description {
+  margin-top: 20px;
+}
+
+
+/* General styles for the container */
+#chosen-model-section {
+    padding: 20px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between tags */
+}
+
+/* Styling individual tags */
+.tag {
+  font-size: 14px;          /* Small text */
+  background-color: white;  /* White background */
+  border-radius: 20px;      /* Rounded corners */
+  padding: 5px 10px;        /* Padding inside the tags */
+  border: 1px solid #ddd;   /* Light border for better visibility */
+  display: inline-block;
+  margin: 2px 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  color: #333;              /* Text color */
+}
+
+.arxiv {
+  cursor: pointer;
 }
 
 /* Rows within each column */
@@ -33,7 +76,9 @@
 }
 
 .similar-models {
-  flex: 1;
+  max-height: 280px;
+  position: relative;
+  margin-bottom: 5px;
 }
 
 .similar-models table {
@@ -41,15 +86,48 @@
   border-collapse: collapse;
 }
 
+.similar-models thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.similar-models tbody {
+  display: block;
+  max-height: 180px;
+  overflow-y: scroll; /* Allow scrolling */
+}
+
+/* Hide scrollbar for Chrome, Safari, Edge */
+.similar-models tbody::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* Hide scrollbar for Firefox */
+.similar-models tbody {
+  scrollbar-width: none; /* Firefox hides scrollbar */
+}
+
 .similar-models th, .similar-models td {
   padding: 10px;
   text-align: left;
   border: 1px solid #ddd;
   background-color: white;
+  word-wrap: break-word;
 }
 
 .similar-models th {
   background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.similar-models tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .similar-models tbody tr:nth-child(even) {
@@ -61,14 +139,21 @@
   height: 65%;
 }
 
+.not-available {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+  font-size: 20px;
+}
+
+.not-available .cross {
+  font-size: 25px;
+}
+
 .betrouwbaarheid-informatie {
   height: 35%;
 }
 
 /* General styles for descriptions */
-.description {
-  background-color: white;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-}

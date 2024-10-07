@@ -2,6 +2,8 @@ window.onload = function () {
   loadPage('start');
 }
 
+var currentStep = 'start';
+
 // Push an initial state to the history
 history.pushState(null, null, location.href);
 
@@ -25,7 +27,6 @@ function loadPage(page) {
     })
     .then(html => {
       document.getElementById('content').innerHTML = html;
-      updateProgressBar(page);
 
       // Load the CSS file for the current page
       document.getElementById('page-stylesheet').setAttribute('href', `static/pages/css/${page}.css`);
@@ -53,6 +54,12 @@ function loadPage(page) {
 }
 
 function updateProgressBar(step) {
-  
+  const currentStepDiv = document.getElementById(currentStep);
+  currentStepDiv.classList.remove('active');
+
+  const nextStepDiv = document.getElementById(step);
+  nextStepDiv.classList.add('active');
+
+  currentStep = step;
 }
 

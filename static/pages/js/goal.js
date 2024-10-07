@@ -1,8 +1,10 @@
+prev_page = 'start';
+updateProgressBar('search');
+
 document.getElementById('back-button').addEventListener('click', function () {
-  loadPage('start');
+  loadPage(prev_page);
 });
 
-prev_page = 'start';
 
 // Placeholder data source
 var categories = [
@@ -46,7 +48,10 @@ function loadCategories() {
     // Create the category bar
     const bar = document.createElement('div');
     bar.className = 'category-bar';
-    bar.onclick = () => loadPage('input_output');
+    bar.onclick = () => {
+      sessionStorage.setItem('category', category.title);
+      loadPage('category_models')
+    };
 
     // Create the category title span
     const title = document.createElement('span');
@@ -93,7 +98,7 @@ function loadCategories() {
   // Create the "Other" category bar
   const otherBar = document.createElement('div');
   otherBar.className = 'category-bar category-other';
-  otherBar.onclick = () => alert(otherBar);
+  otherBar.onclick = () => loadPage('input_output');
 
   // Create the title and icon for "Other"
   const otherTitle = document.createElement('span');

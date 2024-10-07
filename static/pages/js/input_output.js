@@ -1,3 +1,4 @@
+updateProgressBar('search');
 document.getElementById('back-button').addEventListener('click', function () {
   loadPage('goal');
 });

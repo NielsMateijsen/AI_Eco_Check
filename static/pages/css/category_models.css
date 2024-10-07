@@ -1,0 +1,93 @@
+#content {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-container {
+  margin-top: 20px;
+  max-height: 62vh; /* Set a max height for the table container */
+  overflow-y: hidden; /* Allow vertical scrolling inside the container */
+  position: relative; /* Ensure the table headers are positioned correctly */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+  table-layout: fixed; /* Ensures consistent column widths */
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.fa-plus {
+  font-size: 25px;
+}
+
+.name {
+  width: 30%;
+}
+
+th {
+  background-color: #f2f2f2;
+  position: sticky; /* Fix the header row */
+  top: 0; /* Ensures the header stays at the top */
+  z-index: 1; /* Ensures the header stays above the scrollable content */
+}
+
+td {
+  background-color: white;
+}
+
+
+tbody {
+  display: block; /* Allows the tbody to be scrollable */
+  max-height: 62vh; /* Adjust this based on your preferred table height */
+  overflow-y: scroll; /* Vertical scroll for table rows */
+  scrollbar-width: thin; /* Thin scrollbar */
+}
+
+tbody tr {
+  display: table; /* Re-enable table row behavior */
+  width: 100%; /* Ensure rows span full width */
+  table-layout: fixed; /* Ensure columns retain their width */
+  cursor: pointer;
+}
+
+tr.selected td{
+  background-color: var(--hemelblauw);
+  color: white;
+}
+
+thead, tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed; /* Ensure consistent column widths between header and body */
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: right;
+  margin-top: 20px;
+}
+
+.not-selected {
+  background-color: grey;
+  cursor: not-allowed;
+  pointer-events: all ;
+}
+
+.not-selected:hover {
+  text-decoration: none;
+  cursor: not-allowed;
+  pointer-events: all ;
+}
+

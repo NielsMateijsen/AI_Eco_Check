@@ -3,67 +3,55 @@
   Naar vorige pagina
 </a>
 
-<div class="details">
-<!-- First Column -->
-  <div class="column column-left">
-    <!-- Chosen Model Section -->
-    <div class="row chosen-model">
-        <h2>Chosen Model: [Model Name]</h2>
-        <p class="description">This is a brief description about the chosen model. This model is known for its excellent performance in various tasks and is widely used in the industry.</p>
-    </div>
-
-    <!-- Similar Models Section -->
-    <div class="row similar-models">
-        <h2>Similar Models (Alternatives)</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Model</th>
-                    <th>Training Costs</th>
-                    <th>Inference Costs</th>
-                    <th>Stats</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Model A</td>
-                    <td>$1000</td>
-                    <td>$10</td>
-                    <td>High</td>
-                </tr>
-                <tr>
-                    <td>Model B</td>
-                    <td>$800</td>
-                    <td>$8</td>
-                    <td>Medium</td>
-                </tr>
-                <tr>
-                    <td>Model C</td>
-                    <td>$1200</td>
-                    <td>$15</td>
-                    <td>Very High</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-  </div>
-
-  <!-- Second Column -->
-  <div class="column column-right">
-    <!-- Mileukosten Section -->
-    <div class="row mileukosten">
-        <h2>Mileukosten</h2>
-        <p>
-          Training Costs: $1000<br>
-          Inference Costs: $10<br>
-          Equivalent: 50 liters of gas CO2 eq.
-        </p>
-    </div>
-
-    <!-- Betrouwbaardheid Informatie Section -->
-    <div class="row betrouwbaarheid-informatie">
-        <h2>Betrouwbaardheid Informatie</h2>
-        <p class="description">The reliability of the information provided is based on verified data sources and peer-reviewed publications.</p>
-    </div>
-  </div>
+<div class="loading" id="loading">
+  <div class="spinner"></div>
+  <p>Ophalen...</p>
 </div>
+
+<div class="details hidden" id="model-details">
+    <!-- First Column -->
+    <div class="column column-left">
+      <!-- Chosen Model Section -->
+      <div class="row chosen-model" id="chosen-model-section">
+          <h2 id="model-title">[Model Name]</h2>
+          <div class="tags">
+          </div>
+          <div class="model-description" id="model-description">
+          </div>
+      </div>
+  
+      <!-- Similar Models Section -->
+      <div class="row similar-models" id="similar-models-section">
+          <h2>Similar Models (Alternatives)</h2>
+          <table id="similar-models-table">
+              <thead>
+                  <tr>
+                      <th>Model</th>
+                      <th>Training Costs</th>
+                      <th>Inference Costs</th>
+                      <th>Stats</th>
+                  </tr>
+              </thead>
+              <tbody id="similar-models-body">
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+    </div>
+  
+    <!-- Second Column -->
+    <div class="column column-right">
+      <!-- Mileukosten Section -->
+      <div class="row mileukosten" id="mileukosten-section">
+          <h2>Mileukosten</h2>
+      </div>
+  
+      <!-- Betrouwbaardheid Informatie Section -->
+      <div class="row betrouwbaarheid-informatie" id="betrouwbaarheid-informatie-section">
+          <h2>Betrouwbaardheid Informatie</h2>
+          <p class="description" id="betrouwbaarheid-description">
+            The reliability of the information provided is based on verified data sources and peer-reviewed publications.
+          </p>
+      </div>
+    </div>
+  </div>
