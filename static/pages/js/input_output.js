@@ -31,9 +31,6 @@ function submitSelection() {
     if (selectedInput && selectedOutput) {
         const inputText = selectedInput.textContent;
         const outputText = selectedOutput.textContent;
-        console.log(`Selected Input: ${inputText}, Selected Output: ${outputText}`);
         // Placeholder for actual submission logic
-    } else {
-        console.log("Please select both input and output.");
     }
 }

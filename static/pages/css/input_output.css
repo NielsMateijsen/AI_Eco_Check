@@ -3,7 +3,7 @@
   display: flex;
   gap: 150px;
   justify-content: center;
-  margin: 20px;
+  margin: 45px 20px 20px 20px;
 }
 
 /* Column styles */
@@ -16,6 +16,10 @@ h2 {
   text-align: center;
   font-size: 1.5em;
   margin-bottom: 20px;
+  background-color: var(--donkerblauw);
+  border-radius: 5px;
+  padding: 15px;
+  color: white
 }
 
 /* Item styles for inputs/outputs */
@@ -28,6 +32,7 @@ h2 {
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-size: 23px;
 }
 
 .item:hover {

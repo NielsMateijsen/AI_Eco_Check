@@ -5,9 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Eco Check</title>
     <link rel="stylesheet" href="/static/home.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link id="page-stylesheet" rel="stylesheet" href="">
     <script src="static/home.js" defer></script>
+    <script type="module">
+        import { co2, hosting, averageIntensity, marginalIntensity } from "https://cdn.jsdelivr.net/npm/@tgwf/co2@latest/dist/esm/index.js";
+        const avgIntensity = averageIntensity;
+    </script>
 </head>
 <body>
     <!-- Header with Company Logo -->
@@ -18,7 +23,7 @@
     <!-- Progress Indicator -->
     <nav class="progress">
         <div class="step active" id="start">
-            <i class="fa fa-map-marker step-icon"></i>
+            <i class="fa-solid fa-location-dot step-icon"></i>
             <span class="step-text">Start</span>
         </div>
         <div class="step" id="search">
@@ -28,7 +33,7 @@
         </div>
         <div class="step" id="details">
             <!-- <img src="static/images/icons/rijkshuisstijl/info.svg" alt="Step 3 Icon" class="step-icon"> -->
-            <i class="fa fa-info step-icon"></i>
+            <i class="fa-solid fa-circle-info step-icon"></i>
             <span class="step-text">Details</span>
         </div>
     </nav>

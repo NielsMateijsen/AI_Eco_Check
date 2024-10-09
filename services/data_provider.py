@@ -2,8 +2,11 @@ import json
 import requests
 
 
-with open("services/categories.json") as f:
+with open("services/categories.json", encoding='utf-8') as f:
   categories = json.load(f)
+
+with open("services/sub_task_descriptions.json", encoding='utf-8') as f:
+    sub_task_descriptions = json.load(f)
 
 # get available tags
 # 'region', 'other', 'library', 'license', 'language', 'dataset', 'pipeline_tag'
@@ -14,7 +17,6 @@ available_tags = requests.get(
 ).json()
 
 tag_types = available_tags.keys()
-
 
 def get_sub_task_name(sub_task: str) -> str:
     for category in categories:
@@ -46,6 +48,21 @@ def get_task_id(sub_task: str) -> str:
                 return task["id"]
             
     return "Unknown"
+
+def get_task_summary(sub_task: str) -> str:
+    task = sub_task_descriptions.get(sub_task)
+    if task:
+        return task["summary"]
+    else:
+        return None
+    
+def get_task_inference(sub_task: str) -> str:
+    task = sub_task_descriptions.get(sub_task)
+    if task:
+        return task["inference"]
+    else:
+        return None
+
 
 
 #available_tags = {

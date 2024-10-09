@@ -52,11 +52,21 @@ function loadTable() {
         row.appendChild(subTaskCell);
 
         const trainingCostsCell = document.createElement('td');
-        trainingCostsCell.textContent = '$' + (Math.random() * 10000).toFixed(2); // Placeholder for real data
+
+        trainingCostsCell.textContent = getTrainEmissions(model);
         row.appendChild(trainingCostsCell);
 
         const inferenceCostsCell = document.createElement('td');
-        inferenceCostsCell.textContent = '$' + (Math.random() * 1000).toFixed(2); // Placeholder for real data
+        let inference_costs = 0;
+        if (model.inference && model.inference.mean) {
+          inference_costs = model.inference.mean;
+        }
+        else {
+          inference_costs = 'N/A';
+        }
+
+        inferenceCostsCell.textContent = inference_costs;
+        // inferenceCostsCell.textContent = 'TODO'; // Placeholder for real data
         row.appendChild(inferenceCostsCell);
 
         const emissionsCell = document.createElement('td');

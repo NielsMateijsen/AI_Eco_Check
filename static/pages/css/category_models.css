@@ -4,8 +4,8 @@
 }
 
 .table-container {
-  margin-top: 20px;
-  max-height: 62vh; /* Set a max height for the table container */
+  margin-top: 5px;
+  max-height: 60vh; /* Set a max height for the table container */
   overflow-y: hidden; /* Allow vertical scrolling inside the container */
   position: relative; /* Ensure the table headers are positioned correctly */
 }
@@ -17,8 +17,15 @@ table {
   table-layout: fixed; /* Ensures consistent column widths */
 }
 
-th, td {
+th {
+  padding: 8px;
+}
+
+td {
   padding: 12px;
+}
+
+th, td {
   text-align: left;
   border-bottom: 1px solid #ddd;
 }
@@ -28,7 +35,11 @@ th, td {
 }
 
 .name {
-  width: 30%;
+  width: 25%;
+}
+
+.emissions {
+  width: 17%;
 }
 
 th {
@@ -38,6 +49,10 @@ th {
   z-index: 1; /* Ensures the header stays above the scrollable content */
 }
 
+.unit {
+  font-size: 12px;
+}
+
 td {
   background-color: white;
 }
@@ -45,9 +60,10 @@ td {
 
 tbody {
   display: block; /* Allows the tbody to be scrollable */
-  max-height: 62vh; /* Adjust this based on your preferred table height */
+  max-height: 60vh; /* Adjust this based on your preferred table height */
   overflow-y: scroll; /* Vertical scroll for table rows */
   scrollbar-width: thin; /* Thin scrollbar */
+  word-wrap: break-word;
 }
 
 tbody tr {
@@ -73,10 +89,9 @@ tbody tr:nth-child(even) {
 }
 
 .button-container {
-  margin-top: 10px;
   display: flex;
   justify-content: right;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .not-selected {

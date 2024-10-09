@@ -9,6 +9,7 @@ class HuggingFaceAPI:
         self.api = HfApi()
         self.pipeline_tags = []
         self.categories = []
+        self.co2_models = list(self.get_models())
 
         self.set_tags()
 
@@ -28,6 +29,19 @@ class HuggingFaceAPI:
     # returns iterable of ModelInfo
     def get_models(self) -> Iterable[ModelInfo]:
         return self.api.list_models(cardData=True, full=False, tags="co2_eq_emissions")
+    
+    def get_model_emissions(self, model: str) -> dict:
+        # find model in self.co2_models
+        for m in self.co2_models:
+            if m.id == model:
+                return m.card_data["co2_eq_emissions"]
+        return None 
+
+
+        # try:
+        #     return self.api.model_info(model).card_data["co2_eq_emissions"]
+        # except KeyError:
+        #     return None
 
     
 

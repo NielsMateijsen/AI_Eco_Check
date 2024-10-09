@@ -1,0 +1,354 @@
+{
+  "audio-classification": {
+    "summary": "Classificeert audio in verschillende categorieën.",
+    "description": "Audio-classificatie is een techniek waarbij audiofragmenten worden ingedeeld in verschillende categorieën, zoals muziekgenres, omgevingsgeluiden, of spraak. Dit wordt vaak gebruikt in toepassingen zoals spraakherkenning, muziekstreamingdiensten of veiligheidsmonitoring. Het systeem leert uit voorbeelden van audio om patronen te herkennen die kenmerkend zijn voor een bepaalde categorie.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "audio-to-audio": {
+    "summary": "Zet audio om naar een ander type audio.",
+    "description": "Bij audio-naar-audio omzetting wordt audio omgezet naar een andere vorm, zoals het wijzigen van een stem of het toepassen van geluidsfilters. Dit wordt vaak gebruikt in spraakverwerking, muziekproductie en stemkloning. De technologie kan stemmen aanpassen, geluidseffecten toevoegen of zelfs een geheel nieuwe klank genereren op basis van de oorspronkelijke input.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "automatic-speech-recognition": {
+    "summary": "Zet gesproken taal om naar geschreven tekst.",
+    "description": "Automatische spraakherkenning (ASR) zet gesproken woorden om in tekst. Dit wordt vaak gebruikt in virtuele assistenten, transcriptiesoftware en bij het bedienen van apparaten via spraakcommando's. Het systeem herkent klanken en woorden, en vertaalt deze naar begrijpelijke, geschreven tekst, wat de interactie met technologie vereenvoudigt.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "depth-estimation": {
+    "summary": "Schat de diepte in een afbeelding.",
+    "description": "Diepte-inschatting is het proces waarbij de afstand tussen objecten in een afbeelding wordt bepaald. Deze technologie wordt veel gebruikt in computer vision, robotica en augmented reality (AR). Het systeem analyseert de visuele kenmerken van een afbeelding om een dieptekaart te creëren, waardoor objecten en afstanden in een 3D-ruimte beter worden begrepen.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "document-question-answering": {
+    "summary": "Beantwoordt vragen op basis van een document.",
+    "description": "Vragen beantwoorden op basis van een document houdt in dat het systeem een tekstuele bron doorzoekt om een nauwkeurig antwoord te geven op een gestelde vraag. Dit is nuttig voor juridische documenten, handleidingen of andere grote hoeveelheden tekst waar gerichte informatie snel moet worden gevonden. De AI analyseert zowel de vraag als de inhoud van het document om de meest relevante informatie te extraheren.",
+		"inference": {
+			"mean": 0.003,
+			"std": 0.001
+		}
+	},
+  "feature-extraction": {
+    "summary": "Extraheert kenmerken uit data voor verdere analyse.",
+    "description": "Feature-extractie is het proces waarbij belangrijke informatie uit ruwe data wordt gehaald voor gebruik in machine learning modellen. Dit kan van toepassing zijn op verschillende soorten data, zoals afbeeldingen, audio, tekst of tabellen. Het doel is om de meest relevante kenmerken te identificeren, die kunnen helpen bij taken zoals classificatie, regressie of clustering.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "fill-mask": {
+    "summary": "Vult ontbrekende woorden in een tekst in.",
+    "description": "Mask invulling is een techniek waarbij ontbrekende of verborgen woorden in een tekst worden voorspeld en ingevuld door de AI. Dit wordt vaak toegepast in taalmodellen om context te begrijpen en ontbrekende informatie aan te vullen. Het systeem gebruikt de omliggende woorden om te bepalen welk woord het meest waarschijnlijk op de lege plek hoort.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "graph-ml": {
+    "summary": "Past machine learning toe op grafieken.",
+    "description": "Graph machine learning houdt in dat machine learning technieken worden toegepast op gegevens die in de vorm van grafieken zijn weergegeven, zoals netwerken of verbindingen tussen objecten. Dit wordt gebruikt in aanbevelingssystemen, sociale netwerken en biomedische analyses. De AI leert relaties en patronen tussen de knooppunten en randen in de grafiek, wat inzicht kan geven in complexe systemen.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "image-classification": {
+    "summary": "Classificeert afbeeldingen in verschillende categorieën.",
+    "description": "Afbeeldingsclassificatie is het proces waarbij een AI-systeem een afbeelding analyseert en deze toewijst aan een vooraf bepaalde categorie, zoals 'hond' of 'auto'. Dit wordt veel toegepast in objectherkenning, medische beeldanalyse en geautomatiseerde kwaliteitscontrole. Het model leert patronen en kenmerken uit trainingsafbeeldingen om toekomstige beelden nauwkeurig te categoriseren.",
+		"inference": {
+			"mean": 0.007,
+			"std": 0.001
+		}
+	},
+  "image-feature-extraction": {
+    "summary": "Extraheert kenmerken uit een afbeelding voor verdere analyse.",
+    "description": "Afbeeldingskenmerk-extractie identificeert belangrijke visuele kenmerken in een afbeelding, zoals randen, hoeken of textuur. Deze kenmerken kunnen vervolgens worden gebruikt voor taken zoals classificatie, objectherkenning of beeldsegmentatie. Het doel is om de essentie van de afbeelding vast te leggen, zodat de relevante informatie door andere systemen kan worden gebruikt.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "image-segmentation": {
+    "summary": "Segmenteert een afbeelding in afzonderlijke objecten.",
+    "description": "Afbeeldingssegmentatie is het proces waarbij een afbeelding wordt opgedeeld in verschillende delen of objecten, zoals een gebouw, een auto, of de lucht. Dit wordt veel gebruikt in medische beeldverwerking, autonoom rijden en fotobewerking. Door elke pixel toe te wijzen aan een specifiek object, krijgt het systeem een gedetailleerde interpretatie van wat er in de afbeelding aanwezig is.",
+		"inference": {
+			"mean": 0.038,
+			"std": 0.02
+		}
+	},
+  "image-text-to-text": {
+    "summary": "Zet een afbeelding en tekst om naar een nieuwe tekst.",
+    "description": "Bij beeld-en-tekst-naar-tekst verwerking worden zowel visuele als tekstuele input gecombineerd om een nieuwe tekst te genereren. Dit kan bijvoorbeeld worden gebruikt voor het samenvatten van informatie die in afbeeldingen en bijschriften wordt getoond. De AI combineert de betekenis van de afbeelding met de tekst om een samenhangende beschrijving of nieuwe uitleg te geven.",
+		"inference": {
+			"mean": 0.047,
+			"std": 0.03
+		}
+	},
+  "image-to-3d": {
+    "summary": "Zet een afbeelding om naar een 3D-model.",
+    "description": "Bij afbeelding-naar-3D-conversie analyseert een AI-systeem een afbeelding om deze om te zetten naar een driedimensionaal model. Dit is nuttig in toepassingen zoals virtual reality (VR), gaming, en architecturale visualisaties. Het model probeert diepte, vorm en textuur te reconstrueren op basis van de tweedimensionale input, zodat een realistische 3D-weergave ontstaat.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "image-to-image": {
+    "summary": "Zet een afbeelding om naar een andere afbeelding.",
+    "description": "Bij afbeelding-naar-afbeelding verwerking wordt een input afbeelding omgezet in een nieuwe afbeelding, bijvoorbeeld door de stijl, kleuren of andere visuele kenmerken aan te passen. Dit kan worden gebruikt voor artistieke toepassingen, fotobewerking of het genereren van nieuwe afbeeldingen op basis van een voorbeeld. De AI leert hoe visuele kenmerken kunnen worden getransformeerd om een gewenst resultaat te bereiken.",
+		"inference": {
+			"mean": 2.907,
+			"std": 3.31
+		}
+	},
+  "image-to-text": {
+    "summary": "Zet een afbeelding om naar tekst.",
+    "description": "Afbeelding-naar-tekst conversie houdt in dat een AI een afbeelding analyseert en er een beschrijvende tekst van maakt, bijvoorbeeld door objecten te identificeren of activiteiten te beschrijven. Dit wordt vaak toegepast in beeldbeschrijving voor slechtzienden of voor het automatisch taggen van foto's. Het systeem gebruikt visuele cues om een nauwkeurige tekstuele beschrijving van de inhoud van de afbeelding te genereren.",
+		"inference": {
+			"mean": 0.063,
+			"std": 0.02
+		}
+	},
+  "image-to-video": {
+    "summary": "Zet een afbeelding om naar een video.",
+    "description": "Afbeelding-naar-video AI genereert video's op basis van stilstaande beelden. Het systeem maakt een reeks animaties of videoframes door nieuwe beelden te genereren die tussen de originele frames passen. Deze techniek wordt vaak gebruikt in filmproductie, animatie en het creëren van realistische bewegingen uit enkele afbeeldingen.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "mask-generation": {
+    "summary": "Genereert een masker voor objecten in een afbeelding.",
+    "description": "Maskergeneratie is het proces waarbij een AI een afbeelding analyseert en een masker maakt dat bepaalde objecten of delen van de afbeelding markeert. Dit wordt gebruikt voor beeldbewerking, objectherkenning en segmentatie. Het masker kan worden toegepast om specifieke onderdelen te manipuleren of om bepaalde elementen in de afbeelding te scheiden van de achtergrond.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "object-detection": {
+    "summary": "Detecteert objecten in een afbeelding of video.",
+    "description": "Objectdetectie houdt in dat een AI specifieke objecten herkent en hun positie in een afbeelding of video bepaalt. Dit wordt veel gebruikt in beveiligingssystemen, autonome voertuigen, en augmented reality (AR). Het systeem markeert de locatie en identiteit van meerdere objecten, zoals mensen, voertuigen of dieren, en zorgt ervoor dat ze correct worden geïdentificeerd.",
+		"inference": {
+			"mean": 0.038,
+			"std": 0.02
+		}
+	},
+  "question-answering": {
+    "summary": "Beantwoordt vragen op basis van tekstuele input.",
+    "description": "Bij vraag-en-antwoord AI-systemen wordt een vraag geanalyseerd en op basis van een tekstuele bron een antwoord gegeven. Dit kan worden gebruikt in chatbots, zoekmachines en informatiesystemen. Het systeem zoekt naar relevante informatie in de tekst en geeft het meest waarschijnlijke antwoord op de gestelde vraag.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "reinforcement-learning": {
+    "summary": "Maakt een systeem dat leert door beloningen en straffen.",
+    "description": "Reinforcement learning is een techniek waarbij een AI leert door interactie met zijn omgeving en feedback ontvangt in de vorm van beloningen of straffen. Dit type AI wordt veel gebruikt in gaming, robotica en zelfrijdende auto's. Het doel is om acties te optimaliseren die leiden tot de hoogste beloning, door herhaaldelijk te experimenteren en te leren van de resultaten.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "robotics": {
+    "summary": "AI voor het aansturen en verbeteren van robots.",
+    "description": "AI in robotica wordt gebruikt om robots intelligent gedrag bij te brengen, zoals navigeren, objecten manipuleren en interactie met mensen. Dit omvat sensorische waarneming, beweging en besluitvorming, wat essentieel is voor autonome robots. Door gebruik te maken van AI kunnen robots leren van hun omgeving en zich aanpassen aan nieuwe situaties.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "sentence-similarity": {
+    "summary": "Vergelijkt de betekenis van verschillende zinnen.",
+    "description": "Zinssimilariteit AI bepaalt de overeenkomst tussen twee of meer zinnen op basis van hun betekenis. Dit wordt gebruikt in zoekmachines, vertaalsoftware en tekstverwerking. Het systeem analyseert de semantische inhoud van zinnen en geeft een score die aangeeft hoe sterk de zinnen overeenkomen in hun betekenis.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "summarization": {
+    "summary": "Vat een lange tekst samen tot een kortere versie.",
+    "description": "Samenvattingstechnologie comprimeert grote hoeveelheden tekst tot een kortere, kernachtige weergave zonder de essentie te verliezen. Dit wordt gebruikt in nieuwsaggregators, onderzoeksplatforms en informatieverwerking. Het systeem analyseert de belangrijkste punten van de tekst en creëert een beknopte samenvatting die de belangrijkste informatie bevat.",
+		"inference": {
+			"mean": 0.049,
+			"std": 0.01
+		}
+	},
+  "table-question-answering": {
+    "summary": "Beantwoordt vragen gebaseerd op een tabel.",
+    "description": "Vragen beantwoorden op basis van tabellen houdt in dat de AI specifieke informatie uit een tabel haalt om een vraag te beantwoorden. Dit is nuttig voor data-analyse, financiële rapporten en grote datasets. De AI zoekt naar patronen, relaties en relevante gegevens binnen de tabel om nauwkeurige antwoorden te formuleren.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "tabular-classification": {
+    "summary": "Classificeert data die in tabelvorm is gestructureerd.",
+    "description": "Tabulaire classificatie betreft het categoriseren van gegevens die in tabelvorm worden aangeboden, zoals klantinformatie, medische gegevens of financiële cijfers. De AI leert patronen in de data te herkennen en wijst elke rij toe aan een bepaalde categorie. Dit proces is essentieel voor voorspellingen, klantsegmentatie en risicobeheer.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "tabular-regression": {
+    "summary": "Voert regressie uit op tabulaire data om voorspellingen te doen.",
+    "description": "Tabulaire regressie is een techniek die wordt gebruikt om continue waarden te voorspellen op basis van gegevens die in tabellen zijn georganiseerd. Dit wordt toegepast in situaties zoals prijsvoorspellingen, risicobeoordelingen en opbrengstschattingen. De AI gebruikt historische gegevens om een verband te leggen tussen variabelen en toekomstige uitkomsten te voorspellen.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "text-classification": {
+    "summary": "Classificeert tekst in verschillende categorieën.",
+    "description": "Tekstclassificatie houdt in dat een tekst wordt geanalyseerd en toegewezen aan een bepaalde categorie, zoals spam versus geen spam, positief versus negatief sentiment, of nieuwsverslagen in verschillende onderwerpen. Dit wordt veel gebruikt in sentimentanalyse, e-mailfiltering en onderwerpdetectie. De AI leert patronen in tekstuele gegevens te herkennen om nauwkeurig te categoriseren.",
+		"inference": {
+			"mean": 0.002,
+			"std": 0.001
+		}
+	},
+  "text-generation": {
+    "summary": "Genereert tekst op basis van een input prompt.",
+    "description": "Tekstgeneratie AI kan nieuwe tekst creëren op basis van een gegeven prompt of context, zoals het schrijven van artikelen, antwoorden in een chatbot of het genereren van creatieve inhoud. Het model wordt getraind op grote hoeveelheden tekst en leert patronen van taal om samenhangende, vloeiende tekst te genereren die aansluit bij de gegeven input.",
+		"inference": {
+			"mean": 0.047,
+      "std": 0.03
+		}
+	},
+  "text-to-3d": {
+    "summary": "Genereert een 3D-model op basis van tekst.",
+    "description": "Text-to-3D AI analyseert beschrijvende tekst en gebruikt deze informatie om een driedimensionaal model te creëren. Dit is handig in ontwerpsoftware, gaming en virtuele realiteit, waar objecten moeten worden gemaakt op basis van verbale beschrijvingen. Het systeem zet taalkundige aanwijzingen om in ruimtelijke informatie om realistische 3D-objecten te genereren.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "text-to-audio": {
+    "summary": "Zet tekst om naar een audio-output.",
+    "description": "Bij text-to-audio wordt tekst omgezet in audio, wat gebruikt kan worden voor het maken van muziek, spraaksynthese of geluidseffecten. De AI leest de tekst en genereert een bijbehorend geluidssignaal, zoals een gesproken woord of een muzikaal fragment. Dit kan ook worden gebruikt in toepassingen zoals audioboeken of virtuele assistenten.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "text-to-image": {
+    "summary": "Genereert een afbeelding op basis van tekst.",
+    "description": "Text-to-image AI zet tekstuele beschrijvingen om in beelden, waarbij visuele elementen worden gegenereerd op basis van de gegeven woorden. Dit wordt gebruikt in creatieve processen, zoals het ontwerpen van kunst of het visualiseren van concepten. De AI leert hoe verschillende woorden visueel kunnen worden weergegeven en creëert een afbeelding die overeenkomt met de beschrijving.",
+		"inference": {
+			"mean": 2.907,
+			"std": 3.31
+		}
+	},
+  "text-to-speech": {
+    "summary": "Zet geschreven tekst om in spraak.",
+    "description": "Text-to-speech (TTS) AI zet geschreven tekst om naar natuurlijke spraak. Dit wordt veel gebruikt in spraakassistenten, navigatiesystemen en voor toegankelijkheid voor mensen met een visuele beperking. De AI genereert een gesproken versie van de tekst die klinkt als een menselijke stem en kan worden aangepast voor verschillende stemstijlen of talen.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "text-to-video": {
+    "summary": "Genereert een video op basis van tekst.",
+    "description": "Text-to-video AI gebruikt een tekstuele beschrijving om een video te maken, wat wordt gebruikt in animatie, marketing en automatisering van videoproductie. Het systeem genereert opeenvolgende beelden die de tekst tot leven brengen en kan animaties of visuele verhalen creëren op basis van de input. Dit vereenvoudigt het proces van videoproductie en opent nieuwe mogelijkheden voor contentcreatie.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "text2text-generation": {
+    "summary": "Zet een tekst om in een andere tekst.",
+    "description": "Text-to-text generatie houdt in dat de AI een tekst ontvangt en deze herschrijft, samenvat of in een andere stijl of taal omzet. Dit wordt gebruikt voor taken zoals vertalen, herschrijven van teksten voor duidelijkheid of creatief herschrijven. Het model leert de kernideeën van de oorspronkelijke tekst te behouden, terwijl het de output aanpast aan de gewenste vorm of stijl.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "time-series-forecasting": {
+    "summary": "Voorspelt toekomstige waarden in een tijdreeks.",
+    "description": "Tijdreeksvoorspelling gebruikt historische gegevens om toekomstige trends te voorspellen. Dit wordt vaak toegepast in financiële markten, voorraadbeheer en weersvoorspellingen. De AI leert patronen in de tijdsgebonden gegevens en gebruikt deze om toekomstige waarden of trends nauwkeurig te voorspellen.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "token-classification": {
+    "summary": "Classificeert woorden in een tekst op basis van hun rol.",
+    "description": "Token-classificatie houdt in dat elk woord (token) in een tekst wordt geclassificeerd, bijvoorbeeld als zelfstandig naamwoord, werkwoord, of entiteit. Dit wordt vaak gebruikt in natuurlijke taalverwerking (NLP) om structuur en betekenis aan teksten te geven, zoals bij het herkennen van namen van personen of locaties. Het systeem herkent en classificeert individuele tokens op basis van hun functie binnen de zin.",
+		"inference": {
+			"mean": 0.004,
+			"std": 0.002
+		}
+	},
+  "translation": {
+    "summary": "Vertaalt tekst van de ene taal naar de andere.",
+    "description": "Machinevertaling zet tekst om van de ene taal naar de andere en wordt gebruikt in vertaalsoftware, websites en communicatie-apps. De AI analyseert de brontekst en produceert een nauwkeurige vertaling in de doeltaal, rekening houdend met context, grammatica en betekenis. Dit maakt het mogelijk om over taalbarrières heen te communiceren en informatie wereldwijd toegankelijk te maken.",
+		"inference": {
+			"mean": 0.003,
+			"std": 0.001
+		}
+	},
+  "unconditional-image-generation": {
+    "summary": "Genereert een afbeelding zonder input.",
+    "description": "Onvoorwaardelijke afbeeldingsgeneratie houdt in dat een AI afbeeldingen creëert zonder specifieke invoer. Het model is getraind om op basis van willekeurige patronen nieuwe, unieke beelden te genereren. Dit wordt vaak gebruikt voor kunstmatige creativiteit, kunstproductie, of het genereren van beelden voor datasets zonder voorafgaande specificaties.",
+		"inference": {
+			"mean": 2.907,
+			"std": 3.31
+		}
+	},
+  "video-classification": {
+    "summary": "Classificeert video's in verschillende categorieën.",
+    "description": "Videoclassificatie is een techniek waarbij AI video's analyseert en deze indeelt in categorieën zoals sport, natuur of educatie. Dit wordt toegepast in videoplatforms, archivering en contentbeheer. Het systeem bekijkt zowel de visuele als auditieve elementen van de video om een nauwkeurige categorisering te maken op basis van inhoud.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "visual-question-answering": {
+    "summary": "Beantwoordt vragen gebaseerd op visuele informatie.",
+    "description": "Visuele vraag- en antwoordsystemen maken gebruik van AI om vragen te beantwoorden op basis van een afbeelding of video. Dit wordt toegepast in onder andere beveiliging, medische beeldvorming en onderwijs. De AI analyseert de visuele inhoud en genereert een antwoord dat nauwkeurig en relevant is voor de gestelde vraag.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "voice-activity-detection": {
+    "summary": "Detecteert of er spraak aanwezig is in een audiofragment.",
+    "description": "Spraakactiviteitdetectie analyseert audio om te bepalen of er een menselijke stem aanwezig is. Dit wordt vaak gebruikt in spraakassistenten, telefoniesystemen en beveiligingsoplossingen. Het systeem onderscheidt spraak van achtergrondgeluiden om vast te stellen of er communicatie plaatsvindt.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+  "zero-shot-classification": {
+    "summary": "Classificeert teksten zonder training voor die specifieke taak.",
+    "description": "Zero-shot classificatie stelt AI in staat om teksten te categoriseren zonder specifieke training op de taak. Dit wordt mogelijk gemaakt door het gebruik van algemene kennis die het model heeft geleerd tijdens zijn training. Het systeem kan teksten indelen in nieuwe categorieën, zelfs als het daarvoor niet expliciet is getraind.",
+		"inference": {
+			"mean": 0.002,
+			"std": 0.001
+		}
+	},
+  "zero-shot-image-classification": {
+    "summary": "Classificeert afbeeldingen zonder voorafgaande training.",
+    "description": "Zero-shot afbeeldingclassificatie laat AI toe om afbeeldingen te categoriseren zonder dat het model vooraf op die specifieke categorieën is getraind. Dit is nuttig in situaties waar nieuwe objecten of categorieën worden geïntroduceerd. Het systeem gebruikt algemene kennis om onbekende beelden nauwkeurig te classificeren.",
+		"inference": {
+			"mean": 0.007,
+			"std": 0.001
+		}
+	},
+  "zero-shot-object-detection": {
+    "summary": "Detecteert objecten zonder voorafgaande specifieke training.",
+    "description": "Zero-shot objectdetectie maakt het mogelijk om objecten te herkennen zonder dat de AI specifiek getraind is op die objecten. Het systeem kan nieuwe objecten detecteren door te vertrouwen op algemene kennis en contextuele informatie. Dit is handig in dynamische omgevingen waar nieuwe objecten kunnen verschijnen.",
+    "inference": {
+      "mean": 0.038,
+      "std": 0.02
+    }
+  }
+}

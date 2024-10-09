@@ -1,5 +1,5 @@
 window.onload = function () {
-  loadPage('start');
+  loadPage('model_details');
 }
 
 var currentStep = 'start';
@@ -63,3 +63,27 @@ function updateProgressBar(step) {
   currentStep = step;
 }
 
+function prettyPrintEmissions(emission) {
+  // emissions is in grams, display with units from grams to metric tons
+  if (emission < 1000) {
+    return emission.toFixed(4) + ' g';
+  } else if (emission < 1000000) {
+    return (emission / 1000).toFixed(2) + ' kg';
+  } else {
+    return (emission / 1000000).toFixed(2) + ' mt';
+  }
+}
+
+function getTrainEmissions(model) {
+  let emissions = 0;
+  if (!model.emissions_available) {
+    emissions = 'N/A';
+  }
+  else if (model.emissions_is_dict) {
+    emissions = model.emissions.emissions
+  }
+  else {
+    emissions = model.emissions
+  }
+  return emissions;
+}

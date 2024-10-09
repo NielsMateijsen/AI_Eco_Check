@@ -1,0 +1,42 @@
+{
+  "extractive QA": { 
+	"mean": 0.003, 
+	"std": 0.001
+	},
+  "image captioning": { 
+	"mean": 0.063, 
+	"std": 0.02
+	},
+  "image classification": { 
+	"mean": 0.007, 
+	"std": 0.001
+	},
+  "image generation": { 
+	"mean": 2.907, 
+	"std": 3.31
+	},
+  "masked language modeling": { 
+	"mean": 0.003, 
+	"std": 0.001
+	},
+  "object detection": { 
+	"mean": 0.038, 
+	"std": 0.02
+	},
+  "summarization": { 
+	"mean": 0.049, 
+	"std": 0.01
+	},
+  "text classification": { 
+	"mean": 0.002, 
+	"std": 0.001
+	},
+  "text generation": { 
+	"mean": 0.047, 
+	"std": 0.03
+	},
+  "token classification": { 
+	"mean": 0.004, 
+	"std": 0.002
+}
+}

@@ -28,7 +28,10 @@ def search_models(model_name):
             "group": model["id"].split("/")[0],
             "sub_task": get_sub_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
             "task": get_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
+            "inference": get_task_inference(model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
             "emissions_available": "co2_eq_emissions" in model["tags"],
+            "emissions": api.get_model_emissions(model["id"]) if "co2_eq_emissions" in model["tags"] else None,
+            "emissions_is_dict": isinstance(api.get_model_emissions(model["id"]), dict) if "co2_eq_emissions" in model["tags"] else None,
         }
         model_ids.append(el)
 
@@ -53,7 +56,10 @@ def get_models_by_category(sub_task):
             "group": model["id"].split("/")[0],
             "sub_task": get_sub_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
             "task": get_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
+            "inference": get_task_inference(model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
             "emissions_available": "co2_eq_emissions" in model["tags"],
+            "emissions": api.get_model_emissions(model["id"]) if "co2_eq_emissions" in model["tags"] else None,
+            "emissions_is_dict": isinstance(api.get_model_emissions(model["id"]), dict) if "co2_eq_emissions" in model["tags"] else None,
         }
         models.append(el)
 
@@ -72,13 +78,19 @@ def get_models_by_task(task):
     models = []
     for model in response:
         pipeline_tag_exists = model.get("pipeline_tag") is not None
+        if pipeline_tag_exists:
+            if model["pipeline_tag"] != task_id:
+                continue
         el = {
             "id": model["_id"],
             "name": model["id"].split("/")[1],
             "group": model["id"].split("/")[0],
             "sub_task": get_sub_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
             "task": get_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
+            "inference": get_task_inference(model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
             "emissions_available": "co2_eq_emissions" in model["tags"],
+            "emissions": api.get_model_emissions(model["id"]) if "co2_eq_emissions" in model["tags"] else None,
+            "emissions_is_dict": isinstance(api.get_model_emissions(model["id"]), dict) if "co2_eq_emissions" in model["tags"] else None,
         }
         models.append(el)
 
@@ -114,9 +126,12 @@ def get_model_details():
         "group": selected_model["id"].split("/")[0],
         "sub_task": get_sub_task_name(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
         "task": get_task_name(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
+        "task_summary": get_task_summary(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
+        "inference": get_task_inference(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
         "emissions_available": "co2_eq_emissions" in selected_model["tags"],
         "tags": parse_tags(selected_model["tags"]),
-        "all_data": selected_model
+        "emissions": api.get_model_emissions(selected_model["id"]) if "co2_eq_emissions" in selected_model["tags"] else None,
+        "emissions_is_dict": isinstance(api.get_model_emissions(model["id"]), dict) if "co2_eq_emissions" in model["tags"] else None,
     }
 
     return flask.jsonify(result)

@@ -1,0 +1,40 @@
+.welcome-text {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.stats-box {
+  border: 2px solid #ccc;
+  padding: 20px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.questions {
+  text-align: left;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: right;
+  margin-top: 20px;
+}
