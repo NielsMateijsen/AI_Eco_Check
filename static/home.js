@@ -1,5 +1,5 @@
 window.onload = function () {
-  loadPage('model_details');
+  loadPage('welcome');
 }
 
 var currentStep = 'start';
@@ -8,7 +8,7 @@ var currentStep = 'start';
 history.pushState(null, null, location.href);
 
 // Listen for the 'popstate' event which is triggered on back/forward navigation
-window.addEventListener('popstate', function () {    
+window.addEventListener('popstate', function () {
     loadPage(prev_page);
 
     // You can also prevent the user from going back by pushing another state
