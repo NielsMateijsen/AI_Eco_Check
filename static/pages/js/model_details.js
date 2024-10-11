@@ -1,7 +1,7 @@
 updateProgressBar('details');
-var prev_page; // TODO WEGHALEN
-if (prev_page === 'finalize') {
-  prev_page = 'search';
+//var prev_page; // TODO WEGHALEN
+if (prev_page === 'model_details') {
+  prev_page = 'category_models';
 }
 
 document.getElementById('back-button').addEventListener('click', function () {

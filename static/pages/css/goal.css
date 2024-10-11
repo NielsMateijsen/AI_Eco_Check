@@ -56,3 +56,11 @@
 .active + .category-details {
   display: block;
 }
+
+.detail-title {
+  font-size: 21px;
+}
+
+.detail-description {
+  font-size: 19px;
+}

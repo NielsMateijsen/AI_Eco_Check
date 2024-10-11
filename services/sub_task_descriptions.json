@@ -195,7 +195,7 @@
     "summary": "Classificeert data die in tabelvorm is gestructureerd.",
     "description": "Tabulaire classificatie betreft het categoriseren van gegevens die in tabelvorm worden aangeboden, zoals klantinformatie, medische gegevens of financiële cijfers. De AI leert patronen in de data te herkennen en wijst elke rij toe aan een bepaalde categorie. Dit proces is essentieel voor voorspellingen, klantsegmentatie en risicobeheer.",
 		"inference": {
-			"mean": "Unknown",
+			"mean": 0.002,
 			"std": "Unknown"
 		}
 	},
@@ -203,7 +203,7 @@
     "summary": "Voert regressie uit op tabulaire data om voorspellingen te doen.",
     "description": "Tabulaire regressie is een techniek die wordt gebruikt om continue waarden te voorspellen op basis van gegevens die in tabellen zijn georganiseerd. Dit wordt toegepast in situaties zoals prijsvoorspellingen, risicobeoordelingen en opbrengstschattingen. De AI gebruikt historische gegevens om een verband te leggen tussen variabelen en toekomstige uitkomsten te voorspellen.",
 		"inference": {
-			"mean": "Unknown",
+			"mean": 0.001,
 			"std": "Unknown"
 		}
 	},

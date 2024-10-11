@@ -1,3 +1,11 @@
+.model-header {
+  font-size: 28px;
+}
+
+.task {
+  font-size: 21px;
+}
+
 .container {
   margin: 40px auto 0 auto;
   padding: 20px;
@@ -10,18 +18,22 @@
   background-color: var(--donkerblauw);
   padding: 10px;
   border-radius: 8px;
-  width: fit-content;
-  position: absolute;
-  left: 40%;
   margin-top: -40px;
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  margin-inline: auto; 
+  width: fit-content;
 }
 
 .header h1 {
   color: white;
-  font-size: 24px;
+  font-size: 22px;
 }
 
-.tips-section {
+
+
+/* .tips-section {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
@@ -53,7 +65,54 @@
 
 .more-link:hover {
   text-decoration: underline;
+} */
+
+ .tips-section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
 }
+
+.tip-box {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 30%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: max-height 0.3s ease-out;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Show only 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: max-height 0.3s ease, -webkit-line-clamp 0.3s ease;
+  max-height: 3.6em; /* 2 lines of text */
+}
+
+.description.expanded {
+  max-height: none; /* Expand to show full content */
+  -webkit-line-clamp: unset; /* Remove the clamp to show all lines */
+}
+
+.more-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 12px;
+  align-self: flex-end;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.more-link:hover {
+  text-decoration: underline;
+}
+
 
 .print-button {
   margin: 30px auto 0 auto;

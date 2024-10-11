@@ -6,37 +6,37 @@ document.getElementById('back-button').addEventListener('click', function () {
 });
 
 
-// Placeholder data source
 var categories = [
   {
     title: "Computer Vision",
-    description: "This is the description for Category 1. Add your placeholder data here.",
+    description: "Computer Vision is een veld binnen kunstmatige intelligentie dat machines in staat stelt om visuele informatie uit de wereld te interpreteren en te begrijpen. Dit omvat de analyse van afbeeldingen en video's om taken uit te voeren zoals objectherkenning, beeldclassificatie en scene-interpretatie.",
   },
   {
     title: "Natural Language Processing",
-    description: "This is the description for Category 2. Add your placeholder data here.",
+    description: "NLP (Natural Language Processing) houdt zich bezig met het ontwikkelen van algoritmen en modellen die machines in staat stellen om menselijke taal op een zinvolle manier te begrijpen, interpreteren en genereren. Het omvat een breed scala aan taken, zoals tekstclassificatie, sentimentanalyse, machinevertaling en vraag-antwoord systemen. Toepassingen omvatten chatbots, sentimentanalyse en vertaaldiensten. NLP combineert taalkunde en machine learning om grote hoeveelheden natuurlijke taalgegevens te verwerken en te analyseren.",
   },
   {
     title: "Audio",
-    description: "This is the description for Category 3. Add your placeholder data here.",
+    description: "Audioprocessing omvat de analyse en manipulatie van geluidssignalen, met toepassingen in spraakherkenning, muziekanalyse en meer.",
   },
   {
     title: "Tabelvormig",
-    description: "This is the description for Category 4. Add your placeholder data here.",
+    description: "Tabelvormige AI-modellen verwijzen naar een categorie machine learning-modellen die speciaal zijn ontworpen om te werken met tabelvormige gegevens, die gestructureerde gegevens zijn die zijn georganiseerd in rijen en kolommen. Elke rij vertegenwoordigt een uniek datapunt, terwijl elke kolom overeenkomt met een specifieke eigenschap die het datapunt beschrijft. Tabelvormige datasets kunnen verschillende soorten kenmerken bevatten, zoals categorische en numerieke.",
   },
   {
     title: "Reinforcement Learning",
-    description: "This is the description for Category 5. Add your placeholder data here.",
+    description: "Reinforcement Learning richt zich op hoe agenten acties moeten ondernemen in een omgeving om cumulatieve beloningen te maximaliseren.",
   },
   {
     title: "Multimodal",
-    description: "This is the description for Category 6. Add your placeholder data here.",
+    description: "Multimodale AI-modellen kunnen informatie verwerken en integreren uit meerdere modaliteiten, zoals tekst, afbeeldingen, audio en video.",
   },
   {
     title: "Overig",
-    description: "This is the 'Other' category. It spans the entire width of the grid and contains miscellaneous content.",
+    description: "Dit is de 'Overig'-categorie. Het beslaat de volledige breedte van het raster en bevat diverse inhoud.",
   },
 ];
+
 
 
 // Function to create the categories dynamically
@@ -78,9 +78,11 @@ function loadCategories() {
 
     // Create the details title and description
     const detailsTitle = document.createElement('h3');
+    detailsTitle.classList.add('detail-title');
     detailsTitle.textContent = category.title;
 
     const detailsDescription = document.createElement('p');
+    detailsDescription.classList.add('detail-description');
     detailsDescription.textContent = category.description;
 
     // Append title and description to the details div
@@ -105,18 +107,18 @@ function loadCategories() {
   otherTitle.className = 'category-title';
   otherTitle.textContent = otherCategory.title;
 
-  const otherIcon = document.createElement('i');
-  otherIcon.className = 'info-icon fa fa-info-circle';
+  // const otherIcon = document.createElement('i');
+  // otherIcon.className = 'info-icon fa fa-info-circle';
 
-  // Info icon click handler for "Other"
-  otherIcon.addEventListener('click', (event) => {
-    event.stopPropagation(); // Prevents the bar click event from firing
-    toggleDetails(otherBar);
-  });
+  // // Info icon click handler for "Other"
+  // otherIcon.addEventListener('click', (event) => {
+  //   event.stopPropagation(); // Prevents the bar click event from firing
+  //   toggleDetails(otherBar);
+  // });
 
   // Append title and info icon to the "Other" bar
   otherBar.appendChild(otherTitle);
-  otherBar.appendChild(otherIcon);
+  // otherBar.appendChild(otherIcon);
 
   // Create the "Other" details div
   const otherDetails = document.createElement('div');

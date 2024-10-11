@@ -2,12 +2,43 @@
   font-size: 2em;
   margin-bottom: 20px;
 }
-
-.stats-box {
+ 
+/* .stats-box {
   border: 2px solid #ccc;
   padding: 20px;
   margin-bottom: 30px;
   width: 100%;
+} */
+
+.stats-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  background-color: white;
+  /* padding: 20px; */
+  border-radius: 8px;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
+  margin-bottom: 30px;
+  /* border: 2px solid #ccc; */
+}
+
+.stat-item {
+  text-align: center;
+  width: 22%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.stat-item p {
+  margin-top: 10px;
+  font-size: 17px;
+  color: #666;
 }
 
 .questions {
@@ -21,6 +52,7 @@
 label {
   display: block;
   margin-bottom: 5px;
+  font-size: 20px;
   font-weight: bold;
 }
 
