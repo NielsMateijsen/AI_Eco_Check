@@ -67,6 +67,9 @@ label {
 .button-container {
   margin-top: 10px;
   display: flex;
-  justify-content: right;
-  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.introduction-button i {
+  margin-right: 10px;
 }

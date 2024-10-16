@@ -87,7 +87,7 @@
 
 .description {
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* Show only 2 lines */
+  -webkit-line-clamp: 3; /* Show only 2 lines */
   -webkit-box-orient: vertical;
   overflow: hidden;
   transition: max-height 0.3s ease, -webkit-line-clamp 0.3s ease;

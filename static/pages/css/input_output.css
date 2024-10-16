@@ -48,3 +48,27 @@ h2 {
   background-color: lightgray !important;
   border-color: gray;
 }
+
+.item.disabled {
+  background-color: #e0e0e0;
+  color: #b6b6b6;
+  cursor: not-allowed;
+}
+
+.button-container {
+  display: flex;
+  justify-content: right;
+  margin-top: 10px;
+}
+
+.disabled {
+  background-color: grey;
+  cursor: not-allowed;
+  pointer-events: all ;
+}
+
+.disabled:hover {
+  text-decoration: none;
+  cursor: not-allowed;
+  pointer-events: all ;
+}

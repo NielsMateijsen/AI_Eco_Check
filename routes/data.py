@@ -135,3 +135,23 @@ def get_model_details():
     }
 
     return flask.jsonify(result)
+
+@app.route('/get_tips/<string:task>')
+def get_task_tips(task):
+    print(task)
+    return get_tips(task)
+
+@app.route('/get_sub_task_details/<string:sub_task>')
+def get_sub_task_details(sub_task):
+    sub_task_id = get_task_id(sub_task)
+    print(sub_task_id)
+
+    result = {
+        "title": sub_task,
+        "summary": get_task_summary(sub_task_id),
+        "description": get_task_description(sub_task_id),
+        "inference": get_task_inference(sub_task_id),
+    }
+
+    return flask.jsonify(result)
+    
