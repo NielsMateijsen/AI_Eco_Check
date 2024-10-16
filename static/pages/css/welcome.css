@@ -1,6 +1,7 @@
 .welcome-text {
   font-size: 2em;
   margin-bottom: 20px;
+  margin-top: -20px;
 }
  
 /* .stats-box {
@@ -41,7 +42,26 @@
   color: #666;
 }
 
-.questions {
+h2.header {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.text-container {
+  background-color: #f7f7f7; /* Light background for the sustainability text */
+  border-bottom: 2px solid #ddd;
+  border-right: 2px solid #ddd;
+  margin-top: 10px;
+  padding: 10px 20px 20px 20px;
+  text-align: left;
+}
+
+.text-container p {
+  font-size: 18px;
+}
+
+/* .questions {
   text-align: left;
 }
 
@@ -62,12 +82,18 @@ label {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1em;
-}
+} */
 
-.button-container {
+/* .button-container {
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
+} */
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: right;
+  margin-top: 20px;
 }
 
 .introduction-button i {

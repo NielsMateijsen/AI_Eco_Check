@@ -16,6 +16,10 @@ function loadSubTasks() {
       data.forEach(subTask => {
         const subTaskDiv = document.createElement('div');
         subTaskDiv.className = 'subtask';
+        subTaskDiv.addEventListener('click', () => {
+          sessionStorage.setItem('sub_task', subTask.label);
+          loadPage('category_models', 'task');
+        });
 
         const infoIcon = document.createElement('i');
         infoIcon.className = 'info-icon fa fa-info-circle';

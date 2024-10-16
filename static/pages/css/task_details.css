@@ -1,7 +1,12 @@
 .task-details {
   margin-top: 40px;
   text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
 }
+
 
 h1 {
   font-size: 38px;
@@ -11,11 +16,13 @@ p {
   font-size: 25px;
 }
 
-#task-details {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
+.model-overview-button {
+  margin-top: 40px;
+}
+
+.model-overview-button p {
+  font-size: 20px;
+  margin-right: 10px;
 }
 
 .task-description {

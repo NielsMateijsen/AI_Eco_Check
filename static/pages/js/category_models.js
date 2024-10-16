@@ -1,6 +1,6 @@
 updateProgressBar('search');
 
-var category = sessionStorage.getItem('category');
+var sub_task = sessionStorage.getItem('sub_task');
 var selected_row = null;
 
 // Handle Back Button
@@ -11,10 +11,10 @@ document.getElementById('back-button').addEventListener('click', function () {
 // Function to load and populate the table
 function loadTable() {
   const page_title = document.getElementById('page-title');
-  page_title.textContent = category;
+  page_title.textContent = sub_task;
 
-  // API call to fetch models for the given category (sub_task)
-  fetch(`get_models_by_category/${category}`)
+  // API call to fetch models for the given sub_task
+  fetch(`get_models_by_task/${sub_task}`)
     .then(response => response.json())
     .then(models => {
       // Get the table body where we will append rows
@@ -46,6 +46,10 @@ function loadTable() {
         groupCell.textContent = model.group;
         row.appendChild(groupCell);
 
+        const categoryCell = document.createElement('td');
+        categoryCell.textContent = model.task;
+        row.appendChild(categoryCell);
+
         const subTaskCell = document.createElement('td');
         subTaskCell.textContent = model.sub_task || 'N/A';
         row.appendChild(subTaskCell);
@@ -69,6 +73,7 @@ function loadTable() {
         row.appendChild(inferenceCostsCell);
 
         const emissionsCell = document.createElement('td');
+        emissionsCell.className = 'emissions';
         // <i class="fa-solid fa-x"></i>
         if (model.emissions_available) {
           const icon = document.createElement('i');

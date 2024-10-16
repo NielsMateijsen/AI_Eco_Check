@@ -37,33 +37,33 @@ def search_models(model_name):
 
     return flask.jsonify(model_ids)
 
-@app.route('/get_models_by_category/<string:sub_task>')
-def get_models_by_category(sub_task):
-    subtask_id = get_sub_task_id(sub_task)
+# @app.route('/get_models_by_category/<string:sub_task>')
+# def get_models_by_category(sub_task):
+#     subtask_id = get_sub_task_id(sub_task)
 
-    response = requests.get(
-        "https://huggingface.co/api/models",
-        params={"filter":subtask_id,"sort":"downloads","full":"False","config":"False"},
-        headers={}
-    ).json()
+#     response = requests.get(
+#         "https://huggingface.co/api/models",
+#         params={"filter":subtask_id,"sort":"downloads","full":"False","config":"False"},
+#         headers={}
+#     ).json()
 
-    models = []
-    for model in response:
-        pipeline_tag_exists = model.get("pipeline_tag") is not None
-        el = {
-            "id": model["_id"],
-            "name": model["id"].split("/")[1],
-            "group": model["id"].split("/")[0],
-            "sub_task": get_sub_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
-            "task": get_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
-            "inference": get_task_inference(model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
-            "emissions_available": "co2_eq_emissions" in model["tags"],
-            "emissions": api.get_model_emissions(model["id"]) if "co2_eq_emissions" in model["tags"] else None,
-            "emissions_is_dict": isinstance(api.get_model_emissions(model["id"]), dict) if "co2_eq_emissions" in model["tags"] else None,
-        }
-        models.append(el)
+#     models = []
+#     for model in response:
+#         pipeline_tag_exists = model.get("pipeline_tag") is not None
+#         el = {
+#             "id": model["_id"],
+#             "name": model["id"].split("/")[1],
+#             "group": model["id"].split("/")[0],
+#             "sub_task": get_sub_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
+#             "task": get_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
+#             "inference": get_task_inference(model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
+#             "emissions_available": "co2_eq_emissions" in model["tags"],
+#             "emissions": api.get_model_emissions(model["id"]) if "co2_eq_emissions" in model["tags"] else None,
+#             "emissions_is_dict": isinstance(api.get_model_emissions(model["id"]), dict) if "co2_eq_emissions" in model["tags"] else None,
+#         }
+#         models.append(el)
 
-    return flask.jsonify(models)
+#     return flask.jsonify(models)
 
 @app.route('/get_models_by_task/<string:task>')
 def get_models_by_task(task):
@@ -138,13 +138,11 @@ def get_model_details():
 
 @app.route('/get_tips/<string:task>')
 def get_task_tips(task):
-    print(task)
     return get_tips(task)
 
 @app.route('/get_sub_task_details/<string:sub_task>')
 def get_sub_task_details(sub_task):
     sub_task_id = get_task_id(sub_task)
-    print(sub_task_id)
 
     result = {
         "title": sub_task,

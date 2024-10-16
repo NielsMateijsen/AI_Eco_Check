@@ -350,5 +350,13 @@
       "mean": 0.038,
       "std": 0.02
     }
-  }
+  },
+	"keypoint-detection": {
+		"summary": "Detecteert belangrijke punten in een afbeelding.",
+		"description": "Keypoint-detectie identificeert specifieke punten of locaties in een afbeelding, zoals gezichtskenmerken, gewrichten of objecten. Dit wordt gebruikt in gebarenherkenning, pose-estimatie en augmented reality. Het systeem lokaliseert en markeert belangrijke punten om bewegingen, poses of interacties te begrijpen.",
+		"inference": {
+			"mean": 0.038,
+			"std": 0.02
+		}
+	}
 }

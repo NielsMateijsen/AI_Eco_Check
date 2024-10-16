@@ -18,12 +18,19 @@ function loadContent() {
       // Pixel 8 -> battery voltage of 3.89V and 4485mAh capacity -> 0.0174 kWh per charge
       const eq = data['inference']['mean'] === 'Unknown' ? 'N/A' : (data['inference']['mean']/0.0174).toFixed(2);
 
-
       document.getElementById('title').textContent = data['title'];
       document.getElementById('description').textContent = description;
       document.getElementById('mean-value').textContent = mean;
       document.getElementById('std-value').textContent = std;
       document.getElementById('eq-value').textContent = eq
+
+      document.getElementById('button-text').textContent = sub_task + ' Modellen';
+
+      document.getElementById('model-overview-button').addEventListener('click', function () {
+        sessionStorage.setItem('sub_task', sub_task);
+        loadPage('category_models', 'task_details');
+      });
+
     });
 }
 
