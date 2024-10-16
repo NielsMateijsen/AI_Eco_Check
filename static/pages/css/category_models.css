@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.page-title {
+  margin-bottom: 10px;
+}
+
 .table-container {
   margin-top: 5px;
   max-height: 60vh; /* Set a max height for the table container */
