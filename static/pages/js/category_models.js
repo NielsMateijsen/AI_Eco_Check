@@ -1,12 +1,11 @@
 updateProgressBar('search');
 
 var category = sessionStorage.getItem('category');
-var prev_page = 'goal';
 var selected_row = null;
 
 // Handle Back Button
 document.getElementById('back-button').addEventListener('click', function () {
-  loadPage(prev_page);
+  loadLastPage();
 });
 
 // Function to load and populate the table
@@ -109,8 +108,7 @@ document.getElementById('next-button').addEventListener('click', function () {
   };
 
   sessionStorage.setItem('model',  JSON.stringify(model));
-  prev_page = 'category_models';
-  loadPage('model_details');
+  loadPage('model_details', 'category_models');
 });
 
 loadTable();

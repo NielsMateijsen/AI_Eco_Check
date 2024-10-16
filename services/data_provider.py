@@ -74,6 +74,16 @@ def get_task_inference(sub_task: str) -> str:
         return task["inference"]
     else:
         return None
+    
+def get_sub_tasks_details(task: str) -> list:
+    sub_tasks = []
+    for category in categories:
+        if category["name"] == task:
+            for sub_task in category["tasks"]:
+                sub_task["summary"] = get_task_summary(sub_task["id"])
+                sub_tasks.append(sub_task)
+
+    return sub_tasks
 
 def parse_tags(tags: list) -> dict:
     parsed_tags = {tag_type: [] for tag_type in tag_types}

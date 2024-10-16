@@ -1,9 +1,9 @@
 updateProgressBar('start');
 
 document.getElementById('next-button').addEventListener('click', function () {
-  loadPage('start');
+  loadPage('start', 'welcome');
 }); 
 
 document.getElementById('introduction-button').addEventListener('click', function () {
-  loadPage('introduction');
+  loadPage('introduction', 'welcome');
 });

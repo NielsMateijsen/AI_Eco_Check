@@ -1,15 +1,11 @@
 updateProgressBar('details');
-//var prev_page; // TODO WEGHALEN
-if (prev_page === 'model_details') {
-  prev_page = 'category_models';
-}
 
 document.getElementById('back-button').addEventListener('click', function () {
-  loadPage(prev_page);
+  loadLastPage();
 });
 
 document.getElementById('next-button').addEventListener('click', function () {
-  loadPage('finalize');
+  loadPage('finalize', 'model_details');
 });
 
 function loadDetails() {

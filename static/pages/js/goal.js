@@ -1,8 +1,7 @@
-prev_page = 'start';
 updateProgressBar('search');
 
 document.getElementById('back-button').addEventListener('click', function () {
-  loadPage(prev_page);
+  loadLastPage();
 });
 
 
@@ -50,7 +49,7 @@ function loadCategories() {
     bar.className = 'category-bar';
     bar.onclick = () => {
       sessionStorage.setItem('category', category.title);
-      loadPage('category_models')
+      loadPage('task', 'goal');
     };
 
     // Create the category title span
@@ -94,50 +93,50 @@ function loadCategories() {
     container.appendChild(details);
   });
 
-  // Create the "Other" category that spans the entire width
-  const otherCategory = categories[6];
+  // // Create the "Other" category that spans the entire width
+  // const otherCategory = categories[6];
 
-  // Create the "Other" category bar
-  const otherBar = document.createElement('div');
-  otherBar.className = 'category-bar category-other';
-  otherBar.onclick = () => loadPage('input_output');
+  // // Create the "Other" category bar
+  // const otherBar = document.createElement('div');
+  // otherBar.className = 'category-bar category-other';
+  // otherBar.onclick = () => loadPage('input_output');
 
-  // Create the title and icon for "Other"
-  const otherTitle = document.createElement('span');
-  otherTitle.className = 'category-title';
-  otherTitle.textContent = otherCategory.title;
+  // // Create the title and icon for "Other"
+  // const otherTitle = document.createElement('span');
+  // otherTitle.className = 'category-title';
+  // otherTitle.textContent = otherCategory.title;
 
-  // const otherIcon = document.createElement('i');
-  // otherIcon.className = 'info-icon fa fa-info-circle';
+  // // const otherIcon = document.createElement('i');
+  // // otherIcon.className = 'info-icon fa fa-info-circle';
 
-  // // Info icon click handler for "Other"
-  // otherIcon.addEventListener('click', (event) => {
-  //   event.stopPropagation(); // Prevents the bar click event from firing
-  //   toggleDetails(otherBar);
-  // });
+  // // // Info icon click handler for "Other"
+  // // otherIcon.addEventListener('click', (event) => {
+  // //   event.stopPropagation(); // Prevents the bar click event from firing
+  // //   toggleDetails(otherBar);
+  // // });
 
-  // Append title and info icon to the "Other" bar
-  otherBar.appendChild(otherTitle);
-  // otherBar.appendChild(otherIcon);
+  // // Append title and info icon to the "Other" bar
+  // otherBar.appendChild(otherTitle);
+  // // otherBar.appendChild(otherIcon);
 
-  // Create the "Other" details div
-  const otherDetails = document.createElement('div');
-  otherDetails.className = 'category-details';
+  // // Create the "Other" details div
+  // const otherDetails = document.createElement('div');
+  // otherDetails.className = 'category-details';
 
-  // Create the details title and description for "Other"
-  const otherDetailsTitle = document.createElement('h3');
-  otherDetailsTitle.textContent = otherCategory.title;
+  // // Create the details title and description for "Other"
+  // const otherDetailsTitle = document.createElement('h3');
+  // otherDetailsTitle.textContent = otherCategory.title;
 
-  const otherDetailsDescription = document.createElement('p');
-  otherDetailsDescription.textContent = otherCategory.description;
+  // const otherDetailsDescription = document.createElement('p');
+  // otherDetailsDescription.textContent = otherCategory.description;
 
-  // Append title and description to the "Other" details div
-  otherDetails.appendChild(otherDetailsTitle);
-  otherDetails.appendChild(otherDetailsDescription);
+  // // Append title and description to the "Other" details div
+  // otherDetails.appendChild(otherDetailsTitle);
+  // otherDetails.appendChild(otherDetailsDescription);
 
-  // Append the "Other" category to the container
-  container.appendChild(otherBar);
-  container.appendChild(otherDetails);
+  // // Append the "Other" category to the container
+  // container.appendChild(otherBar);
+  // container.appendChild(otherDetails);
 }
 
 // Function to toggle the visibility of category details

@@ -1,9 +1,8 @@
 updateProgressBar('search');
-document.getElementById('back-button').addEventListener('click', function () {
-  loadPage('goal');
-});
 
-prev_page = 'goal';
+document.getElementById('back-button').addEventListener('click', function () {
+    loadLastPage();
+  });
 
 // Arrays to hold selected inputs and outputs
 var selectedInputs = [];
@@ -97,5 +96,5 @@ function submitSelection() {
 
 document.getElementById('next-button').addEventListener('click', function () {
     submitSelection();
-    loadPage('result');
+    loadPage('result', 'input_output');
 });

@@ -1,7 +1,5 @@
-prev_page = "welcome"
-
 document.getElementById('back-button').addEventListener('click', function () {
-  loadPage(prev_page);
+  loadLastPage();
 });
 
 function addEventListeners() {
@@ -12,7 +10,7 @@ function addEventListeners() {
 
       sessionStorage.setItem('sub_task', sub_task);
 
-      loadPage('task_details');
+      loadPage('task_details', 'introduction');
     });
   });
 }

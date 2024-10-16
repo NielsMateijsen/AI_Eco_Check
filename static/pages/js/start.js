@@ -1,19 +1,17 @@
-var prev_page = 'welcome';
 updateProgressBar('start');	
 
 // Handle Back Button
 document.getElementById('back-button').addEventListener('click', function () {
-  loadPage(prev_page);
+  loadLastPage();
 });
-
 
 function addEventListeners() {
   document.getElementById('specific-model').addEventListener('click', function () {
-    loadPage('search_model');
+    loadPage('search_model', 'start');
   });
 
   document.getElementById('goal').addEventListener('click', function () {
-    loadPage('goal');
+    loadPage('goal', 'start');
   });
 }
 

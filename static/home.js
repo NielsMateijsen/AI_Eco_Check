@@ -3,19 +3,40 @@ window.onload = function () {
 }
 
 var currentStep = 'start';
+sessionStorage.setItem('nav_stack', []);
 
 // Push an initial state to the history
 history.pushState(null, null, location.href);
 
 // Listen for the 'popstate' event which is triggered on back/forward navigation
 window.addEventListener('popstate', function () {
-    loadPage(prev_page);
+    loadLastPage();
 
     // You can also prevent the user from going back by pushing another state
     history.pushState(null, null, location.href);
 });
 
-function loadPage(page) {
+function loadLastPage() {
+  let nav_stack = sessionStorage.getItem('nav_stack').split(',');
+  const prev_page = nav_stack.pop();
+  if (prev_page) {
+    loadPage(prev_page);
+    sessionStorage.setItem('nav_stack', nav_stack);
+  } else {
+    loadPage('welcome');
+    sessionStorage.setItem('nav_stack', []);
+  }
+}
+
+function loadPage(page, currentPage) {
+  // Update the navigation stack
+  let nav_stack = sessionStorage.getItem('nav_stack');
+  nav_stack = nav_stack ? nav_stack.split(',') : [];
+  if (currentPage) {
+    nav_stack.push(currentPage);
+  }
+  sessionStorage.setItem('nav_stack', nav_stack);
+
   // Load HTML content
   fetch(`static/pages/${page}.html`)
     .then(response => {
@@ -26,20 +47,21 @@ function loadPage(page) {
       return response.text();
     })
     .then(html => {
-      document.getElementById('content').innerHTML = html;
-
       // Load the CSS file for the current page
       document.getElementById('page-stylesheet').setAttribute('href', `static/pages/css/${page}.css`);
-
+      
       // Remove the previous page's JS script and load new JS
       let oldScript = document.getElementById('page-script');
       if (oldScript) {
         oldScript.remove();
       }
 
+      document.getElementById('content').innerHTML = html;
+
       let newScript = document.createElement('script');
       newScript.src = `static/pages/js/${page}.js`;
       newScript.id = 'page-script';
+      
       document.body.appendChild(newScript);
     })
     .catch(error => {

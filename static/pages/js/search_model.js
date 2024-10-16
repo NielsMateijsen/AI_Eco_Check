@@ -1,8 +1,7 @@
-prev_page = 'start';
 updateProgressBar('search');
 
 document.getElementById('back-button').addEventListener('click', function () {
-  loadPage(prev_page);
+  loadLastPage();
 });
 
 var selectedModel = null;
@@ -119,6 +118,5 @@ function confirmModel() {
   }
 
   sessionStorage.setItem('model',  JSON.stringify(model));
-  prev_page = 'search_model';
-  loadPage('model_details');
+  loadPage('model_details', 'search_model');
 }

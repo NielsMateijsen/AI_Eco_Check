@@ -1,7 +1,5 @@
-prev_page = "introduction";
-
 document.getElementById('back-button').addEventListener('click', function () {
-  loadPage(prev_page);
+  loadLastPage();
 });
 
 function loadContent() {
@@ -13,11 +11,19 @@ function loadContent() {
       return response.json();
     })
     .then((data) => {
+      const description = data['description'] === 'Unknown' ? 'N/A' : data['description'];
+      const mean = data['inference']['mean'] === 'Unknown' ? 'N/A' : data['inference']['mean'];
+      const std = data['inference']['std'] === 'Unknown' ? 'N/A' : data['inference']['std'];
+      
+      // Pixel 8 -> battery voltage of 3.89V and 4485mAh capacity -> 0.0174 kWh per charge
+      const eq = data['inference']['mean'] === 'Unknown' ? 'N/A' : (data['inference']['mean']/0.0174).toFixed(2);
+
+
       document.getElementById('title').textContent = data['title'];
-      document.getElementById('description').textContent = data['description'];
-      document.getElementById('mean-value').textContent = data['inference']['mean'];
-      document.getElementById('std-value').textContent = data['inference']['std'];
-      document.getElementById('eq-value').textContent = data['inference']['eq'];
+      document.getElementById('description').textContent = description;
+      document.getElementById('mean-value').textContent = mean;
+      document.getElementById('std-value').textContent = std;
+      document.getElementById('eq-value').textContent = eq
     });
 }
 
