@@ -17,7 +17,7 @@ def get_model(model_id):
 def search_models(model_name):
     url = f"https://huggingface.co/api/models?search={model_name}&sort=downloads"
     response = requests.get(url)
-    
+
     # response is json_list, for each element, only preserve the id field
     model_ids = []
     for model in response.json():
@@ -118,7 +118,7 @@ def get_model_details():
     if selected_model is None:
         # return not found error
         return flask.jsonify({"error": "Model not found"})
-    
+
 
     pipeline_tag_exists = selected_model.get("pipeline_tag") is not None
     result = {
@@ -138,7 +138,7 @@ def get_model_details():
 
 @app.route('/get_tips/<string:task>')
 def get_task_tips(task):
-    return get_tips(task)
+    return flask.jsonify(get_tips(task))
 
 @app.route('/get_sub_task_details/<string:sub_task>')
 def get_sub_task_details(sub_task):
@@ -152,7 +152,7 @@ def get_sub_task_details(sub_task):
     }
 
     return flask.jsonify(result)
-    
+
 @app.route('/get_sub_tasks/<string:task>')
 def get_sub_tasks(task):
     sub_tasks = get_sub_tasks_details(task)
@@ -163,7 +163,7 @@ def get_sub_tasks(task):
             "label": sub_task["label"],
             "icon": sub_task["icon"],
             "summary": sub_task["summary"],
-        } 
+        }
         for sub_task in sub_tasks
     ]
 
