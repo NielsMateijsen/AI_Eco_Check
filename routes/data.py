@@ -7,6 +7,8 @@ from services.data_provider import *
 
 api = HuggingFaceAPI()
 
+min_downloads = 30
+
 @app.route('/get_model/<string:model_id>')
 def get_model(model_id):
     model = api.get_model(model_id)
@@ -21,6 +23,8 @@ def search_models(model_name):
     # response is json_list, for each element, only preserve the id field
     model_ids = []
     for model in response.json():
+        if model.get("downloads") < min_downloads:
+            continue
         pipeline_tag_exists = model.get("pipeline_tag") is not None
         el = {
             "id": model["_id"],
@@ -77,6 +81,8 @@ def get_models_by_task(task):
 
     models = []
     for model in response:
+        if model.get("downloads") < min_downloads:
+            continue
         pipeline_tag_exists = model.get("pipeline_tag") is not None
         if pipeline_tag_exists:
             if model["pipeline_tag"] != task_id:

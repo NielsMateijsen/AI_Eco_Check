@@ -2,6 +2,7 @@ document.getElementById('back-button').addEventListener('click', function () {
   loadLastPage();
 });
 
+
 function loadContent() {
   const model = JSON.parse(sessionStorage.getItem('model'));
   const model_name = model.name;
@@ -25,6 +26,10 @@ function loadContent() {
           loadTips(tips);
         })
     })
+
+    document.getElementById('print-button').addEventListener('click', function () {
+      alert("Bedankt voor het testen van de demo! De print functionaliteit is op dit moment nog niet beschikbaar.");
+    });
 
   
 }

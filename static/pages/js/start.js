@@ -13,6 +13,10 @@ function addEventListeners() {
   document.getElementById('goal').addEventListener('click', function () {
     loadPage('goal', 'start');
   });
+
+  document.getElementById('own-model').addEventListener('click', function () {
+    alert("This feature is not yet available.");
+  });
 }
 
 addEventListeners();
