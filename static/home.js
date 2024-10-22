@@ -2,8 +2,13 @@ window.onload = function () {
   loadPage('welcome');
 }
 
+// global variables
+var navigationStack = [];
+var globalSubTask;
+var globalModel;
+var globalCategory;
+
 var currentStep = 'start';
-sessionStorage.setItem('nav_stack', []);
 
 // Push an initial state to the history
 history.pushState(null, null, location.href);
@@ -17,25 +22,20 @@ window.addEventListener('popstate', function () {
 });
 
 function loadLastPage() {
-  let nav_stack = sessionStorage.getItem('nav_stack').split(',');
-  const prev_page = nav_stack.pop();
+  const prev_page = navigationStack.pop();
   if (prev_page) {
     loadPage(prev_page);
-    sessionStorage.setItem('nav_stack', nav_stack);
   } else {
     loadPage('welcome');
-    sessionStorage.setItem('nav_stack', []);
+    navigationStack = [];
   }
 }
 
 function loadPage(page, currentPage) {
   // Update the navigation stack
-  let nav_stack = sessionStorage.getItem('nav_stack');
-  nav_stack = nav_stack ? nav_stack.split(',') : [];
   if (currentPage) {
-    nav_stack.push(currentPage);
+    navigationStack.push(currentPage);
   }
-  sessionStorage.setItem('nav_stack', nav_stack);
 
   // Load HTML content
   fetch(`static/pages/${page}.html`)

@@ -9,7 +9,7 @@ document.getElementById('next-button').addEventListener('click', function () {
 });
 
 function loadDetails() {
-  const model = JSON.parse(sessionStorage.getItem('model'));
+  const model = globalModel
   const model_name = model.name;
   const model_id = model.id;
   const url = `/get_model_details?model_id=${model_id}&model_name=${model_name}`;
@@ -45,7 +45,6 @@ function loadDetails() {
           return;
         }
         const tags = model.tags[key];
-        console.log(model)
         tags.forEach(tag => {
           const tagElement = document.createElement("span");
           tagElement.innerHTML = key === 'arxiv'? '<i class="fa fa-book"></i> ' : '';

@@ -48,7 +48,7 @@ function loadCategories() {
     const bar = document.createElement('div');
     bar.className = 'category-bar';
     bar.onclick = () => {
-      sessionStorage.setItem('category', category.title);
+      globalCategory = category.title;
       loadPage('task', 'goal');
     };
 

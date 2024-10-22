@@ -4,7 +4,6 @@ document.getElementById('back-button').addEventListener('click', function () {
 
 
 function loadContent() {
-  const model = JSON.parse(sessionStorage.getItem('model'));
   const model_name = model.name;
   const model_id = model.id;
 

@@ -1,6 +1,5 @@
 updateProgressBar('search');
 
-var sub_task = sessionStorage.getItem('sub_task');
 var selected_row = null;
 
 // Handle Back Button
@@ -11,10 +10,10 @@ document.getElementById('back-button').addEventListener('click', function () {
 // Function to load and populate the table
 function loadTable() {
   const page_title = document.getElementById('page-title');
-  page_title.textContent = sub_task;
+  page_title.textContent = globalSubTask;
 
   // API call to fetch models for the given sub_task
-  fetch(`get_models_by_task/${sub_task}`)
+  fetch(`get_models_by_task/${globalSubTask}`)
     .then(response => response.json())
     .then(models => {
       // Get the table body where we will append rows
@@ -123,7 +122,7 @@ document.getElementById('next-button').addEventListener('click', function () {
     id: model_id
   };
 
-  sessionStorage.setItem('model',  JSON.stringify(model));
+  globalModel = model;
   loadPage('model_details', 'category_models');
 });
 

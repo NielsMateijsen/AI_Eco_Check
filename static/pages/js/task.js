@@ -3,7 +3,7 @@ document.getElementById('back-button').addEventListener('click', function () {
 });
 
 function loadSubTasks() {
-  const category = sessionStorage.getItem('category');
+  const category = globalCategory;
   const categoryHeader = document.getElementById('category-header');
   categoryHeader.textContent = category;
 
@@ -17,7 +17,7 @@ function loadSubTasks() {
         const subTaskDiv = document.createElement('div');
         subTaskDiv.className = 'subtask';
         subTaskDiv.addEventListener('click', () => {
-          sessionStorage.setItem('sub_task', subTask.label);
+          globalSubTask = subTask.label;
           loadPage('category_models', 'task');
         });
 
@@ -25,7 +25,7 @@ function loadSubTasks() {
         infoIcon.className = 'info-icon fa fa-info-circle';
         infoIcon.addEventListener('click', (event) => {
           event.stopPropagation();
-          sessionStorage.setItem('sub_task', subTask.label);
+          globalSubTask = subTask.label;
           loadPage('task_details', 'task');
         });
 

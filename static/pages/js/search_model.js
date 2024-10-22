@@ -120,6 +120,6 @@ function confirmModel() {
     name: selectedModel.name,
   }
 
-  sessionStorage.setItem('model',  JSON.stringify(model));
+  globalModel = model;
   loadPage('model_details', 'search_model');
 }

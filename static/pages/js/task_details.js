@@ -3,7 +3,7 @@ document.getElementById('back-button').addEventListener('click', function () {
 });
 
 function loadContent() {
-  sub_task = sessionStorage.getItem('sub_task');
+  sub_task = globalSubTask;
   url = '/get_sub_task_details/' + sub_task;
 
   fetch(url)
@@ -27,7 +27,7 @@ function loadContent() {
       document.getElementById('button-text').textContent = sub_task + ' Modellen';
 
       document.getElementById('model-overview-button').addEventListener('click', function () {
-        sessionStorage.setItem('sub_task', sub_task);
+        globalSubTask = sub_task;
         loadPage('category_models', 'task_details');
       });
 

@@ -8,7 +8,7 @@ function addEventListeners() {
     card.addEventListener('click', function () {
       const sub_task = card.querySelector('.subtask-title').textContent;
 
-      sessionStorage.setItem('sub_task', sub_task);
+      globalSubTask = sub_task;
 
       loadPage('task_details', 'introduction');
     });
