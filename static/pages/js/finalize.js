@@ -4,6 +4,7 @@ document.getElementById('back-button').addEventListener('click', function () {
 
 
 function loadContent() {
+  const model = globalModel;
   const model_name = model.name;
   const model_id = model.id;
 
