@@ -34,6 +34,9 @@ async function searchModels() {
           const group = document.createElement('div');
           group.classList.add('model-group');
           group.textContent = `Gemaakt door: ${model["group"]}`;
+          if (model["source"] === 'Intern') {
+            group.innerHTML += '<img src="static/images/RO_kroon.svg" alt="RO" id="RO" class="RO">';
+          }
        
           const taskWrapper = document.createElement('div');
           taskWrapper.classList.add('model-task');

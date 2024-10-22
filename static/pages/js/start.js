@@ -15,7 +15,7 @@ function addEventListeners() {
   });
 
   document.getElementById('own-model').addEventListener('click', function () {
-    alert("This feature is not yet available.");
+    loadPage('add_model', 'start');
   });
 }
 

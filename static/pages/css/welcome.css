@@ -1,108 +1,148 @@
-.welcome {
-  background-color: #f5f5f5;
-  border-radius: 10px;
-  padding: 20px;
-  margin-bottom: 10px;
-}
-
-.welcome-text {
-  font-size: 2em;
-  margin-bottom: 20px;
-  margin-top: -20px;
-}
- 
-/* .stats-box {
-  border: 2px solid #ccc;
-  padding: 20px;
-  margin-bottom: 30px;
-  width: 100%;
-} */
-
-.stats-box {
+/* Global Styling */
+#content {
+  /* font-family: Arial, sans-serif; */
+  /* margin: 0;
+  padding: 0; */
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background-color: white;
-  /* padding: 20px; */
-  border-radius: 8px;
-  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
-  margin-bottom: 30px;
-  /* border: 2px solid #ccc; */
+  flex-direction: column;
+  align-items: center;
+  /* background-color: #f4f4f4; */
 }
 
-.stat-item {
+/* Welcome Box */
+.welcome-box {
   text-align: center;
-  width: 22%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
   padding: 20px;
+  border: 1px solid #ccc;
+  position: relative;
 }
 
-.stat-number {
-  font-size: 28px;
-  font-weight: bold;
-  color: #333;
+.welcome-title {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--donkerblauw);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
 }
 
-.stat-item p {
+.welcome-box p {
   margin-top: 10px;
-  font-size: 17px;
-  color: #666;
-}
-
-h2.header {
-  color: #333;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.text-container {
-  background-color: #f7f7f7; /* Light background for the sustainability text */
-  border-bottom: 2px solid #ddd;
-  border-right: 2px solid #ddd;
-  margin-top: 10px;
-  padding: 10px 20px 20px 20px;
-  text-align: left;
-}
-
-.text-container p {
   font-size: 18px;
 }
 
-/* .questions {
-  text-align: left;
-}
-
-.question {
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.input-field {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1em;
-} */
-
-/* .button-container {
-  margin-top: 10px;
+/* Statistics Cards */
+.stats-container {
   display: flex;
-  justify-content: space-between;
-} */
+  justify-content: space-around;
+  margin-top: 20px;
+  width: 90%;
+}
+
+.stat-card {
+  width: 30%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.stat-card h3 {
+  margin-bottom: 10px;
+}
+
 .button-container {
-  margin-top: 10px;
-  display: flex;
-  justify-content: right;
   margin-top: 20px;
 }
 
-.introduction-button i {
-  margin-right: 10px;
+button {
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.start-button {
+  width: 250px;
+  height: 50px;
+  font-size: 25px;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Adjust chapter-navigation width for fixed positions of next/previous */
+.chapter-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  width: 60%; /* Fixed width to ensure even spacing */
+  position: relative;
+}
+
+/* Adjust the width of #chapterTitle to ensure only the current chapter stays centered */
+#chapterTitle {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  width: 50%; /* Reduced width to ensure current chapter is centered */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.chapter-titles {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.chapter-titles .invisible {
+  color: white;
+}
+
+.current-chapter {
+  color:rgb(14, 46, 79);
+}
+
+.sibling-chapter {
+  color: var(--logoblauw-5)
+}
+
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.arrow:hover {
+  text-decoration: none;
+}
+
+
+#prevChapter {
+  left: 5%; /* Fixed position to the left */
+}
+
+#nextChapter {
+  right: 5%; /* Fixed position to the right */
+}
+
+
+/* Chapter Content */
+.chapter-content {
+  width: 80%;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
 }

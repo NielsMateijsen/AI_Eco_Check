@@ -41,22 +41,27 @@ function loadDetails() {
       // Add each tag as a span
       Object.keys(model.tags).forEach(key => {
         
-        if (key !== 'pipeline_tag' && key !== 'arxiv') {
+        if (key !== 'pipeline_tag' && key !== 'arxiv' && key !== 'inhouse') {
           return;
         }
         const tags = model.tags[key];
+        console.log(model)
         tags.forEach(tag => {
           const tagElement = document.createElement("span");
           tagElement.innerHTML = key === 'arxiv'? '<i class="fa fa-book"></i> ' : '';
+          tagElement.innerHTML = key === 'inhouse'? '<img src="static/images/RO_kroon.svg" alt="RO" id="RO" class="RO"> ' : '';
           tagElement.classList.add("tag");
+          tagElement.classList.add(key);
           tagElement.innerHTML += tag;
           if (key === 'arxiv') {
-            tagElement.classList.add("arxiv");
             tagElement.innerHTML += " <i class='fa fa-external-link'></i>";
             tagElement.addEventListener('click', function () {
               const link = `https://arxiv.org/abs/${tag.split(':')[1]}`;
               window.open(link, '_blank');
             });
+          }
+          else if (key === 'inhouse') {
+
           }
           tagsContainer.appendChild(tagElement);
         });
@@ -80,13 +85,13 @@ function loadDetails() {
       //   description.appendChild(languages);
       // }
 
-      if (model.tags.license.length > 0) {
+      if (model.tags.license && model.tags.license.length > 0) {
         const license = document.createElement('p');
         license.innerHTML = `<b>Licentie:</b> ${model.tags.license[0]}` ;
         description.appendChild(license);
       }
 
-      if (model.tags.dataset.length > 0) {
+      if (model.tags.dataset && model.tags.dataset.length > 0) {
         const dataset = document.createElement('p');
         dataset.innerHTML = `<b>Dataset:</b> ${model.tags.dataset[0]}` ;
         description.appendChild(dataset);
@@ -187,8 +192,17 @@ function loadEmissions(model) {
   inference_div.appendChild(inference_icon);
 
   const inference_costs = document.createElement('p');
-  const inference_value = model.inference.mean == "Unknown" ? "N/A" : model.inference.mean;
-  inference_costs.innerHTML += ` ${inference_value} kWh`;
+  let inference_value = 0;
+  if (model.inference && model.inference.mean) {
+    inference_value = model.inference.mean;
+  } else if (model.inference) {
+    inference_value = model.inference;
+  }
+  else {
+    inference_value = 'N/A';
+  }
+  const inference_value_display = inference_value == "Unknown"  || inference_value == null ? "N/A" : inference_value;
+  inference_costs.innerHTML += ` ${inference_value_display} kWh`;
 
   inference_div.appendChild(inference_costs);
   emission_section.appendChild(inference_div);

@@ -88,8 +88,11 @@ function updateProgressBar(step) {
 function prettyPrintEmissions(emission) {
   // emissions is in grams, display with units from grams to metric tons
   emission = parseFloat(emission);
-  if (emission < 1000) {
+  if (emission < 10) {
     return emission.toFixed(4) + ' g';
+  }
+  else if (emission < 1000) {
+    return emission.toFixed(1) + ' g';
   } else if (emission < 1000000) {
     return (emission / 1000).toFixed(2) + ' kg';
   } else {
@@ -103,10 +106,10 @@ function getTrainEmissions(model) {
     emissions = 'N/A';
   }
   else if (model.emissions_is_dict) {
-    emissions = model.emissions.emissions.toFixed(4);
+    emissions = model.emissions.emissions.toFixed(3);
   }
   else {
-    emissions = model.emissions.toFixed(4);
+    emissions = model.emissions.toFixed(3);
   }
   return emissions;
 }

@@ -110,3 +110,18 @@ tbody tr:nth-child(even) {
   pointer-events: all ;
 }
 
+.RO_group {
+  display: flex;
+  align-items: center;
+}
+
+.RO {
+  width: 17px;
+  height: auto;
+  border-radius: 3px;
+  margin-left: 5px;
+}
+
+td i {
+  font-size: 24px;
+}

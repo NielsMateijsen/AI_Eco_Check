@@ -54,7 +54,7 @@
 
 /* Styling individual tags */
 .tag {
-  font-size: 14px;          /* Small text */
+  font-size: 16px;          /* Small text */
   background-color: white;  /* White background */
   border-radius: 20px;      /* Rounded corners */
   padding: 5px 10px;        /* Padding inside the tags */
@@ -63,10 +63,23 @@
   margin: 2px 0;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Optional shadow */
   color: #333;              /* Text color */
+  display: flex;
+  align-items: center;
 }
 
 .arxiv {
   cursor: pointer;
+}
+
+.inhouse {
+  background-color: var(--hemelblauw-5);
+}
+
+.RO {
+  width: 15px;
+  height: auto;
+  border-radius: 2px;
+  margin-right: 3px;
 }
 
 /* Rows within each column */

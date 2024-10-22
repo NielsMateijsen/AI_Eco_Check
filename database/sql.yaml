@@ -1,1 +1,11 @@
+addModel: "INSERT INTO public.models(
+	name, source, description, sub_task_id, created_at, inference_cost, creator, training_cost)
+	VALUES ('{name}', '{source}', '{description}', {sub_task_id}, NOW(), {inference_cost}, {creator}, {training_cost});"
 
+getModels: "SELECT * FROM public.models WHERE sub_task_id = {sub_task_id};"
+
+getModelById: "SELECT * FROM public.models WHERE id = {model_id};"
+
+searchModels: "SELECT * FROM public.models
+ WHERE name ILIKE '%%' || '{search_term}' || '%%' OR
+ creator ILIKE '%%' || '{search_term}' || '%%';"

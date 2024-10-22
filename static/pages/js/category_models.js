@@ -43,7 +43,17 @@ function loadTable() {
         row.appendChild(nameCell);
 
         const groupCell = document.createElement('td');
-        groupCell.textContent = model.group;
+        
+        if (model.source === 'Intern') {
+          const groupDiv = document.createElement('div');
+          groupDiv.className = 'RO_group';
+          groupDiv.textContent = model.group;
+          groupDiv.innerHTML += '<img src="static/images/RO_kroon.svg" alt="RO" id="RO" class="RO">' 
+          groupCell.appendChild(groupDiv);
+        }
+        else {
+          groupCell.textContent = model.group;
+        }
         row.appendChild(groupCell);
 
         const categoryCell = document.createElement('td');
@@ -63,6 +73,8 @@ function loadTable() {
         let inference_costs = 0;
         if (model.inference && model.inference.mean) {
           inference_costs = model.inference.mean;
+        } else if (model.inference) {
+          inference_costs = model.inference;
         }
         else {
           inference_costs = 'N/A';
@@ -82,9 +94,8 @@ function loadTable() {
           emissionsCell.appendChild(icon);
         } else {
           const icon = document.createElement('i');
-          icon.className = 'fa fa-plus';
-          icon.style.transform = 'rotate(45deg)';
-          icon.style.color = 'red';
+          icon.className = 'fa-solid fa-xmark';
+          icon.style.color = 'var(--hemelblauw)';
           emissionsCell.appendChild(icon);
         }
         // emissionsCell.textContent = model.emissions_available ? 'Yes' : 'No';

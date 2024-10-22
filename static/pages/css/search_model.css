@@ -59,6 +59,15 @@
   font-size: 14px;
   color: #555;
   margin-bottom: 10px;
+  display:flex;
+  align-items: center;
+}
+
+.RO {
+  width: 18px;
+  height: auto;
+  border-radius: 3px;
+  margin-left: 5px;
 }
 
 /* Styling for the task and subtask */
@@ -83,6 +92,7 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   width: 80%;
   margin: 20px auto 0px auto;
+  font-size: 21px;
 }
 
 .confirm-button {

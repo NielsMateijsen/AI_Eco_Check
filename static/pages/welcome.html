@@ -1,76 +1,39 @@
-
-<div class="welcome">
-  <h1 class="welcome-text">Welkom bij de AI Eco Check</h1>
-  <p>Welkom bij de AI Eco Check, onderdeel van de AI impact assessment, en bedoeld om overheidsmedewerkers meer bewust te maken van de duurzaamheid van kunstmatige intelligentie. Het doel is om zowel beginnende als ervaren gebruikers te helpen bij het leren over en/of selecteren van AI-modellen en hun impact op duurzaamheid.</p>
+<!-- Welcome Box -->
+<div class="welcome-box">
+  <h2 class="welcome-title">Welkom bij de AI Eco Check</h2>
+  <p>Welkom bij de AI Eco Check, onderdeel van de AI Impact Assessment, en bedoeld om overheidsmedewerkers meer bewust te maken van de duurzaamheid van kunstmatige intelligentie. Het doel is om zowel beginnende als ervaren gebruikers te helpen bij het leren over en/of selecteren van AI-modellen en hun impact op duurzaamheid.</p>
 </div>
 
-<!-- Border box for statistics placeholder -->
-<div class="stats-box">
-  <div class="stat-item">
-      <span class="stat-number">1,287MWh</span>
-      <p>Benodigde energie voor het trainen van GPT-3</p>
+<!-- Statistics Cards -->
+<div class="stats-container">
+  <div class="stat-card">
+      <h3>Stat 1</h3>
+      <p>1000</p>
   </div>
-  <div class="stat-item">
-      <span class="stat-number">552 ton CO2</span>
-      <p>Gelijk aan de uitstoot van het trainingsproces van GPT-3</p>
+  <div class="stat-card">
+      <h3>Stat 2</h3>
+      <p>500</p>
   </div>
-  <div class="stat-item">
-      <span class="stat-number">$191 miljoen</span>
-      <p>Geschatte kosten voor het trainen van Gemini</p>
-  </div>
-  <div class="stat-item">
-      <span class="stat-number">$78 miljoen</span>
-      <p>Geschatte kosten voor het trainen van GPT-4</p>
+  <div class="stat-card">
+      <h3>Stat 3</h3>
+      <p>200</p>
   </div>
 </div>
 
-<!-- Questions with input fields -->
-<!-- <div class="questions">
-  <div class="question">
-    <label for="question1">Welk probleem probeer je op te lossen met AI? Zou iets simpelers ook kunnen werken?</label>
-    <input type="text" id="question1" class="input-field" placeholder="Klik om te typen">
-  </div>
-  <div class="question">
-    <label for="question2">Weet je hoeveel energie de AI gedurende zijn hele leven verbruikt, van training tot dagelijks gebruik?</label>
-    <input type="text" id="question2" class="input-field" placeholder="Klik om te typen">
-  </div>
-  <div class="question">
-    <label for="question3">Waarom denk je dat AI de beste oplossing is voor dit probleem?</label>
-    <input type="text" id="question3" class="input-field" placeholder="Klik om te typen">
-  </div>
-</div> -->
-
-<div class="text-container">
-  <h2 class="header">Wat is AI?</h2>
-  <p>
-    AI (kunstmatige intelligentie) is een technologie waarmee computers taken kunnen uitvoeren die normaal door mensen worden gedaan, zoals leren, problemen oplossen of beslissingen nemen. In plaats van dat de computer precies verteld wordt wat hij moet doen, kan AI zelf informatie gebruiken om te leren en slimmer te worden in wat hij doet. Een voorbeeld hiervan is een AI-model dat een bestaande data set kan sorteren of een AI-model dat gezichten kan herkennen in een reeks foto's.
-  </p>
-</div>
-
-<div class="text-container">
-  <h2 class="header">Verschil tussen AI en GenAI</h2>
-  <p>
-    Waar normale AI alleen maar bestaande data kan analyseren en gebruiken om beslissingen te nemen, kan generatieve AI nieuw dingen maken. Generatieve AI creëert iets nieuws op basis van wat het geleerd heeft. Het kan bijvoorbeeld een nieuwe afbeelding maken die nog nooit eerder is gezien, of een compleet originele tekst schrijven op basis van input van een gebruiken.
-  </p>
-</div>
-
-<div class="text-container">
-  <h2 class="header">Duurzaamheid van AI</h2>
-  <p>
-    De duurzaamheid van AI is een belangrijk onderwerp. AI kan namelijk veel energie verbruiken. Dit komt doordat AI-modellen veel data nodig hebben om te trainen. Het trainen van een AI-model kan daarom veel energie kosten. Dit is slecht voor het milieu en kan ook duur zijn. Daarom is het belangrijk om te kijken naar manieren om AI duurzamer te maken.
-  </p>
-</div>
-
-
-
+<!-- Start Check Button -->
 <div class="button-container">
-  <!-- <div class="ro-button introduction-button" id="introduction-button">
-    <i class="fa-solid fa-circle-info"></i>
-    Introductie tot AI 
-  </div> -->
+  <button class="start-button ro-button" id="start-button">Start Eco Check</button>
+</div>
 
-  <div class="ro-button next-button" id="next-button">
-    Volgende
-  </div>
+<!-- Chapter Navigation and Text Box -->
+<div class="chapter-navigation">
+  <button id="prevChapter" class="arrow ro-button">&lt;</button>
+  <span id="chapterTitle">
+  </span>
+  <button id="nextChapter" class="arrow ro-button">&gt;</button>
+</div>
 
+<!-- Chapter Content -->
+<div class="chapter-content">
+  <p id="chapterText"></p>
 </div>

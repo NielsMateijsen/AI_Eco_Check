@@ -4,6 +4,9 @@ import psycopg2
 
 
 class Database:
+
+    _sub_task_cache = None
+
     def __init__(self):
         load_dotenv(find_dotenv("cred.env"))
 
@@ -56,3 +59,37 @@ class Database:
 
     def fetchone(self):
         return self.cursor.fetchone()
+
+    def get_sub_tasks(self):
+        self._sub_task_cache = {}
+        result = self.query("SELECT * FROM sub_tasks")
+        self._sub_task_cache = []
+        for sub_task in result:
+            self._sub_task_cache.append({
+                "id": sub_task[0],
+                "task_id": sub_task[1],
+                "name_id": sub_task[2],
+                "summary": sub_task[3],
+                "description": sub_task[4],
+                "name": sub_task[5]
+            })
+
+    def get_sub_task_id(self, name_id):
+        if self._sub_task_cache is None:
+            self.get_sub_tasks()
+
+        for sub_task in self._sub_task_cache:
+            if sub_task["name_id"] == name_id:
+                return sub_task["id"]
+
+        return None
+    
+    def get_sub_task_name_id_by_id(self, sub_task_id):
+        if self._sub_task_cache is None:
+            self.get_sub_tasks()
+
+        for sub_task in self._sub_task_cache:
+            if sub_task["id"] == sub_task_id:
+                return sub_task["name_id"]
+
+        return None
