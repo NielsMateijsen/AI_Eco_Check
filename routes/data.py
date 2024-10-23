@@ -172,29 +172,34 @@ def get_model_details():
             "group": model["creator"],
             "sub_task": dp.get_sub_task_name(model["sub_task_name_id"]),
             "task": dp.get_task_name(model["sub_task_name_id"]),
+            "description": model["description"],
             "inference": model["inference_cost"],
             "emissions_available": model["training_cost"] is not None,
             "tags": {
                 "pipeline_tag": [model["sub_task_name_id"]],
-                "inhouse": ["Intern"]
+                "source": ["Intern"]
             },
             "emissions": model["training_cost"] if model["training_cost"] is not None else None,
             "emissions_is_dict": False,
+            "source": "Intern"
         }
     
     else:
         pipeline_tag_exists = selected_model.get("pipeline_tag") is not None
+        tags = dp.parse_tags(selected_model["tags"])
+        tags["source"] = ["HuggingFace"]
         result = {
             "name": selected_model["id"].split("/")[1],
             "group": selected_model["id"].split("/")[0],
             "sub_task": dp.get_sub_task_name(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
             "task": dp.get_task_name(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
-            "task_summary": dp.get_task_summary(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
+            "description": dp.get_task_summary(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
             "inference": dp.get_task_inference(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
             "emissions_available": "co2_eq_emissions" in selected_model["tags"],
-            "tags": dp.parse_tags(selected_model["tags"]),
+            "tags": tags,
             "emissions": api.get_model_emissions(selected_model["id"]) if "co2_eq_emissions" in selected_model["tags"] else None,
             "emissions_is_dict": isinstance(api.get_model_emissions(model["id"]), dict) if "co2_eq_emissions" in model["tags"] else None,
+            "source": "HuggingFace"
         }
 
     return flask.jsonify(result)

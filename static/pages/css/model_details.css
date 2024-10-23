@@ -71,16 +71,48 @@
   cursor: pointer;
 }
 
+.arxiv i {
+  margin-right: 3px;
+}
+
+.fa-external-link {
+  margin-left: 3px;
+}
+
 .inhouse {
   background-color: var(--hemelblauw-5);
 }
 
-.RO {
+.huggingface {
+  background-color: #FF9D00;
+  cursor: pointer;
+}
+
+.RO-tag-icon {
   width: 15px;
   height: auto;
   border-radius: 2px;
   margin-right: 3px;
 }
+
+.RO_group {
+  display: flex;
+  align-items: center;
+}
+
+.RO {
+  width: 17px;
+  height: auto;
+  border-radius: 3px;
+  margin-left: 5px;
+}
+
+.huggingface-img {
+  width: 18px;
+  height: auto;
+  margin-right: 3px;
+}
+
 
 /* Rows within each column */
 .row {

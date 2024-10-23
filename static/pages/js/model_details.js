@@ -31,6 +31,8 @@ function loadDetails() {
         }
       }
       
+      console.log(model);
+
       const modelTitle = document.getElementById('model-title');
       modelTitle.textContent = "Model: " + model.group + "/" + model.name;
 
@@ -41,16 +43,31 @@ function loadDetails() {
       // Add each tag as a span
       Object.keys(model.tags).forEach(key => {
         
-        if (key !== 'pipeline_tag' && key !== 'arxiv' && key !== 'inhouse') {
+        if (key !== 'pipeline_tag' && key !== 'arxiv' && key !== 'source') {
           return;
         }
         const tags = model.tags[key];
         tags.forEach(tag => {
           const tagElement = document.createElement("span");
-          tagElement.innerHTML = key === 'arxiv'? '<i class="fa fa-book"></i> ' : '';
-          tagElement.innerHTML = key === 'inhouse'? '<img src="static/images/RO_kroon.svg" alt="RO" id="RO" class="RO"> ' : '';
+          if (key === 'arxiv') {
+            tagElement.innerHTML = '<i class="fa fa-book"></i> ';
+            tagElement.classList.add("arxiv");
+          } else if (key === 'source' && tag === "Intern") {
+            tagElement.innerHTML = '<img src="static/images/RO_kroon.svg" alt="RO" id="RO" class="RO-tag-icon"> ';
+            tagElement.classList.add("inhouse");
+          } else if (key === 'source' && tag === "HuggingFace") {
+            tagElement.innerHTML = '<img src="static/images/hf-logo.svg" alt="HuggingFace" class="huggingface-img"> ';
+            tagElement.classList.add("huggingface");
+            tagElement.addEventListener('click', function () {
+              const link = `https://huggingface.co/${model.group}/${model.name}`;
+              window.open(link, '_blank');
+            });
+          }
+          else {
+            tagElement.innerHTML = '';
+          }
+          
           tagElement.classList.add("tag");
-          tagElement.classList.add(key);
           tagElement.innerHTML += tag;
           if (key === 'arxiv') {
             tagElement.innerHTML += " <i class='fa fa-external-link'></i>";
@@ -59,17 +76,17 @@ function loadDetails() {
               window.open(link, '_blank');
             });
           }
-          else if (key === 'inhouse') {
-
+          else if (key === 'source' && tag === "HuggingFace") {
+            tagElement.innerHTML += " <i class='fa fa-external-link'></i>";
           }
           tagsContainer.appendChild(tagElement);
         });
       });
 
-      const description = document.getElementById('model-description');
-      const task_summary = document.createElement('p');
-      task_summary.innerHTML = model.task_summary || '';
-      description.appendChild(task_summary);
+      const descriptionDiv = document.getElementById('model-description');
+      const description = document.createElement('p');
+      description.innerHTML = model.description || '';
+      descriptionDiv.appendChild(description);
 
       // library, languages, license, dataset
       // if (model.tags.library.length > 0) {
@@ -87,13 +104,13 @@ function loadDetails() {
       if (model.tags.license && model.tags.license.length > 0) {
         const license = document.createElement('p');
         license.innerHTML = `<b>Licentie:</b> ${model.tags.license[0]}` ;
-        description.appendChild(license);
+        descriptionDiv.appendChild(license);
       }
 
       if (model.tags.dataset && model.tags.dataset.length > 0) {
         const dataset = document.createElement('p');
         dataset.innerHTML = `<b>Dataset:</b> ${model.tags.dataset[0]}` ;
-        description.appendChild(dataset);
+        descriptionDiv.appendChild(dataset);
       }
 
       loadTable(model);
@@ -173,7 +190,11 @@ function loadEmissions(model) {
   // Benzine E10: 2.821 kg CO2eq per liter
   // https://www.co2emissiefactoren.nl/lijst-emissiefactoren/
   const equivalent = document.createElement('p');
-  equivalent.innerHTML += ` ${(getTrainEmissions(model)/2821).toFixed(3)}L benzine`;
+  if (isNaN(getTrainEmissions(model))) {
+    equivalent.innerHTML += ` N/A L benzine`;
+  } else {
+    equivalent.innerHTML += ` ${(getTrainEmissions(model)/2821).toFixed(3)}L benzine`;
+  }
 
   equivalent_div.appendChild(equivalent);
   emission_section.appendChild(equivalent_div);
@@ -264,7 +285,18 @@ function loadTable(model) {
         // const stats = row.insertCell(4);
 
         model_name.innerHTML = similar_model.name;
-        group.innerHTML = similar_model.group;
+
+
+        if (similar_model.source === 'Intern') {
+          const groupDiv = document.createElement('div');
+          groupDiv.className = 'RO_group';
+          groupDiv.textContent = similar_model.group;
+          groupDiv.innerHTML += '<img src="static/images/RO_kroon.svg" alt="RO" id="RO" class="RO">' 
+          group.appendChild(groupDiv);
+        }
+        else {
+          group.textContent = similar_model.group;
+        }
 
         training_costs.innerHTML = getTrainEmissions(similar_model);
 
@@ -272,6 +304,9 @@ function loadTable(model) {
         let inference = 0;
         if (model.inference && model.inference.mean) {
           inference = model.inference.mean;
+        }
+        else if (model.inference) {
+          inference = model.inference;
         }
         else {
           inference = 'N/A';

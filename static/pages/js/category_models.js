@@ -94,7 +94,7 @@ function loadTable() {
         } else {
           const icon = document.createElement('i');
           icon.className = 'fa-solid fa-xmark';
-          icon.style.color = 'var(--hemelblauw)';
+          icon.style.color = 'var(--hemelblauw-1)';
           emissionsCell.appendChild(icon);
         }
         // emissionsCell.textContent = model.emissions_available ? 'Yes' : 'No';
