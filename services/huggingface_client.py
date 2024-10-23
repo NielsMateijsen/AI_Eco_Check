@@ -5,7 +5,7 @@ import json
 import requests
 import os
 
-path = os.path.abspath(os.getcwd()) + "/joint-interdisciplinary-project"
+path = os.path.abspath(os.getcwd()) + "/joint-interdisciplinary-project/"
 
 
 class HuggingFaceAPI:
@@ -18,7 +18,7 @@ class HuggingFaceAPI:
         self.set_tags()
 
     def set_tags(self):
-        with open("services/categories.json", encoding='utf-8') as f:
+        with open(path + "services/categories.json") as f:
             self.pipeline_tags = json.load(f)
 
         categories = set()

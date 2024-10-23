@@ -220,7 +220,7 @@ def get_sub_task_details(sub_task):
     }
 
     return flask.jsonify(result)
-    
+
 @app.route('/get_sub_tasks/<string:task>')
 def get_sub_tasks(task):
     sub_tasks = dp.get_sub_tasks_details(task)
@@ -231,7 +231,7 @@ def get_sub_tasks(task):
             "label": sub_task["label"],
             "icon": sub_task["icon"],
             "summary": sub_task["summary"],
-        } 
+        }
         for sub_task in sub_tasks
     ]
 
