@@ -54,8 +54,8 @@ def search_models(model_name):
             "task": dp.get_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
             "inference": dp.get_task_inference(model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
             "emissions_available": "co2_eq_emissions" in model["tags"],
-            "emissions": api.get_model_emissions(model["id"]) if "co2_eq_emissions" in model["tags"] else None,
-            "emissions_is_dict": isinstance(api.get_model_emissions(model["id"]), dict) if "co2_eq_emissions" in model["tags"] else None,
+            # "emissions": api.get_model_emissions(model["id"]) if "co2_eq_emissions" in model["tags"] else None,
+            # "emissions_is_dict": isinstance(api.get_model_emissions(model["id"]), dict) if "co2_eq_emissions" in model["tags"] else None,
             "source": "HuggingFace"
         }
         models.append(el)
@@ -114,31 +114,62 @@ def get_models_by_task(sub_task):
         models.append(el)
     
 
-    response = requests.get(
-        "https://huggingface.co/api/models",
-        params={"filter":task_id,"sort":"downloads","full":"False","config":"False"},
-        headers={}
-    ).json()
+    # response = requests.get(
+    #     "https://huggingface.co/api/models",
+    #     params={"filter":task_id,"sort":"downloads","full":"False","config":"False"},
+    #     headers={}
+    # ).json()
 
-    for model in response:
-        if model.get("downloads") < min_downloads:
-            continue
-        pipeline_tag_exists = model.get("pipeline_tag") is not None
-        if pipeline_tag_exists:
-            if model["pipeline_tag"] != task_id:
-                continue
-        el = {
-            "id": model["_id"],
-            "name": model["id"].split("/")[1],
-            "group": model["id"].split("/")[0],
-            "sub_task": dp.get_sub_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
-            "task": dp.get_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
-            "inference": dp.get_task_inference(model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
-            "emissions_available": "co2_eq_emissions" in model["tags"],
-            "emissions": api.get_model_emissions(model["id"]) if "co2_eq_emissions" in model["tags"] else None,
-            "emissions_is_dict": isinstance(api.get_model_emissions(model["id"]), dict) if "co2_eq_emissions" in model["tags"] else None,
+    # for model in response:
+    #     if model.get("downloads") < min_downloads:
+    #         continue
+    #     pipeline_tag_exists = model.get("pipeline_tag") is not None
+    #     if pipeline_tag_exists:
+    #         if model["pipeline_tag"] != task_id:
+    #             continue
+    #     el = {
+    #         "id": model["_id"],
+    #         "name": model["id"].split("/")[1],
+    #         "group": model["id"].split("/")[0],
+    #         "sub_task": dp.get_sub_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
+    #         "task": dp.get_task_name(model["pipeline_tag"]) if pipeline_tag_exists else "",
+    #         "inference": dp.get_task_inference(model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
+    #         "emissions_available": "co2_eq_emissions" in model["tags"],
+    #         "emissions": api.get_model_emissions(model["id"]) if "co2_eq_emissions" in model["tags"] else None,
+    #         "emissions_is_dict": isinstance(api.get_model_emissions(model["id"]), dict) if "co2_eq_emissions" in model["tags"] else None,
+    #         "source": "HuggingFace"
+    #     }
+    #     models.append(el)
+
+    hf_models = list(api.get_model_by_sub_task(task_id))
+
+    for model in hf_models:
+        if not model.card_data:
+            el = {
+            "id": model.id,
+            "name": model.id.split("/")[-1],
+            "group": model.id.split("/")[0],
+            "sub_task": sub_task,
+            "task": dp.get_task_name(task_id),
+            "inference": dp.get_task_inference(task_id),
+            "emissions_available": False,
+            "emissions": None,
+            "emissions_is_dict": None,
             "source": "HuggingFace"
         }
+        else:
+            el = {
+                "id": model.id,
+                "name": model.id.split("/")[-1],
+                "group": model.id.split("/")[0],
+                "sub_task": sub_task,
+                "task": dp.get_task_name(task_id),
+                "inference": dp.get_task_inference(task_id),
+                "emissions_available": "co2_eq_emissions" in model.card_data,
+                "emissions": model.card_data["co2_eq_emissions"] if "co2_eq_emissions" in model.card_data else None,
+                "emissions_is_dict": isinstance(model.card_data["co2_eq_emissions"], dict) if "co2_eq_emissions" in model.card_data else None,
+                "source": "HuggingFace"
+            }
         models.append(el)
 
     return flask.jsonify(models)
@@ -158,7 +189,7 @@ def get_model_details():
     selected_model = None
 
     for model in response:
-        if model["_id"] == model_id:
+        if model["_id"] == model_id or model["id"] == model_id:
             selected_model = model
             break
 

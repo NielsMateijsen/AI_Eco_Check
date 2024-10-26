@@ -13,12 +13,14 @@ class HuggingFaceAPI:
         self.api = HfApi()
         self.pipeline_tags = []
         self.categories = []
-        self.co2_models = list(self.get_models())
+        # self.co2_models = list(self.get_models(co2_available=True))
+        # self.models = list(self.get_models(co2_available=False))
+
 
         self.set_tags()
 
     def set_tags(self):
-        with open(path + "services/categories.json") as f:
+        with open("services/categories.json", encoding='utf-8') as f:
             self.pipeline_tags = json.load(f)
 
         categories = set()
@@ -31,21 +33,23 @@ class HuggingFaceAPI:
         return self.api.model_info(model_id)
 
     # returns iterable of ModelInfo
-    def get_models(self) -> Iterable[ModelInfo]:
-        return self.api.list_models(cardData=True, full=False, tags="co2_eq_emissions")
+    def get_models(self, co2_available) -> Iterable[ModelInfo]:
+        if co2_available:
+            return self.api.list_models(cardData=True, full=False, tags="co2_eq_emissions")
+        
+        return self.api.list_models(cardData=True, full=False)
 
     def get_model_emissions(self, model: str) -> dict:
         # find model in self.co2_models
-        for m in self.co2_models:
-            if m.id == model:
-                return m.card_data["co2_eq_emissions"]
+        model = list(self.api.list_models(tags="co2_eq_emissions", search=model, cardData=True, full=False))[0]
+
+        if model.card_data:
+            return model.card_data["co2_eq_emissions"]
         return None
 
 
-        # try:
-        #     return self.api.model_info(model).card_data["co2_eq_emissions"]
-        # except KeyError:
-        #     return None
+    def get_model_by_sub_task(self, sub_task_id: str, co2_available: bool = False) -> Iterable[ModelInfo]:
+        if co2_available:
+            return self.api.list_models(tags="co2_eq_emissions", cardData=True, full=False, filter=sub_task_id)
 
-
-
+        return self.api.list_models(cardData=True, full=False, filter=sub_task_id, sort="downloads", limit=200)
