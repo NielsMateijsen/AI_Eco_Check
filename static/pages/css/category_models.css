@@ -7,10 +7,112 @@
   margin-bottom: 10px;
 }
 
+
+.filter-button-container {
+  display: flex;
+  position: relative; /* Ensure the menu is positioned relative to this container */
+}
+
+.filter-button {
+  margin-left: auto;
+  margin-top: -50px;
+  cursor: pointer;
+}
+
+.clear-filters {
+  font-size: 15px;
+  color: var(--logoblauw-2);
+  cursor: pointer;
+  margin-bottom: -5px;
+}
+
+.clear-filters:hover {
+  text-decoration: underline;
+  color: var(--logoblauw);
+}
+
+.filter-menu {
+  position: absolute; /* Absolute position for dropdown effect */
+  right: 15%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  min-width: 250px; /* Optional: sets a width for dropdown */
+  text-align: left;
+}
+
+/* Container styling */
+.filter-menu-header {
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+.filter-menu-header h2 {
+  font-size: 19px;
+  margin: 0 0 5px 0;
+  color: #333;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+/* Filter group styling */
+.filter-group {
+  margin-top: 15px;
+}
+
+.filter-group h3 {
+  font-size: 14px;
+  margin: 0 0 5px;
+  color: #666;
+}
+
+/* Dropdown styling */
+.filter-dropdown {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.filter-dropdown:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Optional hover effect for dropdown */
+.filter-dropdown:hover {
+  background-color: #f0f0f0;
+}
+#apply-filters {
+  margin-top: 10px;
+  width: 100%; /* Make button full width */
+  padding: 8px;
+  background-color: var(--hemelblauw-1);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#apply-filters:hover {
+  background-color: var(--hemelblauw);
+}
+
+
 .table-container {
-  margin-top: 5px;
   max-height: 60vh; /* Set a max height for the table container */
-  overflow-y: hidden; /* Allow vertical scrolling inside the container */
+  overflow-y: hidden; 
   position: relative; /* Ensure the table headers are positioned correctly */
 }
 

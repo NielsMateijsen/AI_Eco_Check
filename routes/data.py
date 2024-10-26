@@ -93,25 +93,30 @@ def search_models(model_name):
 @app.route('/get_models_by_task/<string:sub_task>')
 def get_models_by_task(sub_task):
     task_id = dp.get_task_id(sub_task)
+    # get parameters from the request
+    creatorFilter = request.args.get('creator')
+    emissionsFilter = request.args.get('emissions')
+
 
     models = []
 
-    db_models = dbm.getModels(task_id)
+    if creatorFilter == "intern" or creatorFilter == "all":
+        db_models = dbm.getModels(task_id)
 
-    for model in db_models:
-        el = {
-            "id": model["id"],
-            "name": model["name"],
-            "group": model["creator"],
-            "sub_task": sub_task,
-            "task": dp.get_task_name(model["sub_task_name_id"]),
-            "inference": model["inference_cost"],
-            "emissions_available": model["training_cost"] is not None,
-            "emissions": model["training_cost"] if model["training_cost"] is not None else None,
-            "emissions_is_dict": False,
-            "source": "Intern"
-        }
-        models.append(el)
+        for model in db_models:
+            el = {
+                "id": model["id"],
+                "name": model["name"],
+                "group": model["creator"],
+                "sub_task": sub_task,
+                "task": dp.get_task_name(model["sub_task_name_id"]),
+                "inference": model["inference_cost"],
+                "emissions_available": model["training_cost"] is not None,
+                "emissions": model["training_cost"] if model["training_cost"] is not None else None,
+                "emissions_is_dict": False,
+                "source": "Intern"
+            }
+            models.append(el)
     
 
     # response = requests.get(
@@ -141,36 +146,43 @@ def get_models_by_task(sub_task):
     #     }
     #     models.append(el)
 
-    hf_models = list(api.get_model_by_sub_task(task_id))
+    if creatorFilter == "huggingface" or creatorFilter == "all":
+        hf_models = list(api.get_model_by_sub_task(task_id))
 
-    for model in hf_models:
-        if not model.card_data:
-            el = {
-            "id": model.id,
-            "name": model.id.split("/")[-1],
-            "group": model.id.split("/")[0],
-            "sub_task": sub_task,
-            "task": dp.get_task_name(task_id),
-            "inference": dp.get_task_inference(task_id),
-            "emissions_available": False,
-            "emissions": None,
-            "emissions_is_dict": None,
-            "source": "HuggingFace"
-        }
-        else:
-            el = {
+        for model in hf_models:
+            if not model.card_data:
+                el = {
                 "id": model.id,
                 "name": model.id.split("/")[-1],
                 "group": model.id.split("/")[0],
                 "sub_task": sub_task,
                 "task": dp.get_task_name(task_id),
                 "inference": dp.get_task_inference(task_id),
-                "emissions_available": "co2_eq_emissions" in model.card_data,
-                "emissions": model.card_data["co2_eq_emissions"] if "co2_eq_emissions" in model.card_data else None,
-                "emissions_is_dict": isinstance(model.card_data["co2_eq_emissions"], dict) if "co2_eq_emissions" in model.card_data else None,
+                "emissions_available": False,
+                "emissions": None,
+                "emissions_is_dict": None,
                 "source": "HuggingFace"
             }
-        models.append(el)
+            else:
+                el = {
+                    "id": model.id,
+                    "name": model.id.split("/")[-1],
+                    "group": model.id.split("/")[0],
+                    "sub_task": sub_task,
+                    "task": dp.get_task_name(task_id),
+                    "inference": dp.get_task_inference(task_id),
+                    "emissions_available": "co2_eq_emissions" in model.card_data,
+                    "emissions": model.card_data["co2_eq_emissions"] if "co2_eq_emissions" in model.card_data else None,
+                    "emissions_is_dict": isinstance(model.card_data["co2_eq_emissions"], dict) if "co2_eq_emissions" in model.card_data else None,
+                    "source": "HuggingFace"
+                }
+
+            if emissionsFilter == "true" and el["emissions_available"]:
+                models.append(el)
+            elif emissionsFilter == "false" and not el["emissions_available"]:
+                models.append(el)
+            elif emissionsFilter == "all":
+                models.append(el)
 
     return flask.jsonify(models)
 
