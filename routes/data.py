@@ -104,6 +104,15 @@ def get_models_by_task(sub_task):
         db_models = dbm.getModels(task_id)
 
         for model in db_models:
+
+            inference = model["inference_cost"]
+
+            if inference is None:
+                model["inference_cost"] = dp.get_task_inference(model["sub_task_name_id"])
+                model['inference_source'] = 'Estimate'
+            else:
+                model['inference_source'] = 'Intern'
+
             el = {
                 "id": model["id"],
                 "name": model["name"],
@@ -208,6 +217,15 @@ def get_model_details():
     if selected_model is None:
         # search in database
         model = dbm.get_model_by_id(model_id)
+        inference = model["inference_cost"]
+
+        if inference is None:
+            model["inference_cost"] = dp.get_task_inference(model["sub_task_name_id"])
+            model['inference_source'] = 'Estimate'
+        else:
+            model['inference_source'] = 'Intern'
+
+        print(model)
         
         result = {
             "id": model["id"],
@@ -217,13 +235,17 @@ def get_model_details():
             "task": dp.get_task_name(model["sub_task_name_id"]),
             "description": model["description"],
             "inference": model["inference_cost"],
+            "inference_source": model["inference_source"],
             "emissions_available": model["training_cost"] is not None,
             "tags": {
                 "pipeline_tag": [model["sub_task_name_id"]],
                 "source": ["Intern"]
             },
-            "emissions": model["training_cost"] if model["training_cost"] is not None else None,
-            "emissions_is_dict": False,
+            "emissions": {
+                "emissions": model["training_cost"],
+                "source": "Intern"                
+            } if model["training_cost"] is not None else None,
+            "emissions_is_dict": True,
             "source": "Intern"
         }
     
@@ -231,13 +253,15 @@ def get_model_details():
         pipeline_tag_exists = selected_model.get("pipeline_tag") is not None
         tags = dp.parse_tags(selected_model["tags"])
         tags["source"] = ["HuggingFace"]
+        inference = dp.get_task_inference(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A"
         result = {
             "name": selected_model["id"].split("/")[1],
             "group": selected_model["id"].split("/")[0],
             "sub_task": dp.get_sub_task_name(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
             "task": dp.get_task_name(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
             "description": dp.get_task_summary(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
-            "inference": dp.get_task_inference(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
+            "inference": inference,
+            "inference_source": "Estimate" if inference != "N/A" else "Unknown",
             "emissions_available": "co2_eq_emissions" in selected_model["tags"],
             "tags": tags,
             "emissions": api.get_model_emissions(selected_model["id"]) if "co2_eq_emissions" in selected_model["tags"] else None,

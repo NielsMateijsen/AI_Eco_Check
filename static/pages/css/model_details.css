@@ -207,10 +207,57 @@
   margin-left: 10px;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  margin-left: 20px;
+}
+
+.tooltip i {
+  font-size: 20px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: #ddd;
+  text-align: left;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -150px;
+  font-size: 15px;
+  font-weight: normal ;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #ddd transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
 .info-section.reliability p {
   font-size: 16px;
   word-wrap: break-word;
   max-width: 70%;
+}
+
+.info-section.reliability span {
+  font-weight: normal;
+  font-size: 14px;
 }
 
 .not-available {
