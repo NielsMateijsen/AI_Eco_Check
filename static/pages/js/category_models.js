@@ -112,60 +112,64 @@ function loadTable(creatorFilter, emissionsFilter) {
     });
 }
 
-// Toggle filter menu visibility on button click
-document.getElementById('filter-button').addEventListener('click', function (event) {
-  const filterMenu = document.getElementById('filter-menu');
-  filterMenu.classList.toggle('hidden');
-  event.stopPropagation(); // Prevents the click from closing the menu immediately when toggled
-});
+function loadEventListeners() {
+  // Toggle filter menu visibility on button click
+  document.getElementById('filter-button').addEventListener('click', function (event) {
+    const filterMenu = document.getElementById('filter-menu');
+    filterMenu.classList.toggle('hidden');
+    event.stopPropagation(); // Prevents the click from closing the menu immediately when toggled
+  });
 
-// Close the filter menu when clicking outside
-document.addEventListener('click', function (event) {
-  const filterMenu = document.getElementById('filter-menu');
-  const filterButton = document.getElementById('filter-button');
-
-  // Check if the click was outside the menu and button
-  if (!filterMenu.contains(event.target) && !filterButton.contains(event.target)) {
-    filterMenu.classList.add('hidden');
-  }
-});
-
-document.getElementById('clear-filters').addEventListener('click', function () {
-  const creatorFilter = document.getElementById('creator-filter');
-  const emissionsFilter = document.getElementById('emissions-filter');
-
-  if (creatorFilter.value === 'all' && emissionsFilter.value === 'all') {
-    return;
-  }
-
-  document.getElementById('creator-filter').value = 'all';
-  document.getElementById('emissions-filter').value = 'all';
-
-  loadTable('all', 'all');
-  document.getElementById('filter-menu').classList.add('hidden');
-});
-
-document.getElementById('apply-filters').addEventListener('click', function () {
-  const creator = document.getElementById('creator-filter').value;
-  const emissions = document.getElementById('emissions-filter').value;
-
-  loadTable(creator, emissions);
-  document.getElementById('filter-menu').classList.add('hidden');
-});
+  // Close the filter menu when clicking outside
+  document.getElementById('wrapper').addEventListener('click', function (event) {
+    const filterMenu = document.getElementById('filter-menu');
+    const filterButton = document.getElementById('filter-button');
 
 
-// Handle Next Button
-document.getElementById('next-button').addEventListener('click', function () {
-  const model_name = selected_row.querySelector('.name').textContent;
-  const model_id = selected_row.querySelector('.name').id;
+    // Check if the click was outside the menu and button
+    if (!filterMenu.contains(event.target) && !filterButton.contains(event.target)) {
+      filterMenu.classList.add('hidden');
+    }
+  });
 
-  const model = {
-    name: model_name,
-    id: model_id
-  };
+  document.getElementById('clear-filters').addEventListener('click', function () {
+    const creatorFilter = document.getElementById('creator-filter');
+    const emissionsFilter = document.getElementById('emissions-filter');
 
-  globalModel = model;
-  loadPage('model_details', 'category_models');
-});
+    if (creatorFilter.value === 'all' && emissionsFilter.value === 'all') {
+      return;
+    }
+
+    document.getElementById('creator-filter').value = 'all';
+    document.getElementById('emissions-filter').value = 'all';
+
+    loadTable('all', 'all');
+    document.getElementById('filter-menu').classList.add('hidden');
+  });
+
+  document.getElementById('apply-filters').addEventListener('click', function () {
+    const creator = document.getElementById('creator-filter').value;
+    const emissions = document.getElementById('emissions-filter').value;
+
+    loadTable(creator, emissions);
+    document.getElementById('filter-menu').classList.add('hidden');
+  });
+
+
+  // Handle Next Button
+  document.getElementById('next-button').addEventListener('click', function () {
+    const model_name = selected_row.querySelector('.name').textContent;
+    const model_id = selected_row.querySelector('.name').id;
+
+    const model = {
+      name: model_name,
+      id: model_id
+    };
+
+    globalModel = model;
+    loadPage('model_details', 'category_models');
+  });
+}
 
 loadTable('all', 'all');
+loadEventListeners();
