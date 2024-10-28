@@ -30,8 +30,7 @@ function loadDetails() {
           inference_costs: 0
         }
       }
-      
-      console.log(model);
+    
 
       const modelTitle = document.getElementById('model-title');
       modelTitle.textContent = "Model: " + model.group + "/" + model.name;
@@ -266,7 +265,7 @@ function loadReliability(model) {
 
 function loadTable(model) {
   const task = model.sub_task;
-  const url = `/get_models_by_task/${task}`;
+  const url = `/get_models_by_task/${task}?creator=all&emissions=all`;
   
   fetch(url)
     .then(response => response.json())
