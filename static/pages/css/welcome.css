@@ -110,10 +110,12 @@ button {
 
 .current-chapter {
   color:rgb(14, 46, 79);
+  width: 33%;
 }
 
 .sibling-chapter {
-  color: var(--logoblauw-5)
+  color: var(--logoblauw-5);
+  width: 33%;
 }
 
 

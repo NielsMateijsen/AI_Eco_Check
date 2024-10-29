@@ -11,7 +11,7 @@ function updateChapter() {
 
       <!-- Section 1 -->
       <div style="display: flex; align-items: center; gap: 15px;">
-        <i class="fa-solid fa-leaf" style="font-size: 35px; flex-shrink: 0; color: var(--logoblauw)"></i>
+        <i class="fa-solid fa-leaf" style="font-size: 35px; flex-shrink: 0; color: #28a745"></i>
         <p style="margin: 0; line-height: 1.5;">
           Door het hoge energieverbruik dragen AI-systemen aanzienlijk bij aan de uitstoot van CO₂. Het trainen van één groot AI-model kan evenveel uitstoot veroorzaken als de levensduur van meerdere auto's. Datacenters, vooral die op fossiele brandstoffen draaien, vergroten deze impact. Ondanks inspanningen om over te stappen op groene energie, blijft de CO₂-voetafdruk van AI zorgwekkend.
         </p>
@@ -27,7 +27,7 @@ function updateChapter() {
     
       <!-- Section 3 -->
       <div style="display: flex; align-items: center; gap: 15px;">
-        <i class="fa fa-droplet" style="font-size: 35px; flex-shrink: 0; color: var(--logoblauw)"></i>
+        <i class="fa fa-droplet" style="font-size: 35px; flex-shrink: 0; color: #007FFF"></i>
         <p style="margin: 0; line-height: 1.5;">
           AI-technologieën vereisen aanzienlijke hoeveelheden water voor het koelen van datacenters die de intensieve rekenkracht ondersteunen. Bij het trainen van grote AI-modellen worden miljoenen liters water verbruikt om oververhitting van servers te voorkomen. Daarnaast worden per 15 vragen (in populaire chatmodellen) in nederland zo’n halve liter aan schoon drinkwater gebruikt.  Dit allemaal kan leiden tot ecologische gevolgen, vooral in gebieden waar water schaars is.
         </p>
@@ -35,7 +35,7 @@ function updateChapter() {
     
       <!-- Section 4 -->
       <div style="display: flex; align-items: center; gap: 15px;">
-        <i class="fa fa-bolt" style="font-size: 35px; flex-shrink: 0; color: var(--logoblauw)"></i>
+        <i class="fa fa-bolt" style="font-size: 35px; flex-shrink: 0; color: #FADF63"></i>
         <p style="margin: 0; line-height: 1.5;">
           Kunstmatige intelligentie (AI) is energie-inefficiënt omdat het enorme hoeveelheden rekenkracht en data vereist, vooral tijdens het trainen van modellen zoals machine learning en deep learning. Dit proces, uitgevoerd op energie-intensieve hardware zoals GPU's in datacenters, verbruikt grote hoeveelheden energie en kan aanzienlijke CO2-uitstoot veroorzaken.
         </p>
@@ -122,7 +122,7 @@ function updateChapter() {
 
   <!-- Alternative 1: Geautomatiseerde systemen -->
   <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-    <i class="fa fa-cog" style="font-size: 24px; color: #0073e6; margin-right: 15px;"></i>
+    <i class="fa fa-cog" style="font-size: 24px; color: var(--logoblauw); margin-right: 15px;"></i>
     <div>
       <h3 style="margin: 0; font-size: 18px;">Geautomatiseerde systemen</h3>
       <p style="margin: 5px 0 0; line-height: 1.5;">
@@ -133,7 +133,7 @@ function updateChapter() {
 
   <!-- Alternative 2: Data-analyse software -->
   <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-    <i class="fa fa-chart-line" style="font-size: 24px; color: #0073e6; margin-right: 15px;"></i>
+    <i class="fa fa-chart-line" style="font-size: 24px; color: var(--logoblauw); margin-right: 15px;"></i>
     <div>
       <h3 style="margin: 0; font-size: 18px;">Data-analyse software</h3>
       <p style="margin: 5px 0 0; line-height: 1.5;">
@@ -144,7 +144,7 @@ function updateChapter() {
 
   <!-- Alternative 3: Workflow-automatisering -->
   <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-    <i class="fa fa-robot" style="font-size: 24px; color: #0073e6; margin-right: 15px;"></i>
+    <i class="fa fa-robot" style="font-size: 24px; color: var(--logoblauw); margin-right: 15px;"></i>
     <div>
       <h3 style="margin: 0; font-size: 18px;">Workflow-automatisering</h3>
       <p style="margin: 5px 0 0; line-height: 1.5;">
@@ -155,7 +155,7 @@ function updateChapter() {
 
   <!-- Alternative 4: Expert Systems -->
   <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-    <i class="fa fa-user-tie" style="font-size: 24px; color: #0073e6; margin-right: 15px;"></i>
+    <i class="fa fa-user-tie" style="font-size: 24px; color: var(--logoblauw); margin-right: 15px;"></i>
     <div>
       <h3 style="margin: 0; font-size: 18px;">Expert Systems</h3>
       <p style="margin: 5px 0 0; line-height: 1.5;">
@@ -166,7 +166,7 @@ function updateChapter() {
 
   <!-- Alternative 5: Simulation Modeling -->
   <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-    <i class="fa fa-cube" style="font-size: 24px; color: #0073e6; margin-right: 15px;"></i>
+    <i class="fa fa-cube" style="font-size: 24px; color: var(--logoblauw); margin-right: 15px;"></i>
     <div>
       <h3 style="margin: 0; font-size: 18px;">Simulation Modeling</h3>
       <p style="margin: 5px 0 0; line-height: 1.5;">
@@ -177,7 +177,43 @@ function updateChapter() {
 
 </div>
 `},
-    { title: "Tips", content: `<div id="sub-page-content" class="sub-page-content" style="padding: 20px;">`
+    { title: "Tips", content: `<div id="sub-page-content" class="sub-page-content" style="padding: 20px;">
+
+  <!-- Section 1: Beperk je data -->
+  <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+    <i class="fa fa-database" style="font-size: 24px; color: var(--logoblauw); margin-right: 15px;"></i>
+    <div>
+      <h3 style="margin: 0; font-size: 18px;">Beperk je data</h3>
+      <p style="margin: 5px 0 0; line-height: 1.5;">
+        Het gebruik van kleinere modellen, die minder data gebruiken, zorgt voor een lagere uitstoot dan het gebruik van grotere modellen. Kies daarom waar mogelijk een kleiner AI model en beperk de input data.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section 2: Duurzame keuze -->
+  <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+    <i class="fa fa-leaf" style="font-size: 24px; color: #28a745; margin-right: 15px;"></i>
+    <div>
+      <h3 style="margin: 0; font-size: 18px;">Duurzame keuze</h3>
+      <p style="margin: 5px 0 0; line-height: 1.5;">
+        Kies waar mogelijk voor AI modellen die zijn gemaakt door bedrijven die rekening houden met het milieu en de uitstoot van AI modellen.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section 3: Bewuste keuze -->
+  <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+    <i class="fa fa-lightbulb" style="font-size: 24px; color: #FADF63; margin-right: 15px;"></i>
+    <div>
+      <h3 style="margin: 0; font-size: 18px;">Bewuste keuze</h3>
+      <p style="margin: 5px 0 0; line-height: 1.5;">
+        Denk goed na of je echt AI moet gebruiken en of er geen alternatieven te gebruiken zijn die minder schadelijk zijn.
+      </p>
+    </div>
+  </div>
+
+</div>
+`
     },
       
       

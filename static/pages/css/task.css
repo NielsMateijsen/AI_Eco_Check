@@ -38,11 +38,12 @@
   position: absolute; /* Position relative to subtask container */
   bottom: 10px; /* Distance from bottom */
   right: 10px; /* Distance from right */
-  color: rgb(150, 150, 150);
+  font-size: 25px;
+  color: var(--hemelblauw)
 }
 
 .info-icon:hover {
-  color: rgb(100, 100, 100);
+  color: var(--logoblauw-1);
 }
 
 .label {
