@@ -13,11 +13,11 @@
 }
 
 .column-left {
-  width: 75%;
+  width: 70%;
 }
 
 .column-right {
-  width: 25%;
+  width: 30%;
 }
 
 .column-right h2 {
@@ -252,7 +252,7 @@
 .info-section.reliability p {
   font-size: 16px;
   word-wrap: break-word;
-  max-width: 70%;
+  max-width: 100%;
 }
 
 .info-section.reliability span {
@@ -278,9 +278,12 @@
   height: 35%;
 }
 
+.bron-informatie i {
+  font-size: 30px;
+}
+
 .button-container {
   margin-top: 10px;
   display: flex;
   justify-content: right;
-  margin-top: 20px;
 }

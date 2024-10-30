@@ -75,6 +75,12 @@ def get_task_inference(sub_task: str) -> str:
     else:
         return None
     
+def get_task_icon(sub_task: str) -> str:
+    for category in categories:
+        for task in category["tasks"]:
+            if task["id"] == sub_task:
+                return task["icon"]
+    
 def get_sub_tasks_details(task: str) -> list:
     sub_tasks = []
     for category in categories:
