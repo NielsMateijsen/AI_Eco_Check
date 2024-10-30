@@ -50,13 +50,11 @@ function updateChapter() {
 
   <div class="column" style="flex: 1; display: flex; flex-direction: column; align-items: center;">
     <h2 style="margin-bottom: 10px;">AI</h2>
-    <img src="placeholder.jpg" alt="AI Placeholder Image" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
     <p>AI is de overkoepelende term die verwijst naar systemen of machines die taken kunnen uitvoeren die normaal menselijke intelligentie vereisen. Dit omvat bijvoorbeeld beeldherkenning, spraakherkenning, aanbevelingssystemen, en het voorspellen van trends. AI-systemen zijn vaak gebaseerd op vooraf gedefinieerde regels, machine learning (waarbij systemen leren van data), of deep learning (waarbij het systeem leert door complexe lagen van informatie, net als het menselijk brein). Ze zijn ontworpen om een specifieke taak uit te voeren, zoals het classificeren van afbeeldingen of het analyseren van tekst, maar ze genereren niet per se nieuwe content.</p>
   </div>
   
   <div class="column" style="flex: 1; display: flex; flex-direction: column; align-items: center; ">
     <h2 style="margin-bottom: 10px;">GenAI</h2>
-    <img src="placeholder.jpg" alt="GenAI Placeholder Image" style="width: 100%; max-width: 200px; height: auto; margin-bottom: 10px;">
     <p>Generative AI is een type AI dat zich sterker focust op het creerren van nieuwe content, zoals tekst, beelden of muziek. Het is vaak gebaseerd op geavanceerde machine learning-technieken zoals deep learning, waarbij het systeem leert van grote hoeveelheden data om vervolgens iets nieuws te genereren. In plaats van alleen bestaande patronen te herkennen, kan generative AI nieuwe patronen maken, zoals het schrijven van een verhaal, het genereren van een afbeelding, of het componeren van muziek.</p>
   </div>
   
@@ -73,32 +71,32 @@ function updateChapter() {
     
     <div onclick="loadTask('Computer Vision')" style="flex: 1; cursor: pointer; padding: 15px; border: 1px solid #ccc; text-align: center; border-radius: 8px;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
       <h3 style="margin-bottom: 10px;">Computer Vision</h3>
-      <div style="font-size: 30px;">🖼️</div>
+      <img src="static/images/rijkshuisstijl_iconen/SVG_schilderij-met-bloemen-in-vaas-erop_Blauw.svg" alt="Computer Vision Icon" style="width: 50px; height: 50px;"/>
     </div>
     
     <div onclick="loadTask('Natural Language Processing')" style="flex: 1; cursor: pointer; padding: 15px; border: 1px solid #ccc; text-align: center; border-radius: 8px;;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
       <h3 style="margin-bottom: 10px;">Natural Language Processing</h3>
-      <div style="font-size: 30px;">📝</div>
+      <img src="static/images/rijkshuisstijl_iconen/SVG_document-met-potlood_Blauw.svg" alt="Natural Language Processing Icon" style="width: 50px; height: 50px;"/>
     </div>
     
     <div onclick="loadTask('Audio')" style="flex: 1; cursor: pointer; padding: 15px; border: 1px solid #ccc; text-align: center; border-radius: 8px;;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
       <h3 style="margin-bottom: 10px;">Audio</h3>
-      <div style="font-size: 30px;">🔊</div>
+      <img src="static/images/rijkshuisstijl_iconen/SVG_audio_Blauw.svg" alt="Audio Icon" style="width: 50px; height: 50px;"/>
     </div>
     
     <div onclick="loadTask('Tabelvormig')" style="flex: 1; cursor: pointer; padding: 15px; border: 1px solid #ccc; text-align: center; border-radius: 8px;;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
       <h3 style="margin-bottom: 10px;">Tabelvormig</h3>
-      <div style="font-size: 30px;">📉</div>
+      <img src="static/images/rijkshuisstijl_iconen/SVG_grafiek_Blauw.svg" alt="Tabelvormig Icon" style="width: 50px; height: 50px;"/>
     </div>
     
     <div onclick="loadTask('Reinforcement Learning')" style="flex: 1; cursor: pointer; padding: 15px; border: 1px solid #ccc; text-align: center; border-radius: 8px;;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
       <h3 style="margin-bottom: 10px;">Reinforcement Learning</h3>
-      <div style="font-size: 30px;">🤖</div>
+      <i class="fa fa-robot" style="font-size: 30px; color: var(--logoblauw)"></i>
     </div>
     
     <div onclick="loadTask('Multimodal')" style="flex: 1; cursor: pointer; padding: 15px; border: 1px solid #ccc; text-align: center; border-radius: 8px;;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
       <h3 style="margin-bottom: 10px;">Multimodal</h3>
-      <div style="font-size: 30px;">🔀</div>
+      <img src="static/images/rijkshuisstijl_iconen/SVG_3-pijlen_Blauw.svg" alt="Multimodal Icon" style="width: 50px; height: 50px;"/>
     </div>
     
   </div>

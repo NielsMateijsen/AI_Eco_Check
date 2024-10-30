@@ -8,126 +8,126 @@
                "label": "Depth Estimation",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "🌄"
+               "icon": "<i class=\"fa-solid fa-mountain-sun\" style=\"var(--logoblauw)\"></i>"
            },
            {
                "id": "image-classification",
                "label": "Image Classification",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "🖼️"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_stapel-fotos_Blauw.svg\"/>"
            },
            {
                "id": "object-detection",
                "label": "Object Detection",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "📷"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_Fotocamera_Blauw.png\"/>"
            },
            {
                "id": "image-segmentation",
                "label": "Image Segmentation",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "🔍"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_stapel-fotos_Blauw.svg\"/>"
            },
            {
                "id": "text-to-image",
                "label": "Text-to-Image",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "🖌️"
+               "icon": "<i class=\"fa-solid fa-pencil\"></i><i class=\"fa-solid fa-arrow-right\"></i><i class=\"fa-regular fa-image\"></i>"
            },
            {
                "id": "image-to-text",
                "label": "Image-to-Text",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "📝"
+               "icon": "<i class=\"fa-regular fa-image\"></i><i class=\"fa-solid fa-arrow-right\"></i><i class=\"fa-solid fa-pencil\"></i>"
            },
            {
                "id": "image-to-image",
                "label": "Image-to-Image",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "🔄"
+               "icon": "<i class=\"fa-solid fa-arrows-rotate\"></i><i class=\"fa-regular fa-image\"></i>"
            },
            {
                "id": "image-to-video",
                "label": "Image-to-Video",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "🎥"
+               "icon": "<i class=\"fa-regular fa-image\"></i><i class=\"fa-solid fa-arrow-right\"></i><i class=\"fa-solid fa-video\"></i>"
            },
            {
                "id": "unconditional-image-generation",
                "label": "Unconditional Image Generation",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "🎨"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_schilderspalet_Blauw.svg\"/>"
            },
            {
                "id": "video-classification",
                "label": "Video Classification",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "🎬"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_videocamera_Blauw.svg\"/>"
            },
            {
                "id": "text-to-video",
                "label": "Text-to-Video",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "🖋️🎥"
+               "icon": "<i class=\"fa-solid fa-pencil\"></i><i class=\"fa-solid fa-arrow-right\"></i><i class=\"fa-solid fa-video\"></i>"
            },
            {
                "id": "zero-shot-image-classification",
                "label": "Zero-Shot Image Classification",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "❓🖼️"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_vraagteken_Blauw.svg\"/> <img src=\"static/images/rijkshuisstijl_iconen/SVG_stapel-fotos_Blauw.svg\"/>"
            },
            {
                "id": "mask-generation",
                "label": "Mask Generation",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "🎭"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_twee-maskers_Blauw.svg\"/>"
            },
            {
                "id": "zero-shot-object-detection",
                "label": "Zero-Shot Object Detection",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "🔍❓"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_vraagteken_Blauw.svg\"/> <img src=\"static/images/rijkshuisstijl_iconen/SVG_schilderij-met-bloemen-in-vaas-erop_Blauw.svg\"/>"
            },
            {
                "id": "text-to-3d",
                "label": "Text-to-3D",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "🔠➡️🗿"
+               "icon": "<i class=\"fa-solid fa-font\"></i><i class=\"fa-solid fa-arrow-right\"></i><i class=\"fa-solid fa-cube\"></i>"
            },
            {
                "id": "image-to-3d",
                "label": "Image-to-3D",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "🖼️➡️🗿"
+               "icon": "<i class=\"fa-regular fa-image\"></i><i class=\"fa-solid fa-arrow-right\"></i><i class=\"fa-solid fa-cube\"></i>"
            },
            {
                "id": "image-feature-extraction",
                "label": "Image Feature Extraction",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "🔬"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_hart-onder-microscoop_Blauw.svg\"/>"
            },
            {
                "id": "keypoint-detection",
                "label": "Keypoint Detection",
                "type": "pipeline_tag",
                "subType": "cv",
-               "icon": "📌"
+               "icon": "<i class=\"fa-solid fa-key\"></i>"
            }
        ]
    },
@@ -140,84 +140,84 @@
                "label": "Text Classification",
                "type": "pipeline_tag",
                "subType": "nlp",
-               "icon": "📝"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_document-met-lijnen_Blauw.svg\"/>"
            },
            {
                "id": "token-classification",
                "label": "Token Classification",
                "type": "pipeline_tag",
                "subType": "nlp",
-               "icon": "🔠"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_klembord-met-loep_Blauw.svg\"/>"
            },
            {
                "id": "table-question-answering",
                "label": "Table Question Answering",
                "type": "pipeline_tag",
                "subType": "nlp",
-               "icon": "📊"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_document-met-lijnen_Blauw.svg\"/> <img src=\"static/images/rijkshuisstijl_iconen/SVG_vraagteken_Blauw.svg\"/>"
            },
            {
                "id": "question-answering",
                "label": "Question Answering",
                "type": "pipeline_tag",
                "subType": "nlp",
-               "icon": "❓🗣️"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_vraagteken_Blauw.svg\"/>"
            },
            {
                "id": "zero-shot-classification",
                "label": "Zero-Shot Classification",
                "type": "pipeline_tag",
                "subType": "nlp",
-               "icon": "❓📝"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_document-met-lijnen_Blauw.svg\"/>"
            },
            {
                "id": "translation",
                "label": "Translation",
                "type": "pipeline_tag",
                "subType": "nlp",
-               "icon": "🌐"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_tekstballonnen-met-internationaal-gesprek_Blauw.svg\"/>"
            },
            {
                "id": "summarization",
                "label": "Summarization",
                "type": "pipeline_tag",
                "subType": "nlp",
-               "icon": "📝➡️📄"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_3-documenten-met-elkaar-verbonden_Blauw.svg\"/>"
            },
            {
                "id": "feature-extraction",
                "label": "Feature Extraction",
                "type": "pipeline_tag",
                "subType": "nlp",
-               "icon": "🔍"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_hart-onder-microscoop_Blauw.svg\"/>"
            },
            {
                "id": "text-generation",
                "label": "Text Generation",
                "type": "pipeline_tag",
                "subType": "nlp",
-               "icon": "✍️"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_tekstballon-met-potlood_Blauw.svg\"/>"
            },
            {
                "id": "text2text-generation",
                "label": "Text2Text Generation",
                "type": "pipeline_tag",
                "subType": "nlp",
-               "icon": "🔄✍️"
+               "icon": "<i class=\"fa-solid fa-arrows-rotate\"></i><i class=\"fa-solid fa-pencil\"></i>"
            },
            {
                "id": "fill-mask",
                "label": "Fill-Mask",
                "type": "pipeline_tag",
                "subType": "nlp",
-               "icon": "🔲"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_twee-maskers_Blauw.svg\"/>"
            },
            {
                "id": "sentence-similarity",
                "label": "Sentence Similarity",
                "type": "pipeline_tag",
                "subType": "nlp",
-               "icon": "🔗"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_ketting-2-schakels_Blauw.svg\"/>"
            }
        ]
    },
@@ -230,42 +230,42 @@
                "label": "Text-to-Speech",
                "type": "pipeline_tag",
                "subType": "audio",
-               "icon": "🗣️"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_document-met-lijnen_Blauw.svg\"/><i class=\"fa-solid fa-arrow-right\"></i><img src=\"static/images/rijkshuisstijl_iconen/SVG_personen-in-gesprek_Blauw.svg\"/>"
            },
            {
                "id": "text-to-audio",
                "label": "Text-to-Audio",
                "type": "pipeline_tag",
                "subType": "audio",
-               "icon": "🔊📝"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_audio_Blauw.svg\"/>"
            },
            {
                "id": "automatic-speech-recognition",
                "label": "Automatic Speech Recognition",
                "type": "pipeline_tag",
                "subType": "audio",
-               "icon": "🎤📝"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_personen-in-gesprek_Blauw.svg\"/>"
            },
            {
                "id": "audio-to-audio",
                "label": "Audio-to-Audio",
                "type": "pipeline_tag",
                "subType": "audio",
-               "icon": "🔄🎶"
+               "icon": "<i class=\"fa-solid fa-arrows-rotate\"></i><i class=\"fa-solid fa-volume-low\"></i>"
            },
            {
                "id": "audio-classification",
                "label": "Audio Classification",
                "type": "pipeline_tag",
                "subType": "audio",
-               "icon": "🎶📂"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_microfoon_Blauw.svg\"/> <img src=\"static/images/rijkshuisstijl_iconen/SVG_map_Blauw.svg\"/>"
            },
            {
                "id": "voice-activity-detection",
                "label": "Voice Activity Detection",
                "type": "pipeline_tag",
                "subType": "audio",
-               "icon": "🔍🗣️"
+               "icon": "<i class=\"fa-solid fa-exclamation\"></i> <img src=\"static/images/rijkshuisstijl_iconen/SVG_personen-in-gesprek_Blauw.svg\"/>"
            }
        ]
    },
@@ -278,21 +278,21 @@
                "label": "Tabular Classification",
                "type": "pipeline_tag",
                "subType": "tabular",
-               "icon": "📊📋"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_klembord-met-loep_Blauw.svg\"/>"
            },
            {
                "id": "tabular-regression",
                "label": "Tabular Regression",
                "type": "pipeline_tag",
                "subType": "tabular",
-               "icon": "📉"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_grafiek_Blauw.svg\"/>"
            },
            {
                "id": "time-series-forecasting",
                "label": "Time Series Forecasting",
                "type": "pipeline_tag",
                "subType": "tabular",
-               "icon": "📈⏳"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_document-met-rekenmachine_Blauw.svg\"/>"
            }
        ]
    },
@@ -305,14 +305,14 @@
                "label": "Reinforcement Learning",
                "type": "pipeline_tag",
                "subType": "rl",
-               "icon": "🔁🎯"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_schietschijf-met-pijl_Blauw.svg\"/>"
            },
            {
                "id": "robotics",
                "label": "Robotics",
                "type": "pipeline_tag",
                "subType": "rl",
-               "icon": "🤖"
+               "icon": "<i class=\"fa-solid fa-robot\"></i>"
            }
        ]
    },
@@ -325,14 +325,14 @@
                "label": "Image-Text-to-Text",
                "type": "pipeline_tag",
                "subType": "multimodal",
-               "icon": "🖼️📝➡️📝"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_schilderij-met-bloemen-in-vaas-erop_Blauw.svg\"/> <i class=\"fa-solid fa-arrow-right\"></i> <img src=\"static/images/rijkshuisstijl_iconen/SVG_document-met-lijnen_Blauw.svg\"/>"
            },
            {
                "id": "visual-question-answering",
                "label": "Visual Question Answering",
                "type": "pipeline_tag",
                "subType": "multimodal",
-               "icon": "❓🖼️"
+               "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_schilderij-met-bloemen-in-vaas-erop_Blauw.svg\"/><img src=\"static/images/rijkshuisstijl_iconen/SVG_Tekstballonnen-met-vraagteken_Blauw.svg\"/>"
            }
        ]
    }

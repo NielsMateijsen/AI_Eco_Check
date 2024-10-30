@@ -54,6 +54,11 @@
 .stat-card h3 {
   margin-bottom: 5px;
   font-size: 25px;
+  color: var(--logoblauw);
+}
+
+b {
+  color: var(--logoblauw);
 }
 
 .button-container {
@@ -109,7 +114,7 @@ button {
 }
 
 .current-chapter {
-  color:rgb(14, 46, 79);
+  color:var(--logoblauw);
   width: 33%;
 }
 

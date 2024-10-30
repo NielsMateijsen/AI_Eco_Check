@@ -10,10 +10,16 @@
 
 h1 {
   font-size: 38px;
+  color: var(--logoblauw);
 }
 
 p {
   font-size: 25px;
+}
+
+#title img {
+  width: 40px;
+  height: 40px;
 }
 
 .model-overview-button {

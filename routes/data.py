@@ -284,6 +284,7 @@ def get_sub_task_details(sub_task):
         "summary": dp.get_task_summary(sub_task_id),
         "description": dp.get_task_description(sub_task_id),
         "inference": dp.get_task_inference(sub_task_id),
+        "icon": dp.get_task_icon(sub_task_id),
     }
 
     return flask.jsonify(result)
