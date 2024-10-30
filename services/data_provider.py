@@ -4,13 +4,13 @@ import os
 
 path = os.path.abspath(os.getcwd()) + "/joint-interdisciplinary-project/"
 
-with open("services/categories.json", encoding='utf-8') as f:
+with open(path + "services/categories.json", encoding='utf-8') as f:
   categories = json.load(f)
 
-with open("services/sub_task_descriptions.json", encoding='utf-8') as f:
+with open(path + "services/sub_task_descriptions.json", encoding='utf-8') as f:
     sub_task_descriptions = json.load(f)
 
-with open("services/tips.json", encoding='utf-8') as f:
+with open(path + "services/tips.json", encoding='utf-8') as f:
     tips = json.load(f)
 
 # get available tags
