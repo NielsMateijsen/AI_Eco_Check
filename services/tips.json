@@ -1,86 +1,54 @@
 {
   "General": [
       {
-          "title": "Kies Duurzame AI Producten",
-          "description": "Geef prioriteit aan producten en diensten van bedrijven die zich inzetten voor duurzame AI-praktijken. Zoek naar transparantie over energieverbruik, ethische bronmaterialen en verantwoordelijke AI-ontwikkeling.",
+          "title": "Duurzame keuze",
+          "description": "Kies waar mogelijk voor AI modellen die zijn gemaakt door bedrijven die rekening houden met het milieu en de uitstoot van AI modellen. ",
           "url": ""
       },
       {
           "title": "Data Minimalisatie",
-          "description": "Pas data minimalisatie toe door alleen de noodzakelijke gegevens te verstrekken voor AI-diensten. Het verminderen van gegevensverzameling en opslag verlaagt de ecologische voetafdruk.",
+          "description": "Het gebruik van kleinere modellen, die minder data gebruiken, zorgt voor een lagere uitstoot dan het gebruik van grotere modellen. Kies daarom waar mogelijk een kleiner AI model en beperk de input data.",
           "url": ""
       },
       {
-          "title": "Digitale Minimalisme",
-          "description": "Neem een mindset van digitaal minimalisme aan door de noodzaak van AI-aangedreven tools en diensten in twijfel te trekken. Kies bewust voor oplossingen die echte waarde bieden en de milieu-impact minimaliseren, zoals energie-efficiënte apparaten, verminderde gegevensconsumptie, en ondersteuning voor duurzame AI-initiatieven.",
+          "title": "Bewuste keuze",
+          "description": "Denk goed na of je echt AI moet gebruiken en of er geen alternatieven te gebruiken zijn die minder schadelijk zijn.",
           "url": ""
       }
   ],
   "Natural Language Processing": [
       {
-          "title": "Gebruik Samenvattingstools",
-          "description": "Maak gebruik van AI-aangedreven samenvattingstools om lange teksten samen te vatten, waardoor de tijd en energie die besteed wordt aan het lezen en verwerken van informatie wordt verminderd.",
-          "url": ""
-      },
-      {
-          "title": "Optimaliseer Zoekopdrachten",
-          "description": "Stel nauwkeurige zoekopdrachten op om de benodigde rekenkracht van zoekmachines te minimaliseren. Heldere en beknopte zoekopdrachten verminderen de noodzaak van uitgebreide verwerking.",
+          "title": "Optimaliseer zoekopdrachten",
+          "description": "Verwoord je zoekopdrachten zo duidelijk mogelijk, zodat het AI-model de prompt kan begrijpen. Minimaliseer ook het aantal vragen, elke vraag veroorzaakt emissies.",
           "url": ""
       },
       {
           "title": "Kies Efficiënte Taalinstellingen",
-          "description": "Selecteer in applicaties met taalopties talen met kleinere modelgroottes of geoptimaliseerde verwerking om energieverbruik te verminderen.",
+          "description": "Bij toepassingen met taalopties kun je kiezen voor talen die minder zware modellen of geoptimaliseerde verwerking hebben om energieverbruik te verminderen.",
           "url": ""
       }
   ],
   "Computer Vision": [
       {
           "title": "Optimaliseer Beeldresolutie",
-          "description": "Wanneer je AI-aangedreven beeldverwerkingstools gebruikt, verlaag dan de beeldresolutie om de rekenbelasting en energie die nodig is voor analyse te verminderen.",
+          "description": "Het gebruik van afbeeldingen met hoge resolutie verhoogt het energiegebruik. Het gebruik van afbeeldingen met een lagere resolutie, of een kleiner deel van de afbeelding kan daarom het energieverbruik verminderen.",
           "url": ""
       },
       {
-          "title": "Beperk Videobewerkingstijd",
-          "description": "Minimaliseer de duur van video's die door AI-tools worden verwerkt om energieverbruik te verminderen. Gebruik bewerkingstools om alleen de noodzakelijke segmenten voor analyse te selecteren.",
-          "url": ""
-      },
-      {
-          "title": "Kies Energie-efficiënte Apparaten",
-          "description": "Kies bij het gebruik van AI-aangedreven computer vision toepassingen op mobiele apparaten voor apparaten met energie-efficiënte processors en geoptimaliseerde software.",
+          "title": "Beperk Videoduur",
+          "description": ": Lange video's verhogen het energiegebruik, kies daarom voor alleen de benodigde onderdelen van een video.",
           "url": ""
       }
   ],
   "Audio": [
       {
           "title": "Optimaliseer Audiokwaliteit voor de Taak",
-          "description": "Overweeg bij het gebruik van AI voor audiotaken de vereiste audiokwaliteit. Voor taken zoals spraak-naar-tekst kunnen lagere bemonsteringsfrequenties of gecomprimeerde formaten voldoende zijn, waardoor de verwerkingsvereisten en het energieverbruik worden verminderd.",
+          "description": "Langere audiofragmenten en fragmenten van hogere kwaliteit kosten meer rekenkracht, gebruik dus kleinere fragmenten en waar het kan fragmenten van lagere kwaliteit. ",
           "url": ""
       },
       {
-          "title": "Wees Zuinig met Continu Luisteren",
-          "description": "AI-aangedreven apparaten met 'altijd-aan'-microfoons voor functies zoals spraakassistenten verbruiken energie, zelfs als ze niet actief worden gebruikt. Overweeg om deze functies uit te schakelen of gebruik opties zoals push-to-talk om energie te besparen.",
-          "url": ""
-      },
-      {
-          "title": "Ondersteun Lokale Verwerking",
-          "description": "Kies indien mogelijk voor audiobewerkingstools die lokaal op je apparaat berekeningen uitvoeren. Dit vermindert de afhankelijkheid van cloudservices, waardoor de overdracht van gegevens en het energieverbruik dat gepaard gaat met serveroperaties wordt verminderd.",
-          "url": ""
-      }
-  ],
-  "Reinforcement Learning": [
-      {
-          "title": "Kies Spellen met Eco-Modi",
-          "description": "Selecteer games of applicaties die 'eco-modus'-opties bieden om de intensiteit van grafische weergave, frame rates en andere factoren te verminderen die van invloed zijn op het energieverbruik.",
-          "url": ""
-      },
-      {
-          "title": "Verfijn Voorkeuren",
-          "description": "Geef nauwkeurige en gedetailleerde voorkeuren aan RL-aangedreven aanbevelingssystemen. Dit helpt de agent om snel en efficiënt aan je behoeften te voldoen, waardoor onnodige berekeningen worden verminderd.",
-          "url": ""
-      },
-      {
-          "title": "Beperk Verkenning",
-          "description": "In sommige RL-gebaseerde assistenten of gepersonaliseerde diensten heb je de mogelijkheid om de verkenning door de agent te beperken. Door verkenning te verminderen, kunnen hulpbronnen worden bespaard door de focus te leggen op bekende voorkeuren.",
+          "title": "Wees Voorzichtig met Continu Luisteren",
+          "description": ": Apparaten met AI-functies zoals “altijd-luisteren”- verbruiken veel energie, zelfs als ze niet actief worden gebruikt. Overweeg daarom om deze functie uit te schakelen of gebruik een “push-to-talk”-optie.",
           "url": ""
       }
   ]
