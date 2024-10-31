@@ -115,7 +115,7 @@ function updateChapter() {
 
   <!-- Header for Alternatives Section -->
   <div style="margin-bottom: 15px;">
-    <h2 style="font-size: 19px; color: #333; display: inline-block; padding-bottom: 5px;">Alternatieven voor AI</h2>
+    <h2 style="font-size: 19px; color: var(--logoblauw); display: inline-block; padding-bottom: 5px;">Alternatieven voor AI</h2>
   </div>
 
   <!-- Alternative 1: Geautomatiseerde systemen -->
