@@ -1,8 +1,6 @@
 from huggingface_hub import HfApi
 from huggingface_hub.hf_api import ModelInfo, Iterable
-from services.data_provider import get_sub_task_id
 import json
-import requests
 import os
 
 path = os.path.abspath(os.getcwd()) + "/joint-interdisciplinary-project/"

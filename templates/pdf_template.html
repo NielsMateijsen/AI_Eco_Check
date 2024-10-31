@@ -8,7 +8,210 @@
 	<meta name="viewport"	content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<!-- <link rel="stylesheet" href="pdf_template.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+	<style>
+		:root {
+  --hemelblauw: #007bc7;
+  --hemelblauw-1: #409CD5;
+  --hemelblauw-2: #66AFDD;
+  --hemelblauw-3: #8CC3E6;
+  --hemelblauw-4: #B2D7EE;
+  --hemelblauw-5: #D9EBF7;
+
+  --logoblauw: #154273;
+  --logoblauw-1: #4f7196;
+  --logoblauw-2: #738eab;
+  --logoblauw-3: #95a9c0;
+  --logoblauw-4: #b8c6d5;
+  --logoblauw-5: #dce3ea;
+
+  --donkerblauw: #01689b;
+  --donkerblauw-1: #408EB4;
+  --donkerblauw-2: #66A4C3;
+  --donkerblauw-3: #8CBBD2;
+  --donkerblauw-4: #B2D1E1;
+  --donkerblauw-5: #D9E8F0;
+}
+
+html, body {
+	margin: 0;
+}
+
+body {
+  /* A4 */
+  width: 23.3cm;
+  height: 34cm;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+	color: #154273
+}
+
+.a4-container {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  margin: auto;
+}
+
+.logo-container {
+  text-align: center;
+  background-color: white;
+	border-bottom: 2px solid black;
+	margin-bottom: 20px;
+}
+
+
+.model-name-box {
+  text-align: left;
+  background-color: #154273;
+	color: white;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  display: inline-block;
+  border-radius: 10px;
+  margin-bottom: 10px;
+	font-size: 40px;
+}
+
+.model-name-box h2 {
+	margin: 0;
+}
+
+.tags {
+	display: -webkit-box;
+	-webkit-box-pack: start;
+	margin-bottom: 25px;
+}
+
+.tag-box {
+	padding: 10px;
+	background-color: #f0f0f0;
+	border-radius: 20px;
+	border: 1px solid #ddd;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	margin-right: 20px;
+}
+
+.tag-box p {
+	margin: 0;
+}
+
+
+.model-desc {
+	font-size: 25px;
+	margin: 0px 0px 10px 0px;
+}
+
+.metadata-box {
+	font-size: 20px;
+}
+
+.section-title {
+  font-size: 29px;
+  margin: 0 0 10px 0;
+	color: white;
+	background-color: #154273;
+	padding: 10px;
+	border-radius: 10px;
+	display: inline-block;
+}
+
+.statistics-container {
+  display: -webkit-box;
+  -webkit-box-pack:justify;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.card {
+  width: 27%;
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+	border: 2px solid #154273;
+}
+
+.card h3 {
+	font-size: 23px;
+	margin: 00;
+}
+
+
+.card-desc {
+  display: -webkit-box;
+	-webkit-box-align: center;
+	margin-top: 5px;
+}
+
+.card-desc p {
+  font-size: 20px;
+	margin: 0 0 0 10px;
+
+}
+
+.card-desc i {
+  font-size: 35px;
+}
+
+.tips-container {
+  margin-bottom: 18px;
+}
+
+.tip-box {
+  background-color: #f0f0f0;
+  border: 2px solid #154273;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.tip-box h3 {
+	color: #154273;
+	font-size: 25px;
+	margin: 0;
+}
+
+.source-box {
+  background-color: #f0f0f0;
+	border: 2px solid #154273;
+  padding: 10px;
+  text-align: left;
+  border-radius: 5px;
+  font-size: 0.9em;
+	width: 35%;
+	margin-left: auto;
+}
+
+.source-box h3 {
+	margin: 0;
+	font-size: 35px;
+
+}
+
+.source-desc {
+	display: -webkit-box;
+	-webkit-box-align: center;
+	margin-right: 10px;
+}
+
+.source-desc i {
+	font-size: 45px;
+}
+
+.source-desc p {
+	margin: 0;
+	padding: 0 25px 0 10px;
+	word-break: break-word;
+	font-size: 18px;
+}
+
+
+	</style>
 </head>
 	<body>
 		<div class="a4-container">
@@ -51,7 +254,29 @@
 
 			<!-- Model Name -->
 			<div class="model-name-box">
-					<h2>AI Model Name</h2>
+				<!-- flask render data.name -->
+					<h2>Model: {{data.model_data.name}}</h2>
+			</div>
+
+			<!-- circles of task, sub-task, internal/hf -->
+			 <div class="tags">
+				<div class="tag-box">
+					<p>{{data.model_data.task}}</p>
+				</div>
+				<div class="tag-box">
+					<p>{{data.model_data.sub_task}}</p>
+				</div>
+				<div class="tag-box">
+					<p>{{data.model_data.source}}</p>
+				</div>
+			 </div>
+
+			<div class="model-metadata">
+				<div class="metadata-box">
+						<p class="model-desc">{{data.model_data.description}}<br></p>
+							<p><b>Maker: </b> {{data.model_data.group}}<br>
+						</p>
+				</div>
 			</div>
 
 			<!-- Title and Statistics Cards -->
@@ -59,38 +284,49 @@
 			<div class="statistics-container">
 					<div class="card">
 							<h3>Training Cost</h3>
-							<p>Details about training cost...</p>
+							<small>‎ </small>
+							<div class="card-desc">
+								<i class="fa-solid fa-server"></i>
+								<p>{{data.model_data.training_emissions}} CO2eq</p>
+							</div>
 					</div>
+					<div class="card">
+						<h3>Equivalent</h3>
+						<small>‎ </small>
+						<div class="card-desc">
+							<i class="fa-solid fa-gas-pump"></i>
+							<p>{{data.model_data.equivalent}}</p>
+						</div>
+				</div>
 					<div class="card">
 							<h3>Inference Cost</h3>
-							<p>Details about inference cost...</p>
+							<small>(x1000 prompts)</small>
+							<div class="card-desc">
+								<i class="fa-solid fa-comments"></i>
+								<p>{{data.model_data.inference_display}} kWh</p>
+							</div>
 					</div>
-					<div class="card">
-							<h3>Equivalence</h3>
-							<p>Details about equivalence...</p>
-					</div>
-			</div>
+			</div>	
 
 			<!-- Tips Section -->
-			<h2 class="section-title">Tips and considerations for [Category]</h2>
+			<h2 class="section-title">Tips en Overwegingen</h2>
 			<div class="tips-container">
-					<div class="tip-box">
-							<h3>Tip 1</h3>
-							<p>Description of tip 1...</p>
-					</div>
-					<div class="tip-box">
-							<h3>Tip 2</h3>
-							<p>Description of tip 2...</p>
-					</div>
-					<div class="tip-box">
-							<h3>Tip 3</h3>
-							<p>Description of tip 3...</p>
-					</div>
+				{% for tip in data.tips %}
+				<div class="tip-box">
+						<h3>{{ tip.title }}</h3>
+						<p>{{ tip.description }}</p>
+				</div>
+				{% endfor %}
 			</div>
 
-			<!-- Source Information -->
 			<div class="source-box">
-					<p>Source: Information derived from various reports and data analyses.</p>
+				<h3>Emissie Bron</h3>
+				<div class="source-desc">
+					<i class="fa-solid fa-circle-info"></i>
+					<p>
+						<b>{{data.model_data.reliability_title}}:<br></b>
+						{{data.model_data.reliability_text}}
+					</p>
 			</div>
 	</div>
 	</body>

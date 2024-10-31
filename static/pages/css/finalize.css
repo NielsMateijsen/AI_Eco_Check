@@ -117,3 +117,8 @@
 .print-button {
   margin: 30px auto 0 auto;
 }
+
+.print-button.disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}

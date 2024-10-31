@@ -1,3 +1,26 @@
+:root {
+  --hemelblauw: #007bc7;
+  --hemelblauw-1: #409CD5;
+  --hemelblauw-2: #66AFDD;
+  --hemelblauw-3: #8CC3E6;
+  --hemelblauw-4: #B2D7EE;
+  --hemelblauw-5: #D9EBF7;
+
+  --logoblauw: #154273;
+  --logoblauw-1: #4f7196;
+  --logoblauw-2: #738eab;
+  --logoblauw-3: #95a9c0;
+  --logoblauw-4: #b8c6d5;
+  --logoblauw-5: #dce3ea;
+
+  --donkerblauw: #01689b;
+  --donkerblauw-1: #408EB4;
+  --donkerblauw-2: #66A4C3;
+  --donkerblauw-3: #8CBBD2;
+  --donkerblauw-4: #B2D1E1;
+  --donkerblauw-5: #D9E8F0;
+}
+
 body {
   /* A4 */
   width: 23.3cm;
@@ -52,6 +75,20 @@ body {
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-desc {
+  display: -webkit-box;
+  -webkit-box-pack:justify;
+  justify-content: space-between;
+}
+
+.card-desc p {
+  font-size: 30px;
+}
+
+.card-desc i {
+  font-size: 40px;
 }
 
 .tips-container {
