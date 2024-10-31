@@ -22,7 +22,7 @@ def generate_pdf():
     model_data['equivalent'] = "{:.3f}L benzine".format(model_data['equivalent'])
 
   inference_value = 0
-  if model_data.get("inference") and "mean" in model_data["inference"]:
+  if type(model_data["inference"]) != float and (model_data.get("inference") and "mean" in model_data["inference"]):
       inference_value = model_data["inference"]["mean"]
   elif model_data.get("inference"):
       inference_value = model_data["inference"]
