@@ -16,7 +16,7 @@
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 15px;
+  padding: 15px 15px 35px 15px;
   width: 190px;
   height: 210px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -34,22 +34,31 @@
   background-color: #f7f7f7;
 }
 
+.subtask img {
+  width: 45px;
+  height: 45px;
+  margin-bottom: -10px;
+}
+
+.subtask i {
+  color: var(--logoblauw);
+}
+
 .info-icon {
   position: absolute; /* Position relative to subtask container */
   bottom: 10px; /* Distance from bottom */
   right: 10px; /* Distance from right */
-  color: rgb(150, 150, 150);
+  font-size: 25px;
+  color: var(--hemelblauw)
 }
 
 .info-icon:hover {
-  color: rgb(100, 100, 100);
+  color: var(--logoblauw-1);
 }
 
 .label {
   font-size: 19px;
-  margin-bottom: 10px;
   color: black;
-  padding-bottom: 10px;
 }
 
 .icon {
@@ -59,5 +68,4 @@
 
 .summary {
   color:rgb(150, 150, 150);
-  padding-bottom: 30px;
 }

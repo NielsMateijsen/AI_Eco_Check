@@ -93,25 +93,39 @@ def search_models(model_name):
 @app.route('/get_models_by_task/<string:sub_task>')
 def get_models_by_task(sub_task):
     task_id = dp.get_task_id(sub_task)
+    # get parameters from the request
+    creatorFilter = request.args.get('creator')
+    emissionsFilter = request.args.get('emissions')
+
 
     models = []
 
-    db_models = dbm.getModels(task_id)
+    if creatorFilter == "intern" or creatorFilter == "all":
+        db_models = dbm.getModels(task_id)
 
-    for model in db_models:
-        el = {
-            "id": model["id"],
-            "name": model["name"],
-            "group": model["creator"],
-            "sub_task": sub_task,
-            "task": dp.get_task_name(model["sub_task_name_id"]),
-            "inference": model["inference_cost"],
-            "emissions_available": model["training_cost"] is not None,
-            "emissions": model["training_cost"] if model["training_cost"] is not None else None,
-            "emissions_is_dict": False,
-            "source": "Intern"
-        }
-        models.append(el)
+        for model in db_models:
+
+            inference = model["inference_cost"]
+
+            if inference is None:
+                model["inference_cost"] = dp.get_task_inference(model["sub_task_name_id"])
+                model['inference_source'] = 'Estimate'
+            else:
+                model['inference_source'] = 'Intern'
+
+            el = {
+                "id": model["id"],
+                "name": model["name"],
+                "group": model["creator"],
+                "sub_task": sub_task,
+                "task": dp.get_task_name(model["sub_task_name_id"]),
+                "inference": model["inference_cost"],
+                "emissions_available": model["training_cost"] is not None,
+                "emissions": model["training_cost"] if model["training_cost"] is not None else None,
+                "emissions_is_dict": False,
+                "source": "Intern"
+            }
+            models.append(el)
     
 
     # response = requests.get(
@@ -141,36 +155,43 @@ def get_models_by_task(sub_task):
     #     }
     #     models.append(el)
 
-    hf_models = list(api.get_model_by_sub_task(task_id))
+    if creatorFilter == "huggingface" or creatorFilter == "all":
+        hf_models = list(api.get_model_by_sub_task(task_id))
 
-    for model in hf_models:
-        if not model.card_data:
-            el = {
-            "id": model.id,
-            "name": model.id.split("/")[-1],
-            "group": model.id.split("/")[0],
-            "sub_task": sub_task,
-            "task": dp.get_task_name(task_id),
-            "inference": dp.get_task_inference(task_id),
-            "emissions_available": False,
-            "emissions": None,
-            "emissions_is_dict": None,
-            "source": "HuggingFace"
-        }
-        else:
-            el = {
+        for model in hf_models:
+            if not model.card_data:
+                el = {
                 "id": model.id,
                 "name": model.id.split("/")[-1],
                 "group": model.id.split("/")[0],
                 "sub_task": sub_task,
                 "task": dp.get_task_name(task_id),
                 "inference": dp.get_task_inference(task_id),
-                "emissions_available": "co2_eq_emissions" in model.card_data,
-                "emissions": model.card_data["co2_eq_emissions"] if "co2_eq_emissions" in model.card_data else None,
-                "emissions_is_dict": isinstance(model.card_data["co2_eq_emissions"], dict) if "co2_eq_emissions" in model.card_data else None,
+                "emissions_available": False,
+                "emissions": None,
+                "emissions_is_dict": None,
                 "source": "HuggingFace"
             }
-        models.append(el)
+            else:
+                el = {
+                    "id": model.id,
+                    "name": model.id.split("/")[-1],
+                    "group": model.id.split("/")[0],
+                    "sub_task": sub_task,
+                    "task": dp.get_task_name(task_id),
+                    "inference": dp.get_task_inference(task_id),
+                    "emissions_available": "co2_eq_emissions" in model.card_data,
+                    "emissions": model.card_data["co2_eq_emissions"] if "co2_eq_emissions" in model.card_data else None,
+                    "emissions_is_dict": isinstance(model.card_data["co2_eq_emissions"], dict) if "co2_eq_emissions" in model.card_data else None,
+                    "source": "HuggingFace"
+                }
+
+            if emissionsFilter == "true" and el["emissions_available"]:
+                models.append(el)
+            elif emissionsFilter == "false" and not el["emissions_available"]:
+                models.append(el)
+            elif emissionsFilter == "all":
+                models.append(el)
 
     return flask.jsonify(models)
 
@@ -196,6 +217,15 @@ def get_model_details():
     if selected_model is None:
         # search in database
         model = dbm.get_model_by_id(model_id)
+        inference = model["inference_cost"]
+
+        if inference is None:
+            model["inference_cost"] = dp.get_task_inference(model["sub_task_name_id"])
+            model['inference_source'] = 'Estimate'
+        else:
+            model['inference_source'] = 'Intern'
+
+        print(model)
         
         result = {
             "id": model["id"],
@@ -205,13 +235,17 @@ def get_model_details():
             "task": dp.get_task_name(model["sub_task_name_id"]),
             "description": model["description"],
             "inference": model["inference_cost"],
+            "inference_source": model["inference_source"],
             "emissions_available": model["training_cost"] is not None,
             "tags": {
                 "pipeline_tag": [model["sub_task_name_id"]],
                 "source": ["Intern"]
             },
-            "emissions": model["training_cost"] if model["training_cost"] is not None else None,
-            "emissions_is_dict": False,
+            "emissions": {
+                "emissions": model["training_cost"],
+                "source": "Intern"                
+            } if model["training_cost"] is not None else None,
+            "emissions_is_dict": True,
             "source": "Intern"
         }
     
@@ -219,13 +253,15 @@ def get_model_details():
         pipeline_tag_exists = selected_model.get("pipeline_tag") is not None
         tags = dp.parse_tags(selected_model["tags"])
         tags["source"] = ["HuggingFace"]
+        inference = dp.get_task_inference(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A"
         result = {
             "name": selected_model["id"].split("/")[1],
             "group": selected_model["id"].split("/")[0],
             "sub_task": dp.get_sub_task_name(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
             "task": dp.get_task_name(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
             "description": dp.get_task_summary(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
-            "inference": dp.get_task_inference(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
+            "inference": inference,
+            "inference_source": "Estimate" if inference != "N/A" else "Unknown",
             "emissions_available": "co2_eq_emissions" in selected_model["tags"],
             "tags": tags,
             "emissions": api.get_model_emissions(selected_model["id"]) if "co2_eq_emissions" in selected_model["tags"] else None,
@@ -248,6 +284,7 @@ def get_sub_task_details(sub_task):
         "summary": dp.get_task_summary(sub_task_id),
         "description": dp.get_task_description(sub_task_id),
         "inference": dp.get_task_inference(sub_task_id),
+        "icon": dp.get_task_icon(sub_task_id),
     }
 
     return flask.jsonify(result)

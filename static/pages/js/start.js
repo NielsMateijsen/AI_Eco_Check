@@ -14,9 +14,9 @@ function addEventListeners() {
     loadPage('goal', 'start');
   });
 
-  document.getElementById('own-model').addEventListener('click', function () {
-    loadPage('add_model', 'start');
-  });
+  // document.getElementById('own-model').addEventListener('click', function () {
+  //   loadPage('add_model', 'start');
+  // });
 }
 
 addEventListeners();

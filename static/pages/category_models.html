@@ -3,6 +3,7 @@
   Naar vorige pagina
 </a>
 
+<div id="wrapper">
 <h1 class="page-title" id="page-title"></h1>
 
 <div class="loading" id="loading">
@@ -10,28 +11,67 @@
   <p>Ophalen...</p>
 </div>
 
+<!-- filter button  -->
+<div class="content-container">
+  <div class="filter-button-container">
+    <div class="ro-button filter-button" id="filter-button">
+      <i class="fa fa-filter"></i>
+       
+    </div>
+  </div>
+  <!-- Hidden Filter Menu -->
+  <div class="filter-menu hidden" id="filter-menu">
+    <div class="filter-menu-header">
+      <h2>Filters</h2>
+      <div class="clear-filters">
+        <a id="clear-filters">Reset Filters</a>
+      </div>
+    
+    <div class="filter-group">
+      <h3>Maker</h3>
+      <select id="creator-filter" class="filter-dropdown">
+        <option value="all">Beide</option>
+        <option value="intern">Intern</option>
+        <option value="huggingface">HuggingFace</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <h3>Emissies Beschikbaar</h3>
+      <select id="emissions-filter" class="filter-dropdown">
+        <option value="all">Beide</option>
+        <option value="true">Ja</option>
+        <option value="false">Nee</option>
+      </select>
+    </div>
+    <button id="apply-filters">Apply Filters</button>
+  </div>
+</div>
+</div>
 
-<div class="table-container">
-  <table id="model-table" class="hidden">
-      <thead>
-          <tr>
-              <th class="name">Model Naam</th>
-              <th class="group">Maker</th>
-              <th class="category">Categorie</th>
-              <th class="task">Sub-Taak</th>
-              <th class="training">Training Kosten <br><span class="unit">(CO2eq)</span></th>
-              <th class="inference">Inference Kosten <br><span class="unit">(kWh/1000 prompts)</span></th>
-              <th class="emissions">Emissies Beschikbaar</th>
-          </tr>
-      </thead>
-      <tbody>
-          <!-- Data will be injected here dynamically -->
-      </tbody>
-  </table>
+  <div class="table-container">
+    <table id="model-table" class="hidden">
+        <thead>
+            <tr>
+                <th class="name">Model Naam</th>
+                <th class="group">Maker</th>
+                <th class="category">Categorie</th>
+                <th class="task">Sub-Taak</th>
+                <th class="training">Training Kosten <br><span class="unit">(CO2eq)</span></th>
+                <th class="inference">Inference Kosten <br><span class="unit">(kWh/1000 prompts)</span></th>
+                <th class="emissions">Emissies Beschikbaar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be injected here dynamically -->
+        </tbody>
+    </table>
+  </div>
 </div>
 
 <div class="button-container">
   <div class="ro-button next-button not-selected" id="next-button">
     Volgende
   </div>
+</div>
+
 </div>

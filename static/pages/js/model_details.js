@@ -30,8 +30,7 @@ function loadDetails() {
           inference_costs: 0
         }
       }
-      
-      console.log(model);
+    
 
       const modelTitle = document.getElementById('model-title');
       modelTitle.textContent = "Model: " + model.group + "/" + model.name;
@@ -204,7 +203,7 @@ function loadEmissions(model) {
   inference_div.classList.add('inference-costs', 'info-section');
 
   const inference_header = document.createElement('p');
-  inference_header.textContent = 'Inferentiekosten (x1000 prompts):';
+  inference_header.innerHTML = 'Inferentiekosten (x1000 prompts):';
   emission_section.appendChild(inference_header);
 
   const inference_icon = document.createElement('i');
@@ -224,14 +223,78 @@ function loadEmissions(model) {
   const inference_value_display = inference_value == "Unknown"  || inference_value == null ? "N/A" : inference_value;
   inference_costs.innerHTML += ` ${inference_value_display} kWh`;
 
+  if (model.inference_source === "Estimate") {
+    inference_costs.innerHTML += `<div class='tooltip'><i class='fa fa-info-circle'></i>
+    <span class='tooltiptext'>De werkelijke inferencekosten zijn niet beschikbaar. De huidige waarde is een schatting door: '<a href="https://arxiv.org/abs/2311.16863v2" target="_blank">Power Hungry Processing: Watts Driving the Cost of AI Deployment?</a>'</span>
+    </div>`;
+  }
+
   inference_div.appendChild(inference_costs);
   emission_section.appendChild(inference_div);
 }
 
 function loadReliability(model) {
   const reliability_section = document.getElementById('bron-section');
-  if (!model.emissions_available || !model.emissions.source) {
-    // no emissions available
+
+  if (model.source === 'HuggingFace' && model.emissions_available) {
+    const reliability_div = document.createElement('div');
+    reliability_div.classList.add('reliability', 'info-section');
+
+    const reliability_icon = document.createElement('i');
+    reliability_icon.classList.add('fa-solid', 'fa-circle-info');
+    reliability_div.appendChild(reliability_icon);
+
+    const reliability = document.createElement('p');
+
+    reliability.innerHTML = 'Via HuggingFace:<br>';
+
+    let sourceValue;
+    if (!model.emissions.source) {
+      sourceValue = 'Onbekende bron voor emissiegegevens';
+    }
+    else {
+      sourceValue = model.emissions.source;
+    }
+
+    reliability.innerHTML += `<span>${sourceValue}</span>`;
+
+    reliability_div.appendChild(reliability);
+    reliability_section.appendChild(reliability_div);
+  }
+  else if (model.source === 'Intern' && model.emissions_available) {
+    const reliability_div = document.createElement('div');
+    reliability_div.classList.add('reliability', 'info-section');
+
+    const reliability_icon = document.createElement('i');
+    reliability_icon.classList.add('fa-solid', 'fa-circle-info');
+    reliability_div.appendChild(reliability_icon);
+
+    const reliability = document.createElement('p');
+
+    reliability.innerHTML = 'In-house model:<br>';
+    reliability.innerHTML += `<span>Emissies zijn intern gerapporteerd.</span>`;
+    
+    reliability_div.appendChild(reliability);
+    reliability_section.appendChild(reliability_div);
+  }
+  else if (model.inference_source === 'Estimate') {
+    const reliability_div = document.createElement('div');
+    reliability_div.classList.add('reliability', 'info-section');
+
+    const reliability_icon = document.createElement('i');
+    reliability_icon.classList.add('fa-solid', 'fa-circle-info');
+    reliability_div.appendChild(reliability_icon);
+
+    const reliability = document.createElement('p');
+
+    reliability.innerHTML = 'Onbekende bron:<br>';
+    reliability.innerHTML += `<span>De werkelijke inferencekosten zijn niet beschikbaar. De huidige waarde is een schatting door: '<a href="https://arxiv.org/abs/2311.16863v2" target="_blank">Power Hungry Processing: Watts Driving the Cost of AI Deployment?</a>'</span>`;
+    
+    reliability_div.appendChild(reliability);
+    reliability_section.appendChild(reliability_div);
+  
+  }
+  else {
     const na_reliability = document.createElement('div');
     const reliability = document.createElement('p');
     na_reliability.classList.add('not-available');
@@ -245,28 +308,15 @@ function loadReliability(model) {
     na_reliability.appendChild(cross);
 
     reliability_section.appendChild(na_reliability);
-    return;
   }
 
-  const reliability_div = document.createElement('div');
-  reliability_div.classList.add('reliability', 'info-section');
-
-  const reliability_icon = document.createElement('i');
-  reliability_icon.classList.add('fa-solid', 'fa-circle-info');
-  reliability_div.appendChild(reliability_icon);
-
-  const reliability = document.createElement('p');
-  reliability.innerHTML = `${model.emissions.source}`;
-
-  reliability_div.appendChild(reliability);
-  reliability_section.appendChild(reliability_div);
 
 
 }
 
 function loadTable(model) {
   const task = model.sub_task;
-  const url = `/get_models_by_task/${task}`;
+  const url = `/get_models_by_task/${task}?creator=all&emissions=all`;
   
   fetch(url)
     .then(response => response.json())
