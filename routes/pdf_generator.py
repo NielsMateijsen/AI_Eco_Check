@@ -34,19 +34,20 @@ def generate_pdf():
   reliability_title = ""
   reliability_text = ""
 
-  if model_data.get("inference_source") == 'Estimate' and model_data.get("inference_display") != 'N/A':
-      reliability_title = "Onbekende bron"
-      reliability_text = ("De werkelijke inferentiekosten zijn niet beschikbaar. "
-                          "De huidige waarde is een schatting door de paper: "
-                          "'Power Hungry Processing: Watts Driving the Cost of AI Deployment?'")
       
-  elif model_data.get("source") == 'HuggingFace' and model_data.get("emissions_available"):
+  if model_data.get("source") == 'HuggingFace' and model_data.get("emissions_available"):
       reliability_title = "Via HuggingFace"
       if type(model_data["emissions"]) == dict:
         source_value = model_data["emissions"].get("source", "Onbekende bron voor emissiegegevens")
       else:
         source_value = "Onbekende bron voor emissiegegevens"
       reliability_text = source_value
+  
+  elif model_data.get("inference_source") == 'Estimate' and model_data.get("inference_display") != 'N/A':
+      reliability_title = "Onbekende bron"
+      reliability_text = ("De werkelijke inferentiekosten zijn niet beschikbaar. "
+                          "De huidige waarde is een schatting door de paper: "
+                          "'Power Hungry Processing: Watts Driving the Cost of AI Deployment?'")
 
   elif model_data.get("source") == 'Intern' and model_data.get("emissions_available"):
       reliability_title = "In-house model"
