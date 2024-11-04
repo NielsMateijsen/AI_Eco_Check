@@ -13,10 +13,6 @@ function addEventListeners() {
   document.getElementById('goal').addEventListener('click', function () {
     loadPage('goal', 'start');
   });
-
-  // document.getElementById('own-model').addEventListener('click', function () {
-  //   loadPage('add_model', 'start');
-  // });
 }
 
 addEventListeners();

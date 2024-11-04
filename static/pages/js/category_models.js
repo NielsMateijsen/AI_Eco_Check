@@ -80,7 +80,6 @@ function loadTable(creatorFilter, emissionsFilter) {
         }
 
         inferenceCostsCell.textContent = inference_costs;
-        // inferenceCostsCell.textContent = 'TODO'; // Placeholder for real data
         row.appendChild(inferenceCostsCell);
 
         const emissionsCell = document.createElement('td');
@@ -97,7 +96,6 @@ function loadTable(creatorFilter, emissionsFilter) {
           icon.style.color = 'var(--hemelblauw-1)';
           emissionsCell.appendChild(icon);
         }
-        // emissionsCell.textContent = model.emissions_available ? 'Yes' : 'No';
         emissionsCell.style.textAlign = 'center'
         row.appendChild(emissionsCell);
 

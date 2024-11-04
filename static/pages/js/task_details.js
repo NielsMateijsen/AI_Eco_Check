@@ -38,7 +38,6 @@ function loadContent() {
         globalSubTask = sub_task;
         loadPage('category_models', 'task_details');
       });
-
     });
 }
 

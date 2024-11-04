@@ -2,7 +2,6 @@ document.getElementById('back-button').addEventListener('click', function () {
   loadLastPage();
 });
 
-
 function loadContent() {
   const model = globalModel;
   const model_name = model.name;
@@ -44,8 +43,6 @@ function loadContent() {
           );
         });
     })
-
-  
 }
 
 function sanitize(string) {
@@ -106,6 +103,5 @@ function toggleText() {
     }
   }
 }
-
 
 loadContent();

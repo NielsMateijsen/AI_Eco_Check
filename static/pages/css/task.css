@@ -6,7 +6,6 @@
 .subtasks {
   display: flex;
   flex-wrap: wrap; /* Allows subtasks to wrap to the next row */
-  /* justify-content:space-around ; Aligns subtasks to the left and right */
   gap: 20px; /* Adds space between the subtask cards */
   margin-right: -40px;
   margin-top: 30px;

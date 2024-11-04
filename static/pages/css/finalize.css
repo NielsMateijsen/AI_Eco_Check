@@ -31,43 +31,7 @@
   font-size: 22px;
 }
 
-
-
-/* .tips-section {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-.tip-box {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  width: 30%;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-.tip-box h2 {
-  color: black;
-  margin-bottom: 30px;
-}
-
-.more-link {
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  font-size: 12px;
-  align-self: flex-end;
-}
-
-.more-link:hover {
-  text-decoration: underline;
-} */
-
- .tips-section {
+.tips-section {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
@@ -112,7 +76,6 @@
 .more-link:hover {
   text-decoration: underline;
 }
-
 
 .print-button {
   margin: 30px auto 0 auto;

@@ -1,6 +1,3 @@
-// Chapter Data
-
-
 var currentChapter = 0;
 var numChapters;
 
@@ -222,18 +219,6 @@ function updateChapter() {
   const chapterText = document.getElementById('chapterText');
   const prevChapterBtn = document.getElementById('prevChapter');
   const nextChapterBtn = document.getElementById('nextChapter');
-  // Set the current chapter title and content
-  let titleHTML = "";
-
-  // if (currentChapter > 0) {
-  //   titleHTML += chapters[currentChapter - 1].title + " ";
-  // }
-
-  // titleHTML += "&nbsp;" + chapters[currentChapter].title + "&nbsp;";
-
-  // if (currentChapter < chapters.length - 1) {
-  //   titleHTML += " " + chapters[currentChapter + 1].title;
-  // }
 
   const titleDiv = document.createElement('div');
   titleDiv.classList.add('chapter-titles');
@@ -298,7 +283,6 @@ function loadArrowListners() {
     document.getElementById("start-button").scrollIntoView({ behavior: "smooth" });
   });
 }
-
 
 function loadTask(task) {
   globalCategory = task;
