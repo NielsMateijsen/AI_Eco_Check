@@ -358,5 +358,21 @@
 			"mean": 0.038,
 			"std": 0.02
 		}
+	},
+	"video-text-to-text": {
+		"summary": "Zet video en tekst om naar een nieuwe tekst.",
+		"description": "Bij video-en-tekst-naar-tekst verwerking worden zowel visuele als tekstuele input gecombineerd om een nieuwe tekst te genereren. Dit kan bijvoorbeeld worden gebruikt voor het samenvatten van informatie die in video's en bijschriften wordt getoond. De AI combineert de betekenis van de video en de tekst om een samenhangende beschrijving of nieuwe uitleg te geven.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
+	},
+	"any-to-any": {
+		"summary": "Zet input van elk type om naar een ander type.",
+		"description": "Bij elke-naar-elke conversie kan de AI verschillende soorten input verwerken en omzetten in verschillende soorten output. Dit flexibele systeem kan bijvoorbeeld tekst naar spraak, afbeeldingen naar tekst, of video's naar audio converteren. Het model past zich aan aan de gegeven input en genereert de juiste output op basis van de context.",
+		"inference": {
+			"mean": "Unknown",
+			"std": "Unknown"
+		}
 	}
 }

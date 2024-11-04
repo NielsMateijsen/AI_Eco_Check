@@ -333,6 +333,27 @@
                "type": "pipeline_tag",
                "subType": "multimodal",
                "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_schilderij-met-bloemen-in-vaas-erop_Blauw.svg\"/><img src=\"static/images/rijkshuisstijl_iconen/SVG_Tekstballonnen-met-vraagteken_Blauw.svg\"/>"
+           },
+           {
+                "id": "document-question-answering",
+                "label": "Document Question Answering",
+                "type": "pipeline_tag",
+                "subType": "multimodal",
+                "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_klembord-met-loep_Blauw.svg\"/>"
+           },
+           {
+                "id": "video-text-to-text",
+                "label": "Video-Text-to-Text",
+                "type": "pipeline_tag",
+                "subType": "multimodal",
+                "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_videocamera_Blauw.svg\"/> <i class=\"fa-solid fa-pencil\"></i> <i class=\"fa-solid fa-arrow-right\"></i> <img src=\"static/images/rijkshuisstijl_iconen/SVG_document-met-lijnen_Blauw.svg\"/>"
+           },
+           {
+                "id": "any-to-any",
+                "label": "Any-to-Any",
+                "type": "pipeline_tag",
+                "subType": "multimodal",
+                "icon": "<img src=\"static/images/rijkshuisstijl_iconen/SVG_vraagteken_Blauw.svg\"/> <i class=\"fa-solid fa-arrow-right\"></i> <img src=\"static/images/rijkshuisstijl_iconen/SVG_vraagteken_Blauw.svg\"/>"
            }
        ]
    }
