@@ -183,17 +183,38 @@ function loadEmissions(model) {
   emission_section.appendChild(equivalent_header);
 
   const equivalent_icon = document.createElement('i');
-  equivalent_icon.classList.add('fa-solid', 'fa-fw', 'fa-gas-pump');
-  equivalent_div.appendChild(equivalent_icon);
   
-  // Benzine E10: 2.821 kg CO2eq per liter
-  // https://www.co2emissiefactoren.nl/lijst-emissiefactoren/
+  
   const equivalent = document.createElement('p');
-  if (isNaN(getTrainEmissions(model))) {
+  const training_emissions = getTrainEmissions(model);
+  console.log(training_emissions);
+  if (isNaN(training_emissions)) {
     equivalent.innerHTML += ` N/A L benzine`;
+    equivalent_icon.classList.add('fa-regular', 'fa-circle-question');
   } else {
-    equivalent.innerHTML += ` ${(getTrainEmissions(model)/2821).toFixed(3)}L benzine`;
+    if (training_emissions > 1_000_000 ) { // bigger than 1 ton
+      // https://www.milieucentraal.nl/klimaat-en-aarde/klimaatverandering/wat-is-je-co2-voetafdruk/
+      // Gemiddeld huishouden van 2,2 personen: gemiddeld 18500 kg CO2 per jaar
+      equivalent.innerHTML += ` ${(training_emissions/18_500_000).toFixed(3)} huishoudens/jaar`;
+      equivalent_icon.classList.add('fa-solid', 'fa-house-chimney');
+    } else if (training_emissions > 25_000) {
+      // https://ecotree.green/en/how-much-co2-does-a-tree-absorb#:~:text=A%20tree%20absorbs%20approximately%2025kg%20of%20CO2%20per%20year&text=It's%20based%20on%20the%20estimate,a%20whole%20host%20of%20factors.
+      // Een boom absorbeert ongeveer 25 kg CO2 per jaar
+      equivalent.innerHTML += ` ${(training_emissions/25_000).toFixed(3)} bomen/jaar`;
+      equivalent_icon.classList.add('fa-solid', 'fa-tree');
+    } else if (training_emissions > 2821) {
+      // Benzine E10: 2821 g CO2eq per liter
+      // https://www.co2emissiefactoren.nl/lijst-emissiefactoren/
+      equivalent_icon.classList.add('fa-solid', 'fa-fw', 'fa-gas-pump');
+      equivalent.innerHTML += ` ${(training_emissions/2821).toFixed(3)}L benzine`;
+    } else {
+      // 204g CO2eq per km voor middelklass benzine auto (Well-to-Wheel)
+      // https://www.co2emissiefactoren.nl/lijst-emissiefactoren/ 
+      equivalent.innerHTML += ` ${(training_emissions/204).toFixed(3)} km rijden`;
+      equivalent_icon.classList.add('fa-solid', 'fa-car');
+    }
   }
+  equivalent_div.appendChild(equivalent_icon);
 
   equivalent_div.appendChild(equivalent);
   emission_section.appendChild(equivalent_div);

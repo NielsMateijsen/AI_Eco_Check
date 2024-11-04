@@ -210,7 +210,6 @@
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black;
   margin-left: 20px;
 }
 
@@ -258,6 +257,7 @@
 .info-section.reliability span {
   font-weight: normal;
   font-size: 14px;
+  word-break: break-all;
 }
 
 .not-available {
