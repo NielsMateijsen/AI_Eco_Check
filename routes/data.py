@@ -125,7 +125,13 @@ def get_models_by_task(sub_task):
                 "emissions_is_dict": False,
                 "source": "Intern"
             }
-            models.append(el)
+
+            if emissionsFilter == "true" and el["emissions_available"]:
+                models.append(el)
+            elif emissionsFilter == "false" and not el["emissions_available"]:
+                models.append(el)
+            elif emissionsFilter == "all":
+                models.append(el)
     
 
     # response = requests.get(
@@ -156,7 +162,7 @@ def get_models_by_task(sub_task):
     #     models.append(el)
 
     if creatorFilter == "huggingface" or creatorFilter == "all":
-        hf_models = list(api.get_model_by_sub_task(task_id))
+        hf_models = list(api.get_model_by_sub_task(task_id, co2_available=emissionsFilter == "true"))
 
         for model in hf_models:
             if not model.card_data:
