@@ -150,7 +150,7 @@ function loadEmissions(model) {
   const training_emissions = getTrainEmissions(model);
   console.log(training_emissions);
   if (isNaN(training_emissions)) {
-    equivalent.innerHTML += ` N/A L benzine`;
+    equivalent.innerHTML += ` N/A`;
     equivalent_icon.classList.add('fa-regular', 'fa-circle-question');
   } else {
     if (training_emissions > 1_000_000 ) { // bigger than 1 ton
