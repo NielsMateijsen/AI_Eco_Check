@@ -8,3 +8,11 @@
 - **Frontend**: HTML, CSS, JavaScript
 
  [You can find the live web app here](https://aiecocheck.pythonanywhere.com)
+
+## Install
+How to install the AI Eco Check:
+1. Clone the Git repository
+2. Run `pip install -r requirements.txt`
+3. Install [wkhtmltopdf](https://wkhtmltopdf.org/downloads.html)
+4. Replace `path_wkhtmltopdf` in `routes/pdf_generator.py` to the executable install location (either Windows or Linux works)
+5. Run `main.py`
