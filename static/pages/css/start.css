@@ -16,7 +16,7 @@
   justify-content: center;
   width: 48%; /* Button spans half of the width */
   height: 100%;
-  background-color: var(--donkerblauw-1);
+  background-color: var(--logoblauw);
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -27,7 +27,7 @@
 }
 
 .button-box:hover {
-  background-color: var(--donkerblauw);
+  background-color: var(--logoblauw-1);
 }
 
 .button-header {

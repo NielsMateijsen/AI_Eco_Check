@@ -1,8 +1,6 @@
 from huggingface_hub import HfApi
 from huggingface_hub.hf_api import ModelInfo, Iterable
-from services.data_provider import get_sub_task_id
 import json
-import requests
 import os
 
 path = os.path.abspath(os.getcwd()) + "/joint-interdisciplinary-project/"
@@ -50,6 +48,6 @@ class HuggingFaceAPI:
 
     def get_model_by_sub_task(self, sub_task_id: str, co2_available: bool = False) -> Iterable[ModelInfo]:
         if co2_available:
-            return self.api.list_models(tags="co2_eq_emissions", cardData=True, full=False, filter=sub_task_id)
+            return self.api.list_models(tags="co2_eq_emissions", cardData=True, full=False, filter=sub_task_id, sort="downloads")
 
         return self.api.list_models(cardData=True, full=False, filter=sub_task_id, sort="downloads", limit=200)

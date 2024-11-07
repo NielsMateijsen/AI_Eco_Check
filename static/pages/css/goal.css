@@ -1,12 +1,11 @@
 
 
 .category-container {
-  /* max-width: 600px; */
   margin: 10px auto 0 0;
 }
 
 .category-bar {
-  background-color: var(--donkerblauw-1);
+  background-color: var(--logoblauw);
   color: white;
   padding: 15px 20px;
   margin-bottom: 10px;
@@ -19,7 +18,7 @@
 }
 
 .category-bar:hover {
-  background-color: var(--donkerblauw);
+  background-color: var(--logoblauw-1);
 }
 
 .category-title {

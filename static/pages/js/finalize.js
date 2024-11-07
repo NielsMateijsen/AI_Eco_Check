@@ -2,7 +2,6 @@ document.getElementById('back-button').addEventListener('click', function () {
   loadLastPage();
 });
 
-
 function loadContent() {
   const model = globalModel;
   const model_name = model.name;
@@ -25,13 +24,25 @@ function loadContent() {
         .then(tips => {
           loadTips(tips);
         })
+
+        document.getElementById('print-button').addEventListener('click', function () {
+          // Disable the button
+          this.classList.add('disabled');
+          fetch('/pdf?model_id=' + model_id + '&model_name=' + model_name)
+            .then(response => response.blob())
+            .then(blob => {
+              const url = window.URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = model.name + '.pdf';
+              document.body.appendChild(a);
+              a.click();
+              window.URL.revokeObjectURL(url);
+              this.classList.remove('disabled');
+            }
+          );
+        });
     })
-
-    document.getElementById('print-button').addEventListener('click', function () {
-      alert("Bedankt voor het testen van de demo! De print functionaliteit is op dit moment nog niet beschikbaar.");
-    });
-
-  
 }
 
 function sanitize(string) {
@@ -92,6 +103,5 @@ function toggleText() {
     }
   }
 }
-
 
 loadContent();

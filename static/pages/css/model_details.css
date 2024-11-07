@@ -9,7 +9,6 @@
 .column {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 }
 
 .column-left {
@@ -144,13 +143,13 @@
   overflow-y: scroll; /* Allow scrolling */
 }
 
-/* Hide scrollbar for Chrome, Safari, Edge */
+/* Hide scrollbar */
 .similar-models tbody::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
 
-/* Hide scrollbar for Firefox */
+/* Hide scrollbar */
 .similar-models tbody {
   scrollbar-width: none; /* Firefox hides scrollbar */
 }
@@ -210,7 +209,6 @@
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black;
   margin-left: 20px;
 }
 
@@ -258,6 +256,7 @@
 .info-section.reliability span {
   font-weight: normal;
   font-size: 14px;
+  word-break: break-all;
 }
 
 .not-available {

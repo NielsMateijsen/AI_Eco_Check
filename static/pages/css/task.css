@@ -6,7 +6,6 @@
 .subtasks {
   display: flex;
   flex-wrap: wrap; /* Allows subtasks to wrap to the next row */
-  /* justify-content:space-around ; Aligns subtasks to the left and right */
   gap: 20px; /* Adds space between the subtask cards */
   margin-right: -40px;
   margin-top: 30px;
@@ -16,7 +15,7 @@
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 15px;
+  padding: 15px 15px 35px 15px;
   width: 190px;
   height: 210px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -58,9 +57,7 @@
 
 .label {
   font-size: 19px;
-  margin-bottom: 10px;
   color: black;
-  padding-bottom: 10px;
 }
 
 .icon {
@@ -70,5 +67,4 @@
 
 .summary {
   color:rgb(150, 150, 150);
-  padding-bottom: 30px;
 }

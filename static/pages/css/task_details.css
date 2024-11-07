@@ -17,7 +17,12 @@ p {
   font-size: 25px;
 }
 
-#title img {
+#title-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+#title-wrapper img {
   width: 40px;
   height: 40px;
 }

@@ -7,7 +7,6 @@
   margin-bottom: 10px;
 }
 
-
 .filter-button-container {
   display: flex;
   position: relative; /* Ensure the menu is positioned relative to this container */
@@ -94,6 +93,7 @@
 .filter-dropdown:hover {
   background-color: #f0f0f0;
 }
+
 #apply-filters {
   margin-top: 10px;
   width: 100%; /* Make button full width */
@@ -108,7 +108,6 @@
 #apply-filters:hover {
   background-color: var(--hemelblauw);
 }
-
 
 .table-container {
   max-height: 60vh; /* Set a max height for the table container */
@@ -145,7 +144,7 @@ th, td {
 }
 
 .emissions {
-  width: 9%;
+  width: 10%;
 }
 
 th {
@@ -162,7 +161,6 @@ th {
 td {
   background-color: white;
 }
-
 
 tbody {
   display: block; /* Allows the tbody to be scrollable */

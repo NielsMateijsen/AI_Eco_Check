@@ -1,6 +1,8 @@
 import json
 import requests
 import os
+import database.database_manager as dbm
+from services.huggingface_client import HuggingFaceAPI
 
 path = os.path.abspath(os.getcwd()) + "/joint-interdisciplinary-project/"
 
@@ -22,6 +24,78 @@ available_tags = requests.get(
 ).json()
 
 tag_types = available_tags.keys()
+api = HuggingFaceAPI()
+
+def find_model_details(model_id, model_name):
+    response = requests.get(
+        "https://huggingface.co/api/models",
+        params={"search":model_name, "full":"True","config":"False"},
+        headers={}
+    ).json()
+
+    selected_model = None
+
+    for model in response:
+        if model["_id"] == model_id or model["id"] == model_id:
+            selected_model = model
+            break
+
+    if selected_model is None:
+        # search in database
+        model = dbm.get_model_by_id(model_id)
+        inference = model["inference_cost"]
+
+        if inference is None:
+            model["inference_cost"] = get_task_inference(model["sub_task_name_id"])
+            model['inference_source'] = 'Estimate'
+        else:
+            model['inference_source'] = 'Intern'
+
+        print(model)
+        
+        result = {
+            "id": model["id"],
+            "name": model["name"],
+            "group": model["creator"],
+            "sub_task": get_sub_task_name(model["sub_task_name_id"]),
+            "task": get_task_name(model["sub_task_name_id"]),
+            "description": model["description"],
+            "inference": model["inference_cost"],
+            "inference_source": model["inference_source"],
+            "emissions_available": model["training_cost"] is not None,
+            "tags": {
+                "pipeline_tag": [model["sub_task_name_id"]],
+                "source": ["Intern"]
+            },
+            "emissions": {
+                "emissions": model["training_cost"],
+                "source": "Intern"                
+            } if model["training_cost"] is not None else None,
+            "emissions_is_dict": True,
+            "source": "Intern"
+        }
+    
+    else:
+        pipeline_tag_exists = selected_model.get("pipeline_tag") is not None
+        tags = parse_tags(selected_model["tags"])
+        tags["source"] = ["HuggingFace"]
+        inference = get_task_inference(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A"
+        result = {
+            "name": selected_model["id"].split("/")[1],
+            "group": selected_model["id"].split("/")[0],
+            "sub_task": get_sub_task_name(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
+            "task": get_task_name(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
+            "description": get_task_summary(selected_model["pipeline_tag"]) if pipeline_tag_exists else "N/A",
+            "inference": inference,
+            "inference_source": "Estimate" if inference != "N/A" else "Unknown",
+            "emissions_available": "co2_eq_emissions" in selected_model["tags"],
+            "tags": tags,
+            "emissions": api.get_model_emissions(selected_model["id"]) if "co2_eq_emissions" in selected_model["tags"] else None,
+            "emissions_is_dict": isinstance(api.get_model_emissions(model["id"]), dict) if "co2_eq_emissions" in model["tags"] else None,
+            "source": "HuggingFace"
+        }
+        
+    return result
 
 def get_sub_task_name(sub_task: str) -> str:
     for category in categories:
