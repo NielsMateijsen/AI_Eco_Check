@@ -18,7 +18,7 @@ class HuggingFaceAPI:
         self.set_tags()
 
     def set_tags(self):
-        with open(path + "services/categories.json", encoding='utf-8') as f:
+        with open("services/categories.json", encoding='utf-8') as f:
             self.pipeline_tags = json.load(f)
 
         categories = set()
